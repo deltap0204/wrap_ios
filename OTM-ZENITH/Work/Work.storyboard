@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jcD-LN-EfE">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Work View Controller-->
+        <scene sceneID="Til-UH-AX9">
+            <objects>
+                <viewController storyboardIdentifier="WorkViewController" id="jcD-LN-EfE" customClass="WorkViewController" customModule="OTM_ZENITH_iOS_App" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wNu-oV-w6V">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kuK-p2-9ZN">
+                                <rect key="frame" x="20" y="64" width="374" height="337"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k7D-zY-w1e">
+                                        <rect key="frame" x="27" y="0.0" width="320" height="118"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qVD-OH-42x">
+                                                <rect key="frame" x="20" y="20" width="280" height="78"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log your route" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMr-hG-ewQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="18"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gC2-nJ-XWC">
+                                                        <rect key="frame" x="0.0" y="38" width="280" height="40"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOe-Vy-vbr">
+                                                                <rect key="frame" x="0.0" y="0.0" width="130" height="40"/>
+                                                                <color key="backgroundColor" red="0.24250346419999999" green="0.29723656180000002" blue="0.37256702780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="VH4-3d-b48"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <state key="normal" title="Start" image="car.fill" catalog="system"/>
+                                                                <connections>
+                                                                    <action selector="startRoute:" destination="jcD-LN-EfE" eventType="touchUpInside" id="eOP-7H-t0H"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x0h-Da-m8m">
+                                                                <rect key="frame" x="150" y="0.0" width="130" height="40"/>
+                                                                <color key="backgroundColor" red="0.24250346419999999" green="0.29723656180000002" blue="0.37256702780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="buS-3x-WjY"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <state key="normal" title="Stop" image="car.fill" catalog="system"/>
+                                                                <connections>
+                                                                    <action selector="stopRoute:" destination="jcD-LN-EfE" eventType="touchUpInside" id="Jng-th-uea"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.1009141281" green="0.17555627230000001" blue="0.25491982699999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="qVD-OH-42x" secondAttribute="bottom" constant="20" symbolic="YES" id="EZV-CZ-8Am"/>
+                                            <constraint firstItem="qVD-OH-42x" firstAttribute="leading" secondItem="k7D-zY-w1e" secondAttribute="leading" constant="20" symbolic="YES" id="Sm1-6v-40a"/>
+                                            <constraint firstItem="qVD-OH-42x" firstAttribute="top" secondItem="k7D-zY-w1e" secondAttribute="top" constant="20" symbolic="YES" id="hFg-3e-nKE"/>
+                                            <constraint firstAttribute="width" constant="320" id="tSC-cE-lnV"/>
+                                            <constraint firstAttribute="trailing" secondItem="qVD-OH-42x" secondAttribute="trailing" constant="20" symbolic="YES" id="wFR-VJ-Yi8"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uTv-9U-NTb">
+                                        <rect key="frame" x="27" y="138" width="320" height="118"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HhK-vg-Gyu">
+                                                <rect key="frame" x="20" y="20" width="280" height="78"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log your job" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUg-X9-0CL">
+                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="18"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="V0J-dx-key">
+                                                        <rect key="frame" x="0.0" y="38" width="280" height="40"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBC-oz-upi">
+                                                                <rect key="frame" x="0.0" y="0.0" width="130" height="40"/>
+                                                                <color key="backgroundColor" red="0.24250346419999999" green="0.29723656180000002" blue="0.37256702780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="fUH-Kx-8mm"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <state key="normal" title="Start" image="hourglass" catalog="system"/>
+                                                                <connections>
+                                                                    <action selector="startJob:" destination="jcD-LN-EfE" eventType="touchUpInside" id="aF9-zL-xYN"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVS-zg-MyD">
+                                                                <rect key="frame" x="150" y="0.0" width="130" height="40"/>
+                                                                <color key="backgroundColor" red="0.24250346419999999" green="0.29723656180000002" blue="0.37256702780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="uUX-77-6Gi"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <state key="normal" title="Stop" image="hourglass" catalog="system"/>
+                                                                <connections>
+                                                                    <action selector="stopJob:" destination="jcD-LN-EfE" eventType="touchUpInside" id="WWz-kV-oli"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.1009141281" green="0.17555627230000001" blue="0.25491982699999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstItem="HhK-vg-Gyu" firstAttribute="top" secondItem="uTv-9U-NTb" secondAttribute="top" constant="20" symbolic="YES" id="2C5-bY-qou"/>
+                                            <constraint firstAttribute="bottom" secondItem="HhK-vg-Gyu" secondAttribute="bottom" constant="20" symbolic="YES" id="Whg-51-peY"/>
+                                            <constraint firstAttribute="trailing" secondItem="HhK-vg-Gyu" secondAttribute="trailing" constant="20" symbolic="YES" id="X2m-Sh-bGP"/>
+                                            <constraint firstAttribute="width" constant="320" id="eEX-Vo-eEl"/>
+                                            <constraint firstItem="HhK-vg-Gyu" firstAttribute="leading" secondItem="uTv-9U-NTb" secondAttribute="leading" constant="20" symbolic="YES" id="lSm-Xa-2Kc"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gfk-Ts-toI">
+                                        <rect key="frame" x="27" y="276" width="320" height="1"/>
+                                        <color key="backgroundColor" red="0.34031230210000002" green="0.40728333589999999" blue="0.46276092530000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="38k-Bn-xdF"/>
+                                            <constraint firstAttribute="width" constant="320" id="Xr1-N2-EmB"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Usf-aX-CgU">
+                                        <rect key="frame" x="107.5" y="297" width="159" height="40"/>
+                                        <color key="backgroundColor" red="0.24250346419999999" green="0.29723656180000002" blue="0.37256702780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="60w-1I-C1C"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="40" maxY="0.0"/>
+                                        <state key="normal" title="Close Job"/>
+                                        <connections>
+                                            <action selector="closeJob:" destination="jcD-LN-EfE" eventType="touchUpInside" id="bWb-O2-L4r"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1009141281" green="0.17555627230000001" blue="0.25491982699999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kuK-p2-9ZN" secondAttribute="trailing" constant="20" symbolic="YES" id="fNi-8m-zvV"/>
+                            <constraint firstItem="kuK-p2-9ZN" firstAttribute="top" secondItem="YDr-xG-lKi" secondAttribute="top" constant="20" id="g5C-eh-FA3"/>
+                            <constraint firstItem="kuK-p2-9ZN" firstAttribute="leading" secondItem="wNu-oV-w6V" secondAttribute="leading" constant="20" symbolic="YES" id="xt0-4M-fip"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YDr-xG-lKi"/>
+                    </view>
+                    <connections>
+                        <outlet property="jobClose" destination="Usf-aX-CgU" id="EJw-BP-iRm"/>
+                        <outlet property="jobStart" destination="RBC-oz-upi" id="f31-oS-w26"/>
+                        <outlet property="jobStop" destination="TVS-zg-MyD" id="Dsz-8e-bnH"/>
+                        <outlet property="jobView" destination="uTv-9U-NTb" id="hvQ-yP-Ras"/>
+                        <outlet property="routeStart" destination="pOe-Vy-vbr" id="vPj-WT-9IP"/>
+                        <outlet property="routeStop" destination="x0h-Da-m8m" id="5N0-yN-quf"/>
+                        <outlet property="routeView" destination="k7D-zY-w1e" id="SgT-04-PWN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="674-ro-tr6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1494" y="123"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="car.fill" catalog="system" width="64" height="46"/>
+        <image name="hourglass" catalog="system" width="54" height="64"/>
+    </resources>
+</document>

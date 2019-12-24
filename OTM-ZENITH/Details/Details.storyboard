@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KUU-Jo-llw">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Details View Controller-->
+        <scene sceneID="AXq-kd-Eo8">
+            <objects>
+                <viewController storyboardIdentifier="DetailsViewController" id="KUU-Jo-llw" customClass="DetailsViewController" customModule="OTM_ZENITH_iOS_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vKk-eZ-4iN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WUd-ba-5oD">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="mms-Xp-BVg">
+                                        <rect key="frame" x="8" y="8" width="398" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJt-gD-4q8">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1009141281" green="0.17555627230000001" blue="0.25491982699999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="mms-Xp-BVg" secondAttribute="bottom" constant="8" id="EaM-0I-oxi"/>
+                                    <constraint firstItem="mms-Xp-BVg" firstAttribute="leading" secondItem="WUd-ba-5oD" secondAttribute="leading" constant="8" id="P38-dP-PR7"/>
+                                    <constraint firstAttribute="trailing" secondItem="mms-Xp-BVg" secondAttribute="trailing" constant="8" id="rAa-Rr-OdX"/>
+                                    <constraint firstItem="mms-Xp-BVg" firstAttribute="centerX" secondItem="WUd-ba-5oD" secondAttribute="centerX" id="rZF-cu-wMp"/>
+                                    <constraint firstItem="mms-Xp-BVg" firstAttribute="top" secondItem="WUd-ba-5oD" secondAttribute="top" constant="8" id="zCg-0P-cF6"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.10196078431372549" green="0.1764705882352941" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="WUd-ba-5oD" secondAttribute="trailing" id="RME-8E-t0Z"/>
+                            <constraint firstAttribute="bottom" secondItem="WUd-ba-5oD" secondAttribute="bottom" id="VFP-jn-5L6"/>
+                            <constraint firstItem="WUd-ba-5oD" firstAttribute="top" secondItem="KjR-lb-GR5" secondAttribute="top" id="jhJ-gM-1c7"/>
+                            <constraint firstItem="WUd-ba-5oD" firstAttribute="leading" secondItem="vKk-eZ-4iN" secondAttribute="leading" id="xhV-5T-tNw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KjR-lb-GR5"/>
+                    </view>
+                    <connections>
+                        <outlet property="details" destination="IJt-gD-4q8" id="Lrr-aZ-qIa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OTZ-i9-z4O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="791" y="123"/>
+        </scene>
+    </scenes>
+</document>

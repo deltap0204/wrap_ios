@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ERc-qj-ZJU">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Photos View Controller-->
+        <scene sceneID="0vr-gu-OrY">
+            <objects>
+                <viewController storyboardIdentifier="PhotosViewController" id="ERc-qj-ZJU" customClass="PhotosViewController" customModule="OTM_ZENITH_iOS_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vyD-Kh-qPS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7dW-aQ-s8f">
+                                <rect key="frame" x="20" y="20" width="374" height="842"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="r9A-7V-65a">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="761"/>
+                                        <color key="backgroundColor" red="0.1009141281" green="0.17555627230000001" blue="0.25491982699999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="s8I-op-5on">
+                                            <size key="itemSize" width="125" height="125"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PictureCell" id="qrh-Ty-c8x" customClass="PictureCell" customModule="OTM_ZENITH_iOS_App" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="qL9-g4-cNT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QaD-pM-VxO">
+                                                            <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                                            <color key="backgroundColor" red="0.34031230210000002" green="0.40728333589999999" blue="0.46276092530000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="QaD-pM-VxO" secondAttribute="height" multiplier="1:1" id="28y-JB-SA7"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="QaD-pM-VxO" secondAttribute="bottom" id="5wm-qV-xaz"/>
+                                                        <constraint firstItem="QaD-pM-VxO" firstAttribute="top" secondItem="qL9-g4-cNT" secondAttribute="top" id="TZ6-V0-04D"/>
+                                                        <constraint firstAttribute="trailing" secondItem="QaD-pM-VxO" secondAttribute="trailing" id="i51-K4-gUg"/>
+                                                        <constraint firstItem="QaD-pM-VxO" firstAttribute="leading" secondItem="qL9-g4-cNT" secondAttribute="leading" id="lnf-Zc-MHq"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <connections>
+                                                    <outlet property="picture" destination="QaD-pM-VxO" id="woA-7n-WGl"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5re-nK-nL2">
+                                        <rect key="frame" x="0.0" y="781" width="374" height="1"/>
+                                        <color key="backgroundColor" red="0.34031230210000002" green="0.40728333589999999" blue="0.46276092530000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="Lpc-yC-nUN"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="93D-n9-mvd">
+                                        <rect key="frame" x="0.0" y="802" width="374" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOL-7h-h5t">
+                                                <rect key="frame" x="97.5" y="0.0" width="179" height="40"/>
+                                                <color key="backgroundColor" red="0.24250346419999999" green="0.29723656180000002" blue="0.37256702780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="cqy-yU-UoP"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="40" maxY="0.0"/>
+                                                <state key="normal" title="Take Picture"/>
+                                                <connections>
+                                                    <action selector="takePicture:" destination="ERc-qj-ZJU" eventType="touchUpInside" id="uOK-Wk-tSa"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1009141281" green="0.17555627230000001" blue="0.25491982699999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="jIc-sR-prL" firstAttribute="bottom" secondItem="7dW-aQ-s8f" secondAttribute="bottom" id="KFr-IE-Mog"/>
+                            <constraint firstItem="7dW-aQ-s8f" firstAttribute="top" secondItem="vyD-Kh-qPS" secondAttribute="top" constant="20" symbolic="YES" id="Oex-dk-nvh"/>
+                            <constraint firstItem="7dW-aQ-s8f" firstAttribute="leading" secondItem="vyD-Kh-qPS" secondAttribute="leading" constant="20" symbolic="YES" id="SqY-XI-yNs"/>
+                            <constraint firstAttribute="trailing" secondItem="7dW-aQ-s8f" secondAttribute="trailing" constant="20" symbolic="YES" id="zfS-jB-CsF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jIc-sR-prL"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="r9A-7V-65a" id="oNu-mN-MS9"/>
+                        <outlet property="pictureTake" destination="fOL-7h-h5t" id="7p9-ni-XNO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RYs-L3-JF0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2900" y="123"/>
+        </scene>
+    </scenes>
+</document>
