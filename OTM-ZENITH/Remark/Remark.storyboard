@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CKu-oh-4Og">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="CKu-oh-4Og">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dtr-Lw-Br1">
@@ -174,23 +174,43 @@
                                     <constraint firstAttribute="trailing" secondItem="dtr-Lw-Br1" secondAttribute="trailing" constant="20" symbolic="YES" id="SqN-iB-NFa"/>
                                     <constraint firstItem="dtr-Lw-Br1" firstAttribute="top" secondItem="CKu-oh-4Og" secondAttribute="top" constant="20" symbolic="YES" id="V69-Y8-PmJ"/>
                                     <constraint firstItem="dtr-Lw-Br1" firstAttribute="centerX" secondItem="CKu-oh-4Og" secondAttribute="centerX" id="pbp-FC-Yke"/>
-                                    <constraint firstAttribute="bottom" secondItem="dtr-Lw-Br1" secondAttribute="bottom" constant="20" symbolic="YES" id="vxb-X4-o03"/>
+                                    <constraint firstAttribute="bottom" secondItem="dtr-Lw-Br1" secondAttribute="bottom" id="vxb-X4-o03"/>
                                     <constraint firstItem="dtr-Lw-Br1" firstAttribute="leading" secondItem="CKu-oh-4Og" secondAttribute="leading" constant="20" symbolic="YES" id="x83-RE-lct"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MAR-1e-T1d">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="6gQ-8Q-3Tf">
+                                        <rect key="frame" x="188.5" y="407.5" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="6gQ-8Q-3Tf" firstAttribute="centerY" secondItem="MAR-1e-T1d" secondAttribute="centerY" id="SeS-z1-DZN"/>
+                                    <constraint firstItem="6gQ-8Q-3Tf" firstAttribute="centerX" secondItem="MAR-1e-T1d" secondAttribute="centerX" id="wtp-y0-qPL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.1009141281" green="0.17555627230000001" blue="0.25491982699999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="CKu-oh-4Og" secondAttribute="bottom" id="E0H-jk-OFb"/>
+                            <constraint firstItem="MAR-1e-T1d" firstAttribute="trailing" secondItem="CKu-oh-4Og" secondAttribute="trailing" id="Mf5-mN-i2m"/>
                             <constraint firstItem="CKu-oh-4Og" firstAttribute="top" secondItem="iBx-3p-vzM" secondAttribute="top" id="Pfz-xu-gjL"/>
                             <constraint firstAttribute="trailing" secondItem="CKu-oh-4Og" secondAttribute="trailing" id="Vv4-nu-OfV"/>
+                            <constraint firstItem="MAR-1e-T1d" firstAttribute="bottom" secondItem="CKu-oh-4Og" secondAttribute="bottom" id="WEW-Dj-gN2"/>
+                            <constraint firstItem="MAR-1e-T1d" firstAttribute="top" secondItem="CKu-oh-4Og" secondAttribute="top" id="dvT-je-yGR"/>
+                            <constraint firstItem="MAR-1e-T1d" firstAttribute="leading" secondItem="CKu-oh-4Og" secondAttribute="leading" id="kUp-nk-Z8s"/>
                             <constraint firstItem="CKu-oh-4Og" firstAttribute="leading" secondItem="OHp-Xb-o1V" secondAttribute="leading" id="win-as-3WF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iBx-3p-vzM"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="6gQ-8Q-3Tf" id="Bjl-h5-WMk"/>
                         <outlet property="buttonEnter" destination="Pcq-lz-3N3" id="deg-V5-wbs"/>
+                        <outlet property="overlayView" destination="MAR-1e-T1d" id="0ud-Dx-H47"/>
                         <outlet property="problem" destination="JjL-6a-A68" id="ZiK-dw-l3z"/>
+                        <outlet property="scrollView" destination="CKu-oh-4Og" id="8BJ-cH-nl1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XMC-vU-FLX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

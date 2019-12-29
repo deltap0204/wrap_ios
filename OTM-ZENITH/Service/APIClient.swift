@@ -2,8 +2,8 @@
 //  APIClient.swift
 //  OTM-ZENITH
 //
-//  Created by Ram Suthar on 20/12/19.
-//  Copyright © 2019 Ram Suthar. All rights reserved.
+//  Created by Freddy Mendez on 20/12/19.
+//  Copyright © 2019 Freddy Mendez. All rights reserved.
 //
 
 import Foundation
@@ -90,10 +90,28 @@ class APIClient {
     }
     
     func post(url: String,
+             data: Data,
+             completion: @escaping (Any?)-> Void) {
+        let headers = [
+            "Content-Type" : "application/json"
+        ]
+        
+        APIClient.oauthClient.startAuthorizedRequest(url, method: .POST, parameters: [:], headers: headers, renewHeaders: nil, body: data, onTokenRenewal: nil) { (result) in
+            
+            switch result {
+            case .success(let response):
+                debugPrint(response)
+                completion(response.data)
+            case .failure(let error):
+                debugPrint(error)
+            }
+        }
+    }
+    
+    func put(url: String,
              params: [String: Any]?,
              completion: @escaping (Any?)-> Void) {
-        
-        APIClient.oauthClient.startAuthorizedRequest(url, method: .POST, parameters: params!) { (result) in
+        APIClient.oauthClient.startAuthorizedRequest(url, method: .PUT, parameters: params!) { (result) in
             switch result {
             case .success(let response):
                 debugPrint(response)

@@ -2,8 +2,8 @@
 //  JobListViewController.swift
 //  OTM-ZENITH
 //
-//  Created by Ram Suthar on 20/12/19.
-//  Copyright © 2019 Ram Suthar. All rights reserved.
+//  Created by Freddy Mendez on 20/12/19.
+//  Copyright © 2019 Freddy Mendez. All rights reserved.
 //
 
 import UIKit
@@ -15,10 +15,18 @@ class JobListViewController: UIViewController {
     let cellIdentifier = "JobCell"
     var viewModel: JobListViewModel!
     
+    @IBOutlet var dateButton: UIButton!
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var previousDateButton: UIBarButtonItem!
     @IBOutlet var nextDateButton: UIBarButtonItem!
     @IBOutlet var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet var datePicker: UIDatePicker!
+    @IBOutlet var doneButton: UIBarButtonItem!
+    @IBOutlet var datePickerContainer: UIView!
+    @IBOutlet var noJobsLabel: UILabel!
+    
+    let refreshControl = UIRefreshControl()
     
     let disposeBag = DisposeBag()
     
@@ -27,10 +35,16 @@ class JobListViewController: UIViewController {
         
         viewModel = JobListViewModel(service: IssueService())
         
-        navigationItem.title = "Open Jobs"
+        titleLabel.text = "Open Jobs"
+        datePicker.date = viewModel.date
         
         tableView.delegate = nil
         tableView.dataSource = nil
+        
+        refreshControl.addTarget(self, action: #selector(loadDate(_:)), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+        
+        datePickerContainer.isHidden = true
         
         bindViewModel()
     }
@@ -43,17 +57,44 @@ class JobListViewController: UIViewController {
         viewModel.loadNextDate()
     }
     
+    @IBAction func loadDate(_ sender: Any) {
+        viewModel.loadDate(date: datePicker.date)
+        
+        hideDatePicker()
+    }
+    
+    @IBAction func showDatePicker(_ sender: Any) {
+        
+        datePickerContainer.isHidden = false
+        datePickerContainer.transform = CGAffineTransform(translationX: 0, y: datePickerContainer.bounds.height)
+        UIView.animate(withDuration: 0.3) {
+            self.datePickerContainer.transform = .identity
+        }
+    }
+    
+    func hideDatePicker() {
+        
+        datePickerContainer.transform = .identity
+        UIView.animate(withDuration: 0.3, animations: {
+            self.datePickerContainer.transform = CGAffineTransform(translationX: 0, y: self.datePickerContainer.bounds.height)
+        }, completion: { _ in
+            self.datePickerContainer.isHidden = true
+        })
+    }
+    
     func bindViewModel() {
         
         viewModel.title
-            .bind(onNext: { [weak self] (title) in
-                self?.navigationItem.prompt = title
-            })
+            .bind(to: dateButton.rx.title())
             .disposed(by: disposeBag)
         
         viewModel.showLoader
-            .map({ !$0 })
-            .bind(to: loadingIndicator.rx.isHidden)
+//            .map({ !$0 })
+            .bind(to: refreshControl.rx.isRefreshing)
+            .disposed(by: disposeBag)
+        
+        viewModel.hasJobs
+            .bind(to: noJobsLabel.rx.isHidden)
             .disposed(by: disposeBag)
         
         viewModel.jobs
@@ -68,6 +109,7 @@ class JobListViewController: UIViewController {
                 }
         }
         .disposed(by: disposeBag)
+        
         
     }
     

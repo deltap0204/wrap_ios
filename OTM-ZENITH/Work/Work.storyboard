@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kuK-p2-9ZN">
-                                <rect key="frame" x="20" y="64" width="374" height="337"/>
+                                <rect key="frame" x="20" y="64" width="374" height="357"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k7D-zY-w1e">
                                         <rect key="frame" x="27" y="0.0" width="320" height="118"/>
@@ -151,10 +151,28 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="20" right="0.0"/>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uJs-ZA-kqS">
+                                <rect key="frame" x="0.0" y="64" width="414" height="357"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="m2i-Vb-yUf">
+                                        <rect key="frame" x="188.5" y="160" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="m2i-Vb-yUf" firstAttribute="centerX" secondItem="uJs-ZA-kqS" secondAttribute="centerX" id="DFY-cx-dEa"/>
+                                    <constraint firstItem="m2i-Vb-yUf" firstAttribute="centerY" secondItem="uJs-ZA-kqS" secondAttribute="centerY" id="awz-5g-plT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.1009141281" green="0.17555627230000001" blue="0.25491982699999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="uJs-ZA-kqS" firstAttribute="top" secondItem="kuK-p2-9ZN" secondAttribute="top" id="SOo-xR-7J5"/>
+                            <constraint firstItem="uJs-ZA-kqS" firstAttribute="leading" secondItem="YDr-xG-lKi" secondAttribute="leading" id="TLE-pw-pHq"/>
+                            <constraint firstItem="YDr-xG-lKi" firstAttribute="trailing" secondItem="uJs-ZA-kqS" secondAttribute="trailing" id="XSo-Yn-SuW"/>
+                            <constraint firstItem="kuK-p2-9ZN" firstAttribute="bottom" secondItem="uJs-ZA-kqS" secondAttribute="bottom" id="erx-CN-gL1"/>
                             <constraint firstAttribute="trailing" secondItem="kuK-p2-9ZN" secondAttribute="trailing" constant="20" symbolic="YES" id="fNi-8m-zvV"/>
                             <constraint firstItem="kuK-p2-9ZN" firstAttribute="top" secondItem="YDr-xG-lKi" secondAttribute="top" constant="20" id="g5C-eh-FA3"/>
                             <constraint firstItem="kuK-p2-9ZN" firstAttribute="leading" secondItem="wNu-oV-w6V" secondAttribute="leading" constant="20" symbolic="YES" id="xt0-4M-fip"/>
@@ -162,10 +180,12 @@
                         <viewLayoutGuide key="safeArea" id="YDr-xG-lKi"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="m2i-Vb-yUf" id="dsg-zM-ydH"/>
                         <outlet property="jobClose" destination="Usf-aX-CgU" id="EJw-BP-iRm"/>
                         <outlet property="jobStart" destination="RBC-oz-upi" id="f31-oS-w26"/>
                         <outlet property="jobStop" destination="TVS-zg-MyD" id="Dsz-8e-bnH"/>
                         <outlet property="jobView" destination="uTv-9U-NTb" id="hvQ-yP-Ras"/>
+                        <outlet property="overlayView" destination="uJs-ZA-kqS" id="5r4-Cn-v6i"/>
                         <outlet property="routeStart" destination="pOe-Vy-vbr" id="vPj-WT-9IP"/>
                         <outlet property="routeStop" destination="x0h-Da-m8m" id="5N0-yN-quf"/>
                         <outlet property="routeView" destination="k7D-zY-w1e" id="SgT-04-PWN"/>

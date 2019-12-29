@@ -2,8 +2,8 @@
 //  VehicleViewController.swift
 //  OTM-ZENITH
 //
-//  Created by Ram Suthar on 22/12/19.
-//  Copyright © 2019 Ram Suthar. All rights reserved.
+//  Created by Freddy Mendez on 22/12/19.
+//  Copyright © 2019 Freddy Mendez. All rights reserved.
 //
 
 import UIKit

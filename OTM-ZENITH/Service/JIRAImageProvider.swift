@@ -2,14 +2,15 @@
 //  JIRAImageProvider.swift
 //  OTM-ZENITH
 //
-//  Created by Ram Suthar on 22/12/19.
-//  Copyright © 2019 Ram Suthar. All rights reserved.
+//  Created by Freddy Mendez on 22/12/19.
+//  Copyright © 2019 Freddy Mendez. All rights reserved.
 //
 
 import Foundation
 import Kingfisher
 
 struct JIRAImageProvider: ImageDataProvider {
+    
     var cacheKey: String { return url }
     let url: String
     
@@ -25,10 +26,10 @@ struct JIRAImageProvider: ImageDataProvider {
             let downloader = ImageDownloader.default
             downloader.downloadImage(with: url!) { result in
                 switch result {
-                case .success(let value):
-                    handler(.success(value.originalData))
-                case .failure(let error):
-                    handler(.failure(error))
+                    case .success(let value):
+                        handler(.success(value.originalData))
+                    case .failure(let error):
+                        handler(.failure(error))
                 }
             }
         }

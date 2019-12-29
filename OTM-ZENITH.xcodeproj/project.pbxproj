@@ -20,10 +20,13 @@
 		212AA1A023AFD0C100A10B11 /* Vehicle.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 212AA19F23AFD0C100A10B11 /* Vehicle.storyboard */; };
 		212AA1A223AFD0E700A10B11 /* VehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212AA1A123AFD0E700A10B11 /* VehicleViewController.swift */; };
 		212AA1A423AFD60B00A10B11 /* VehicleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212AA1A323AFD60B00A10B11 /* VehicleViewModel.swift */; };
+		2137531823B6E776006F6BDE /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137531723B6E776006F6BDE /* LocationService.swift */; };
+		2137531A23B6ED3E006F6BDE /* RemarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137531923B6ED3E006F6BDE /* RemarkViewModel.swift */; };
 		2138FE2723AC36BD005FE09D /* IssueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2138FE2623AC36BD005FE09D /* IssueService.swift */; };
 		2138FE2923AC36D1005FE09D /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2138FE2823AC36D1005FE09D /* APIClient.swift */; };
 		21616AC723AD47C2003123B9 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 21616AC623AD47C2003123B9 /* RxSwift */; };
 		21616AC923AD47C2003123B9 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 21616AC823AD47C2003123B9 /* RxCocoa */; };
+		21631D5223B6B71C0079D333 /* WorkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21631D5123B6B71C0079D333 /* WorkViewModel.swift */; };
 		21BA74AE23AC0CF500EAB10B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA74AD23AC0CF500EAB10B /* AppDelegate.swift */; };
 		21BA74B023AC0CF500EAB10B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA74AF23AC0CF500EAB10B /* SceneDelegate.swift */; };
 		21BA74B223AC0CF500EAB10B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA74B123AC0CF500EAB10B /* LoginViewController.swift */; };
@@ -72,8 +75,11 @@
 		212AA19F23AFD0C100A10B11 /* Vehicle.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Vehicle.storyboard; sourceTree = "<group>"; };
 		212AA1A123AFD0E700A10B11 /* VehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleViewController.swift; sourceTree = "<group>"; };
 		212AA1A323AFD60B00A10B11 /* VehicleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleViewModel.swift; sourceTree = "<group>"; };
+		2137531723B6E776006F6BDE /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		2137531923B6ED3E006F6BDE /* RemarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemarkViewModel.swift; sourceTree = "<group>"; };
 		2138FE2623AC36BD005FE09D /* IssueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueService.swift; sourceTree = "<group>"; };
 		2138FE2823AC36D1005FE09D /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		21631D5123B6B71C0079D333 /* WorkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkViewModel.swift; sourceTree = "<group>"; };
 		21BA74AA23AC0CF500EAB10B /* OTM-ZENITH iOS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OTM-ZENITH iOS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BA74AD23AC0CF500EAB10B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21BA74AF23AC0CF500EAB10B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +173,7 @@
 				212AA19723AF7B4C00A10B11 /* WebClient.swift */,
 				212AA19523AF601C00A10B11 /* AttachmentService.swift */,
 				212AA19C23AFB8B700A10B11 /* JIRAImageProvider.swift */,
+				2137531723B6E776006F6BDE /* LocationService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -245,6 +252,7 @@
 			children = (
 				21D3E8E923AE4850004E14FF /* Work.storyboard */,
 				21C8681E23AE260500500744 /* WorkViewController.swift */,
+				21631D5123B6B71C0079D333 /* WorkViewModel.swift */,
 			);
 			path = Work;
 			sourceTree = "<group>";
@@ -254,6 +262,7 @@
 			children = (
 				21D3E8EB23AE4858004E14FF /* Remark.storyboard */,
 				21C8682023AE276800500744 /* RemarkViewController.swift */,
+				2137531923B6ED3E006F6BDE /* RemarkViewModel.swift */,
 			);
 			path = Remark;
 			sourceTree = "<group>";
@@ -399,8 +408,10 @@
 				2113569123ACFA4500738239 /* WebViewController.swift in Sources */,
 				21C8681F23AE260500500744 /* WorkViewController.swift in Sources */,
 				212AA19823AF7B4C00A10B11 /* WebClient.swift in Sources */,
+				2137531A23B6ED3E006F6BDE /* RemarkViewModel.swift in Sources */,
 				21C8682523AE288200500744 /* PictureCell.swift in Sources */,
 				21BA74AE23AC0CF500EAB10B /* AppDelegate.swift in Sources */,
+				21631D5223B6B71C0079D333 /* WorkViewModel.swift in Sources */,
 				2113569B23AD1A9900738239 /* JobListViewModel.swift in Sources */,
 				21C8682123AE276800500744 /* RemarkViewController.swift in Sources */,
 				21C8682323AE27E800500744 /* PhotosViewController.swift in Sources */,
@@ -411,6 +422,7 @@
 				2113569623AD018100738239 /* JobListViewController.swift in Sources */,
 				21C8681B23AE101F00500744 /* DetailsViewController.swift in Sources */,
 				21C8681423ADEB2C00500744 /* IssueResponse.swift in Sources */,
+				2137531823B6E776006F6BDE /* LocationService.swift in Sources */,
 				21D3E8EE23AE51C4004E14FF /* PhotosViewModel.swift in Sources */,
 				2138FE2723AC36BD005FE09D /* IssueService.swift in Sources */,
 				21C8681D23AE113F00500744 /* JobViewModel.swift in Sources */,

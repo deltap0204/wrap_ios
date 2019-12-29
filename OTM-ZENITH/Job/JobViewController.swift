@@ -2,8 +2,8 @@
 //  JobViewController.swift
 //  OTM-ZENITH
 //
-//  Created by Ram Suthar on 21/12/19.
-//  Copyright © 2019 Ram Suthar. All rights reserved.
+//  Created by Freddy Mendez on 21/12/19.
+//  Copyright © 2019 Freddy Mendez. All rights reserved.
 //
 
 import UIKit
@@ -113,9 +113,11 @@ class JobViewController: UIViewController {
         }
         else if let vc = segue.destination as? WorkViewController {
             workVC = vc
+            workVC.viewModel = WorkViewModel(issue: viewModel.issue)
         }
         else if let vc = segue.destination as? RemarkViewController {
             remarkVC = vc
+            remarkVC.viewModel = RemarkViewModel(issue: viewModel.issue)
         }
         else if let vc = segue.destination as? PhotosViewController {
             photosVC = vc

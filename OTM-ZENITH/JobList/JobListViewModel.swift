@@ -2,8 +2,8 @@
 //  JobListViewModel.swift
 //  OTM-ZENITH
 //
-//  Created by Ram Suthar on 20/12/19.
-//  Copyright © 2019 Ram Suthar. All rights reserved.
+//  Created by Freddy Mendez on 20/12/19.
+//  Copyright © 2019 Freddy Mendez. All rights reserved.
 //
 
 import Foundation
@@ -38,6 +38,7 @@ class JobListViewModel {
     var jobs: BehaviorSubject<[Job]>
     var title: BehaviorSubject<String>
     var showLoader: BehaviorSubject<Bool>
+    var hasJobs: BehaviorSubject<Bool>
     
     var issues = [Issue]()
     
@@ -51,6 +52,8 @@ class JobListViewModel {
         df.dateStyle = .long
         let title = df.string(from: date)
         self.title = BehaviorSubject(value: title)
+        
+        hasJobs = BehaviorSubject(value: true)
         
         showLoader = BehaviorSubject(value: false)
         fetchIssues()
@@ -66,10 +69,16 @@ class JobListViewModel {
         fetchIssues()
     }
     
+    func loadDate(date: Date) {
+        self.date = date
+        fetchIssues()
+    }
+    
     func fetchIssues() {
         
         jobs.onNext([])
         showLoader.onNext(true)
+        hasJobs.onNext(true)
         
         service.fetch(date: date) { [weak self] (result) in
 
@@ -80,9 +89,9 @@ class JobListViewModel {
                 let jobs = issues.map({
                     
                     Job(
-                        id: $0.id!,
-                        key: $0.key!,
-                        summary: $0.fields?.summary ?? "",
+                        id: $0.id ?? "",
+                        key: $0.key ?? "",
+                        summary: "\($0.key ?? ""): \($0.fields?.summary ?? "")",
                         location: $0.fields?.customfield10061 ?? "",
                         client: $0.fields?.customfield10056 ?? "",
                         duedate: $0.fields?.duedate ?? "",
@@ -91,7 +100,9 @@ class JobListViewModel {
                     )
                 })
                 
+                self?.hasJobs.onNext(jobs.count>0)
                 self?.jobs.onNext(jobs)
+                
             }
         }
     }
