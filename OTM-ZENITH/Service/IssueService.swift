@@ -51,12 +51,12 @@ class IssueService {
         let id: Int
         
         switch status {
-            case .toDo:
-                id = 11
-            case .inProgress:
-                id = 21
-            case .done:
-                id = 31
+        case .toDo:
+            id = 11
+        case .inProgress:
+            id = 21
+        case .done:
+            id = 31
         }
         
         let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/issue/\(issue.id!)/transitions"

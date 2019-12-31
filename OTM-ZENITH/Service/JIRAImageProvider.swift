@@ -10,7 +10,6 @@ import Foundation
 import Kingfisher
 
 struct JIRAImageProvider: ImageDataProvider {
-    
     var cacheKey: String { return url }
     let url: String
     
@@ -26,10 +25,10 @@ struct JIRAImageProvider: ImageDataProvider {
             let downloader = ImageDownloader.default
             downloader.downloadImage(with: url!) { result in
                 switch result {
-                    case .success(let value):
-                        handler(.success(value.originalData))
-                    case .failure(let error):
-                        handler(.failure(error))
+                case .success(let value):
+                    handler(.success(value.originalData))
+                case .failure(let error):
+                    handler(.failure(error))
                 }
             }
         }
