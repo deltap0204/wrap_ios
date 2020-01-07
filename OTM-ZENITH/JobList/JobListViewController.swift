@@ -35,7 +35,7 @@ class JobListViewController: UIViewController {
         
         viewModel = JobListViewModel(service: IssueService())
         
-        titleLabel.text = "Open Jobs"
+        titleLabel.text = "Jobs"
         datePicker.date = viewModel.date
         
         tableView.delegate = nil
