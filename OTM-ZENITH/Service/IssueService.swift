@@ -25,6 +25,7 @@ class IssueService {
         let dateString = dateFormatter.string(from: date)
         
         let jql = "?fields=*all&jql=assignee=currentUser()"//%20AND%20duedate=" + dateString
+//        let jql = "?fields=*all&jql=project%20%3D%20WT%20AND%20assignee=david.mandelier"
         let params: [String: Any] = [:]
 //        [
 //            "jql": jql,

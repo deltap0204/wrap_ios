@@ -38,8 +38,6 @@ class JobViewController: UIViewController {
         title = viewModel.title
         contact.text = viewModel.contact
         location.text = viewModel.address
-        
-        detailVC.details.text = viewModel.detail
                 
         detailContainer.isHidden = false
         vehicleContainer.isHidden = true
@@ -106,6 +104,7 @@ class JobViewController: UIViewController {
         // Pass the selected object to the new view controller.
         if let vc = segue.destination as? DetailsViewController {
             detailVC = vc
+            detailVC.viewModel = DetailsViewModel(issue: viewModel.issue)
         }
         else if let vc = segue.destination as? VehicleViewController {
             vehicleVC = vc

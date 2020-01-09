@@ -57,7 +57,7 @@ class WorkViewModel {
     
     func stopJob() {
         showLoader.onNext(true)
-        service.update(status: .toDo, issue: issue, comment: jobComment(for: .toDo)) {
+        service.update(status: .inProgress, issue: issue, comment: jobComment(for: .toDo)) {
             self.showLoader.onNext(false)
             
             self.enableStartJob.onNext(true)

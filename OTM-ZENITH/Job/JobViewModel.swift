@@ -13,7 +13,6 @@ class JobViewModel {
     let title: String
     let address: String
     let contact: String
-    let detail: String
     
     let hasPhone: Bool
     let phone: String
@@ -34,8 +33,6 @@ class JobViewModel {
 
         let person = issue.fields?.customfield10079 ?? ""
         contact = "\(person) - \(phone)"
-        
-        detail = issue.fields?.fieldsDescription?.content?.first?.content?.map({ $0.text ?? "" }).joined(separator: "\n") ?? ""
         
         let location = issue.fields?.customfield10101?.components(separatedBy: ",")
         let lat1 = location?[0] ?? ""

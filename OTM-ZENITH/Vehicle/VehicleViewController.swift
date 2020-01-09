@@ -15,19 +15,77 @@ class VehicleViewController: UIViewController {
     @IBOutlet var brand: UILabel!
     @IBOutlet var type: UILabel!
     @IBOutlet var km: UILabel!
+    @IBOutlet var vehicleOnTime: UILabel!
+    @IBOutlet var vehicleDirty: UILabel!
+    @IBOutlet var washInstructionApplied: UILabel!
+    
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var problem: UITextView!
+    @IBOutlet var buttonEnter: UIButton!
+    
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var overlayView: UIView!
     
     var viewModel: VehicleViewModel!
+    
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        license.superview?.isHidden = viewModel.license.isEmpty
+        objectID.superview?.isHidden = viewModel.objectID.isEmpty
+        brand.superview?.isHidden = viewModel.brand.isEmpty
+        type.superview?.isHidden = viewModel.type.isEmpty
+        km.superview?.isHidden = viewModel.km.isEmpty
+        
         license.text = viewModel.license
         objectID.text = viewModel.objectID
         brand.text = viewModel.brand
         type.text = viewModel.type
         km.text = viewModel.km
+        
+        vehicleOnTime.text = viewModel.vehicleOnTime
+        vehicleDirty.text = viewModel.vehicleDirty
+        washInstructionApplied.text = viewModel.washInstructionApplied
+        
+        problem.layer.cornerRadius = 8
+        buttonEnter.layer.cornerRadius = 8
+        
+        bindViewModel()
+    }
+
+    private func bindViewModel() {
+        problem.rx.didBeginEditing
+            .bind(onNext: { (_) in
+                var contentInset = self.scrollView.contentInset
+                contentInset.bottom = 290
+                self.scrollView.contentInset = contentInset
+                self.scrollView.scrollToView(view: self.problem, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        problem.rx.didEndEditing
+            .bind(onNext: { (_) in
+                var contentInset = self.scrollView.contentInset
+                contentInset.bottom = 0
+                self.scrollView.contentInset = contentInset
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.showLoader.map({ !$0 }).bind(to: overlayView.rx.isHidden).disposed(by: disposeBag)
+        
+        //        viewModel.showLoader.bind(to: activityIndicator.rx.isAnimating).disposed(by: disposeBag)
     }
     
+    @IBAction func submit(_ sender: Any) {
+        problem.resignFirstResponder()
+        
+        viewModel.submit(problem: problem.text)
+        
+        problem.text = ""
+    }
+
     /*
     // MARK: - Navigation
 

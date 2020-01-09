@@ -11,13 +11,20 @@ import UIKit
 class DetailsViewController: UIViewController {
 
     @IBOutlet var details: UILabel!
-    
+    @IBOutlet var templateButton: UIButton!
+   
+    var viewModel: DetailsViewModel!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        details.text = viewModel.details
     }
     
+    @IBAction func makeTemplate(_ sender: Any) {
+        viewModel.makeTemplate()
+        templateButton.isEnabled = false
+    }
 
     /*
     // MARK: - Navigation
