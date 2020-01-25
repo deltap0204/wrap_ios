@@ -2,7 +2,7 @@
 //  LocationService.swift
 //  OTM-ZENITH
 //
-//  Created by c on 28/12/19.
+//  Created by Freddy Mendez on 28/12/19.
 //  Copyright © 2019 Freddy Mendez. All rights reserved.
 //
 

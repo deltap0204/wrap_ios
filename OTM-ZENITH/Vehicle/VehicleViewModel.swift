@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 class VehicleViewModel {
     
@@ -24,6 +25,7 @@ class VehicleViewModel {
     let service: IssueService!
     
     let showLoader: BehaviorSubject<Bool>
+    let showSuccessMessage: PublishSubject<String>
     
     init(issue: Issue) {
         self.issue = issue
@@ -39,6 +41,8 @@ class VehicleViewModel {
         
         showLoader = .init(value: false)
         
+        showSuccessMessage = .init()
+        
         service = IssueService()
     }
     
@@ -47,6 +51,7 @@ class VehicleViewModel {
         let remark = "@Arnaud: a remark was added\n\(problem)"
         service.add(comment: remark, issue: issue) {
             self.showLoader.onNext(false)
+            self.showSuccessMessage.onNext("Sent successfully")
         }
     }
 }

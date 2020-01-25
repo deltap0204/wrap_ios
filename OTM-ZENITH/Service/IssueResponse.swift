@@ -92,6 +92,7 @@ struct IssueFields: Codable {
 //    let aggregatetimeestimate: JSONNull?
     let creator: Creator?
 //    let subtasks: [JSONAny]?
+    let customfield10128: [Customfield10]?
     let customfield10160: [Customfield10]?
 //    let customfield10040: JSONNull?
     let customfield10161: [Customfield10]?
@@ -225,6 +226,7 @@ struct IssueFields: Codable {
 //        case aggregatetimeestimate = "aggregatetimeestimate"
         case creator = "creator"
 //        case subtasks = "subtasks"
+        case customfield10128 = "customfield_10128"
         case customfield10160 = "customfield_10160"
 //        case customfield10040 = "customfield_10040"
         case customfield10161 = "customfield_10161"

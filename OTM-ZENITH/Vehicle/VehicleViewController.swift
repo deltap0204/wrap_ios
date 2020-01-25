@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class VehicleViewController: UIViewController {
 
@@ -75,15 +77,17 @@ class VehicleViewController: UIViewController {
         
         viewModel.showLoader.map({ !$0 }).bind(to: overlayView.rx.isHidden).disposed(by: disposeBag)
         
+        viewModel.showSuccessMessage.bind(onNext: { self.alert(message: $0) }).disposed(by: disposeBag)
+        
         //        viewModel.showLoader.bind(to: activityIndicator.rx.isAnimating).disposed(by: disposeBag)
     }
     
     @IBAction func submit(_ sender: Any) {
         problem.resignFirstResponder()
         
-        viewModel.submit(problem: problem.text)
+        self.viewModel.submit(problem: self.problem.text)
+        self.problem.text = ""
         
-        problem.text = ""
     }
 
     /*
