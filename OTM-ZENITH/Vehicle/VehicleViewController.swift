@@ -17,9 +17,6 @@ class VehicleViewController: UIViewController {
     @IBOutlet var brand: UILabel!
     @IBOutlet var type: UILabel!
     @IBOutlet var km: UILabel!
-    @IBOutlet var vehicleOnTime: UILabel!
-    @IBOutlet var vehicleDirty: UILabel!
-    @IBOutlet var washInstructionApplied: UILabel!
     
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var problem: UITextView!
@@ -46,10 +43,6 @@ class VehicleViewController: UIViewController {
         brand.text = viewModel.brand
         type.text = viewModel.type
         km.text = viewModel.km
-        
-        vehicleOnTime.text = viewModel.vehicleOnTime
-        vehicleDirty.text = viewModel.vehicleDirty
-        washInstructionApplied.text = viewModel.washInstructionApplied
         
         problem.layer.cornerRadius = 8
         buttonEnter.layer.cornerRadius = 8

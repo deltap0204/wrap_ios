@@ -37,7 +37,6 @@ class RemarkViewController: UIViewController {
     @IBOutlet weak var fluviusContainer: UIStackView!
     
     @IBOutlet var scrollView: UIScrollView!
-    @IBOutlet var problem: UITextView!
     @IBOutlet var buttonEnter: UIButton!
     
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
@@ -48,29 +47,12 @@ class RemarkViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        problem.layer.cornerRadius = 8
         buttonEnter.layer.cornerRadius = 8
         
         bindViewModel()
     }
     
     private func bindViewModel() {
-        problem.rx.didBeginEditing
-            .bind(onNext: { (_) in
-                var contentInset = self.scrollView.contentInset
-                contentInset.bottom = 290
-                self.scrollView.contentInset = contentInset
-            self.scrollView.scrollToView(view: self.problem, animated: true)
-        })
-        .disposed(by: disposeBag)
-        
-        problem.rx.didEndEditing
-            .bind(onNext: { (_) in
-                var contentInset = self.scrollView.contentInset
-                contentInset.bottom = 0
-                self.scrollView.contentInset = contentInset
-        })
-        .disposed(by: disposeBag)
         
         viewModel.showLoader.map({ !$0 }).bind(to: overlayView.rx.isHidden).disposed(by: disposeBag)
         
@@ -97,11 +79,9 @@ class RemarkViewController: UIViewController {
     }
     
     @IBAction func submit(_ sender: Any) {
-        problem.resignFirstResponder()
 
-        viewModel.submit(problem: problem.text)
+//        viewModel.submit(problem: problem.text)
         
-        problem.text = ""
     }
 
     /*

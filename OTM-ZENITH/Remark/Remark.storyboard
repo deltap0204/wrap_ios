@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dtr-Lw-Br1">
-                                        <rect key="frame" x="0.0" y="20" width="414" height="957.5"/>
+                                        <rect key="frame" x="0.0" y="20" width="414" height="763"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kaH-E9-VEf">
                                                 <rect key="frame" x="20" y="8" width="374" height="31"/>
@@ -213,36 +213,15 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SuS-BV-9mw">
-                                                <rect key="frame" x="20" y="694" width="374" height="174.5"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Describe the problem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4QX-Dc-ZUe">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JjL-6a-A68">
-                                                        <rect key="frame" x="0.0" y="24.5" width="374" height="150"/>
-                                                        <color key="backgroundColor" red="0.34031230210000002" green="0.40728333589999999" blue="0.46276092530000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="150" id="LtY-kN-Eu5"/>
-                                                        </constraints>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    </textView>
-                                                </subviews>
-                                            </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0UW-yb-hUQ">
-                                                <rect key="frame" x="20" y="888.5" width="374" height="1"/>
+                                                <rect key="frame" x="20" y="694" width="374" height="1"/>
                                                 <color key="backgroundColor" red="0.34031230210000002" green="0.40728333589999999" blue="0.46276092530000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="7aI-Do-tUJ"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="W83-B7-tRY">
-                                                <rect key="frame" x="20" y="909.5" width="374" height="40"/>
+                                                <rect key="frame" x="20" y="715" width="374" height="40"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pcq-lz-3N3">
                                                         <rect key="frame" x="125.5" y="0.0" width="123" height="40"/>
@@ -312,7 +291,6 @@
                         <outlet property="overlayView" destination="MAR-1e-T1d" id="0ud-Dx-H47"/>
                         <outlet property="plateHolder" destination="Qah-mt-vGb" id="xE3-b0-Jcj"/>
                         <outlet property="positionNotClear" destination="Nl1-UE-oEd" id="aTm-o9-5Zs"/>
-                        <outlet property="problem" destination="JjL-6a-A68" id="ZiK-dw-l3z"/>
                         <outlet property="railroadCrossing" destination="m7N-v1-UK8" id="4qj-8b-tqp"/>
                         <outlet property="redWhiteNotMounted" destination="cq6-9g-qoU" id="9M7-QP-JRI"/>
                         <outlet property="removeMoreThanLogo" destination="mZp-qN-qDk" id="xaT-Hn-cR8"/>

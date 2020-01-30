@@ -34,16 +34,21 @@ class JobViewModel {
         let person = issue.fields?.customfield10079 ?? ""
         contact = "\(person) - \(phone)"
         
-        let location = issue.fields?.customfield10101?.components(separatedBy: ",")
-        let lat1 = location?[0] ?? ""
-        let lng1 = location?[1] ?? ""
-        let latitude =  Double(lat1)
-        let longitude =  Double(lng1)
-        
-        hasLocation = (latitude != nil && longitude != nil)
-        
-        self.latitude = latitude ?? 0
-        self.longitude = longitude ?? 0
+        if let location = issue.fields?.customfield10101?.components(separatedBy: ","), location.count == 2 {
+            let lat1 = location[0]
+            let lng1 = location[1]
+            let latitude =  Double(lat1)
+            let longitude =  Double(lng1)
+            self.latitude = latitude ?? 0
+            self.longitude = longitude ?? 0
+            
+            hasLocation = true
+        }
+        else {
+            self.latitude = 0
+            self.longitude = 0
+            hasLocation = false
+        }
         
     }
 }

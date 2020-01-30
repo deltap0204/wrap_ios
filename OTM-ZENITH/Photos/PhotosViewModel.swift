@@ -33,7 +33,7 @@ class PhotosViewModel {
     }
     
     func photo(from attachment: Attachment) -> Photo {
-        return Photo(thumb: attachment.thumbnail ?? "", original: attachment.content ?? "")
+        return Photo(thumb: attachment.thumbnail ?? attachment.content ?? "", original: attachment.content ?? "")
     }
     
     func upload(image: UIImage) {
