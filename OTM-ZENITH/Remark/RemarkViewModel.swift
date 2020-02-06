@@ -62,8 +62,8 @@ class RemarkViewModel {
         removeMoreThanLogo = .init(value: issue.fields?.customfield10105?.contains(where: { $0.id == "10146" }) ?? false)
         carPainted = .init(value: issue.fields?.customfield10105?.contains(where: { $0.id == "10331" }) ?? false)
         
-        infrabelContainer = .init(value: (issue.fields?.customfield10128 == nil))
-        fluviusContainer = .init(value: (issue.fields?.customfield10105 == nil))
+        infrabelContainer = .init(value: (issue.fields?.issuetype?.name == "Infrabel Vehicle"))
+        fluviusContainer = .init(value: (issue.fields?.issuetype?.name == "Fluvius Vehicle"))
         
         service = IssueService()
     }

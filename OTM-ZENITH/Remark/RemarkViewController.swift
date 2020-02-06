@@ -42,7 +42,7 @@ class RemarkViewController: UIViewController {
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var overlayView: UIView!
     
-    let disposeBag = DisposeBag()
+    let disposeBag = DisposeBag()   
     
     override func viewDidLoad() {
         super.viewDidLoad()
