@@ -72,8 +72,9 @@ class RemarkViewController: UIViewController {
         viewModel.removeMoreThanLogo.bind(to: removeMoreThanLogo.rx.isOn).disposed(by: disposeBag)
         viewModel.carPainted.bind(to: carPainted.rx.isOn).disposed(by: disposeBag)
         
-        viewModel.infrabelContainer.bind(to: infrabelContainer.rx.isHidden).disposed(by: disposeBag)
-        viewModel.fluviusContainer.bind(to: fluviusContainer.rx.isHidden).disposed(by: disposeBag)
+        
+        viewModel.infrabelContainer.map({ !$0 }).bind(to: infrabelContainer.rx.isHidden).disposed(by: disposeBag)
+        viewModel.fluviusContainer.map({ !$0 }).bind(to: fluviusContainer.rx.isHidden).disposed(by: disposeBag)
         
 //        viewModel.showLoader.bind(to: activityIndicator.rx.isAnimating).disposed(by: disposeBag)
     }
