@@ -12,8 +12,23 @@ import OAuthSwift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var window: UIWindow?
+    var navigation: UINavigationController?
+    
+    func sharedAppDelegate() -> AppDelegate {
+       return UIApplication.shared.delegate as! AppDelegate
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let viewLogin:LoginViewController = (storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController)!
+//        navigation = UINavigationController(rootViewController: viewLogin)
+//
+//        self.window?.rootViewController = self.navigation
+//        self.window?.makeKeyAndVisible()
+        
         return true
     }
 

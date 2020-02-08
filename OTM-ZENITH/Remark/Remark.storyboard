@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Ha-Sf-NQX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Ha-Sf-NQX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -280,6 +280,9 @@
                     </view>
                     <connections>
                         <outlet property="GPSnotCorrect" destination="Cy1-oa-822" id="Q4X-8c-Kmw"/>
+                        <outlet property="WerkContainer1" destination="kaH-E9-VEf" id="11h-gh-o2Q"/>
+                        <outlet property="WerkContainer2" destination="Eed-fH-5ua" id="X0a-hi-BKx"/>
+                        <outlet property="WerkContainer3" destination="xFe-KC-oCr" id="PDN-04-san"/>
                         <outlet property="activityIndicator" destination="6gQ-8Q-3Tf" id="Bjl-h5-WMk"/>
                         <outlet property="buttonEnter" destination="Pcq-lz-3N3" id="deg-V5-wbs"/>
                         <outlet property="carPainted" destination="fGN-rC-S9t" id="dqY-rc-758"/>

@@ -9,6 +9,8 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import WebKit
+import Prephirences
 
 class JobListViewController: UIViewController {
     
@@ -29,7 +31,8 @@ class JobListViewController: UIViewController {
     let refreshControl = UIRefreshControl()
     
     let disposeBag = DisposeBag()
-    
+    let service = IssueService()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -113,6 +116,45 @@ class JobListViewController: UIViewController {
         
     }
     
+    @IBAction func LogOutMethod(_ sender: Any) {
+        print("logout click")
+        /*let fliter = ScanCodeViewController()
+        fliter.qrCodeBack = {controller, code in
+            controller.navigationController?.popViewController(animated: true)
+            if code.count > 0 {
+                if let url = URL(string: code) {
+                    print(url.lastPathComponent)
+                    self.service.fetchIssue(issueId: url.lastPathComponent) { (issue) in
+                        let storyBoard : UIStoryboard = UIStoryboard(name: "Job", bundle:nil)
+                        let jobdetailvc = storyBoard.instantiateViewController(withIdentifier: "JobViewController") as! JobViewController
+                        jobdetailvc.viewModel = JobViewModel(issue: issue)
+                        self.navigationController?.pushViewController(jobdetailvc, animated: true)
+                    }
+                }
+            }
+        }
+        self.navigationController?.pushViewController(fliter, animated: true)*/
+        let alertController = UIAlertController(title:"Log out", message: "Are you sure you want to logout?", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title:"Confirm", style: .default) { action in
+            alertController.dismiss(animated: true, completion: nil)
+            let dataTypes = Set([WKWebsiteDataTypeCookies,WKWebsiteDataTypeLocalStorage,WKWebsiteDataTypeSessionStorage,WKWebsiteDataTypeWebSQLDatabases,WKWebsiteDataTypeIndexedDBDatabases])
+            WKWebsiteDataStore.default().removeData(ofTypes: dataTypes, modifiedSince: NSDate.distantPast, completionHandler: {})
+            let storage = HTTPCookieStorage.shared
+            storage.cookies?.forEach() { storage.deleteCookie($0) }
+            KeychainPreferences.sharedInstance.removeObject(forKey: "credential")
+            APIClient.oauthClient.client.credential.oauthToken = ""
+            
+            let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            self.navigationController?.setViewControllers([loginVC], animated: false)
+        }
+        let noAction = UIAlertAction(title: "Cancel", style: .default) { action in
+            alertController.dismiss(animated: true, completion: nil)
+        }
+        alertController.addAction(noAction)
+        alertController.addAction(yesAction)
+        self.present(alertController, animated: true)
+
+    }
     
      // MARK: - Navigation
      
@@ -128,4 +170,19 @@ class JobListViewController: UIViewController {
      }
      
     
+}
+
+extension URL {
+    var queryDictionary: [String: String]? {
+        guard let query = self.query else { return nil}
+        var queryStrings = [String: String]()
+        for pair in query.components(separatedBy: "&") {
+            if pair.components(separatedBy: "=").count > 1 {
+                let key = pair.components(separatedBy: "=")[0]
+                let value = pair.components(separatedBy:"=")[1].replacingOccurrences(of: "+", with: " ").removingPercentEncoding ?? ""
+                queryStrings[key] = value
+            }
+        }
+        return queryStrings
+    }
 }

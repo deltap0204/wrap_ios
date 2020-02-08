@@ -78,7 +78,6 @@ class LoginViewController: UIViewController {
     
     func navigateToHome() {
         let homeVC = UIStoryboard(name: "JobList", bundle: nil).instantiateInitialViewController()!
-        
         navigationController?.setViewControllers([homeVC], animated: false)
     }
     

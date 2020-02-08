@@ -54,7 +54,7 @@ class RemarkViewModel {
         positionNotClear = .init(value: issue.fields?.customfield10128?.contains(where: { $0.id == "10204" }) ?? false)
         redWhiteNotMounted = .init(value: issue.fields?.customfield10128?.contains(where: { $0.id == "10235" }) ?? false)
         GPSnotCorrect = .init(value: issue.fields?.customfield10128?.contains(where: { $0.id == "10236" }) ?? false)
-        
+
         plateHolder = .init(value: issue.fields?.customfield10105?.contains(where: { $0.id == "10145" }) ?? false)
         interventionOfCarglass = .init(value: issue.fields?.customfield10105?.contains(where: { $0.id == "10146" }) ?? false)
         interventionOfTiers = .init(value: issue.fields?.customfield10105?.contains(where: { $0.id == "10146" }) ?? false)
@@ -62,8 +62,8 @@ class RemarkViewModel {
         removeMoreThanLogo = .init(value: issue.fields?.customfield10105?.contains(where: { $0.id == "10146" }) ?? false)
         carPainted = .init(value: issue.fields?.customfield10105?.contains(where: { $0.id == "10331" }) ?? false)
         
-        infrabelContainer = .init(value: (issue.fields?.issuetype?.name == "Infrabel Level Crossing"))
-        fluviusContainer = .init(value: (issue.fields?.issuetype?.name == "Fluvius Vehicle"))
+        infrabelContainer = .init(value: (issue.fields?.customfield10128 == nil))
+        fluviusContainer = .init(value: (issue.fields?.customfield10105 == nil))
         
         service = IssueService()
     }

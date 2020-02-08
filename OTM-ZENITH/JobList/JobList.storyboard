@@ -196,33 +196,49 @@
                             <rect key="frame" x="57" y="0.0" width="261" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yok-03-j8E">
-                                    <rect key="frame" x="0.0" y="0.0" width="261" height="42"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wio-YL-ZBW">
-                                            <rect key="frame" x="62.666666666666657" y="0.0" width="136" height="26.333333333333332"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                            <inset key="contentEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="2"/>
-                                            <state key="normal" title="26 Oktober 2018"/>
-                                            <connections>
-                                                <action selector="showDatePicker:" destination="CQD-wK-PYV" eventType="touchUpInside" id="mbC-a8-L3o"/>
-                                            </connections>
-                                        </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jobs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gto-PR-zkn">
-                                            <rect key="frame" x="115.99999999999999" y="26.333333333333332" width="29.333333333333329" height="15.666666666666668"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KxH-Sh-VdS">
+                                    <rect key="frame" x="231" y="7" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="F1C-1S-aqI"/>
+                                        <constraint firstAttribute="width" constant="30" id="zh1-ax-1Xc"/>
+                                    </constraints>
+                                    <state key="normal" image="logout"/>
+                                    <connections>
+                                        <action selector="LogOutMethod:" destination="CQD-wK-PYV" eventType="touchUpInside" id="o12-eO-oFO"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wio-YL-ZBW">
+                                    <rect key="frame" x="8" y="4" width="215" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="25" id="mnI-j1-eDW"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                    <inset key="contentEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="2"/>
+                                    <state key="normal" title="26 Oktober 2018"/>
+                                    <connections>
+                                        <action selector="showDatePicker:" destination="CQD-wK-PYV" eventType="touchUpInside" id="mbC-a8-L3o"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jobs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gto-PR-zkn">
+                                    <rect key="frame" x="115.99999999999999" y="27.000000000000004" width="29.333333333333329" height="15.666666666666668"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="15.67" id="XmO-nb-Wob"/>
+                                        <constraint firstAttribute="width" constant="29.329999999999998" id="dvj-JI-h1R"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="yok-03-j8E" secondAttribute="bottom" constant="2" id="EQX-no-ndj"/>
-                                <constraint firstItem="yok-03-j8E" firstAttribute="leading" secondItem="hxk-Gp-g43" secondAttribute="leading" id="GSP-5r-gac"/>
-                                <constraint firstItem="yok-03-j8E" firstAttribute="top" secondItem="hxk-Gp-g43" secondAttribute="top" id="P4s-JY-kmS"/>
-                                <constraint firstAttribute="trailing" secondItem="yok-03-j8E" secondAttribute="trailing" id="l2D-G3-47P"/>
+                                <constraint firstItem="Wio-YL-ZBW" firstAttribute="leading" secondItem="hxk-Gp-g43" secondAttribute="leading" constant="8" id="7On-kO-7d1"/>
+                                <constraint firstItem="gto-PR-zkn" firstAttribute="top" secondItem="hxk-Gp-g43" secondAttribute="top" constant="27" id="LEw-0a-HGC"/>
+                                <constraint firstItem="Wio-YL-ZBW" firstAttribute="top" secondItem="hxk-Gp-g43" secondAttribute="top" constant="4" id="O0d-Fw-iZB"/>
+                                <constraint firstItem="gto-PR-zkn" firstAttribute="centerX" secondItem="hxk-Gp-g43" secondAttribute="centerX" id="Txo-Ha-od4"/>
+                                <constraint firstItem="KxH-Sh-VdS" firstAttribute="top" secondItem="hxk-Gp-g43" secondAttribute="top" constant="7" id="nSi-MJ-dlV"/>
+                                <constraint firstAttribute="trailing" secondItem="KxH-Sh-VdS" secondAttribute="trailing" id="sUC-Gz-rMD"/>
+                                <constraint firstItem="KxH-Sh-VdS" firstAttribute="leading" secondItem="Wio-YL-ZBW" secondAttribute="trailing" constant="8" id="vKO-aE-UAN"/>
                             </constraints>
                         </view>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.right" catalog="system" id="9CT-qL-1oz">
@@ -247,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ngb-sv-Kds" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="94" y="149"/>
+            <point key="canvasLocation" x="93.599999999999994" y="148.52216748768473"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="uZL-Mb-hWv">
@@ -291,5 +307,6 @@
     <resources>
         <image name="arrow.left" catalog="system" width="64" height="48"/>
         <image name="arrow.right" catalog="system" width="64" height="48"/>
+        <image name="logout" width="30" height="30"/>
     </resources>
 </document>
