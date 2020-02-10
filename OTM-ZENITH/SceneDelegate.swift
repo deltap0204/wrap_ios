@@ -12,12 +12,15 @@ import OAuthSwift
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    let service = IssueService()
+    var launchoption : UIScene.ConnectionOptions?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        launchoption = connectionOptions
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 
@@ -41,6 +44,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        guard let url = self.launchoption?.urlContexts.first?.url else { return }
+        if (url.host == "url=https"){
+            if !APIClient.oauthClient.client.credential.oauthToken.isEmpty  {
+                if let lastcomponent = url.absoluteString.components(separatedBy: "=").last {
+                    if let url = URL(string: lastcomponent) {
+                        self.service.fetchIssue(issueId: url.lastPathComponent) { (issue) in
+                            let homeVC = UIStoryboard(name: "JobList", bundle: nil).instantiateInitialViewController()! as! JobListViewController
+                            let jobdetailvc = UIStoryboard(name: "Job", bundle:nil).instantiateViewController(withIdentifier: "JobViewController") as! JobViewController
+                            jobdetailvc.viewModel = JobViewModel(issue: issue)
+                            let nav = UINavigationController()
+                            nav.viewControllers = [homeVC,jobdetailvc]
+                            self.window?.rootViewController = nav
+                        }
+                    }
+                }
+            }
+        }
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -50,15 +70,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-            guard let url = URLContexts.first?.url else {
-                return
+        guard let url = URLContexts.first?.url else {
+            return
+        }
+        if (url.host == "oauth-callback") {
+            //if (options[.sourceApplication] as? String == "com.apple.SafariViewService") {
+                OAuthSwift.handle(url: url)
+            //}
+        }else if (url.host == "url=https"){
+            if !APIClient.oauthClient.client.credential.oauthToken.isEmpty  {
+                if let lastcomponent = url.absoluteString.components(separatedBy: "=").last {
+                    if let url = URL(string: lastcomponent) {
+                        self.service.fetchIssue(issueId: url.lastPathComponent) { (issue) in
+                            let homeVC = UIStoryboard(name: "JobList", bundle: nil).instantiateInitialViewController()! as! JobListViewController
+                            let jobdetailvc = UIStoryboard(name: "Job", bundle:nil).instantiateViewController(withIdentifier: "JobViewController") as! JobViewController
+                            jobdetailvc.viewModel = JobViewModel(issue: issue)
+                            let nav = UINavigationController()
+                            nav.viewControllers = [homeVC,jobdetailvc]
+                            self.window?.rootViewController = nav
+                        }
+                    }
+                }
             }
-            if (url.host == "oauth-callback") {
-//                if (options[.sourceApplication] as? String == "com.apple.SafariViewService") {
-                    OAuthSwift.handle(url: url)
-//                }
-            }
+        }
     }
-
 }
+
 

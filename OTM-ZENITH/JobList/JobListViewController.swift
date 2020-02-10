@@ -32,9 +32,12 @@ class JobListViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     let service = IssueService()
-
+    
+    var taskurl : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         viewModel = JobListViewModel(service: IssueService())
         
@@ -116,6 +119,17 @@ class JobListViewController: UIViewController {
         
     }
     
+    /*func opentask(link:String) {
+        if let url = URL(string: link) {
+            self.service.fetchIssue(issueId: url.lastPathComponent) { (issue) in
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Job", bundle:nil)
+                let jobdetailvc = storyBoard.instantiateViewController(withIdentifier: "JobViewController") as! JobViewController
+                jobdetailvc.viewModel = JobViewModel(issue: issue)
+                self.navigationController?.pushViewController(jobdetailvc, animated: true)
+            }
+        }
+    }*/
+    
     @IBAction func LogOutMethod(_ sender: Any) {
         print("logout click")
         /*let fliter = ScanCodeViewController()
@@ -131,7 +145,7 @@ class JobListViewController: UIViewController {
                         self.navigationController?.pushViewController(jobdetailvc, animated: true)
                     }
                 }
-            }
+            }s
         }
         self.navigationController?.pushViewController(fliter, animated: true)*/
         let alertController = UIAlertController(title:"Log out", message: "Are you sure you want to logout?", preferredStyle: .alert)
