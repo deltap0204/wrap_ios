@@ -34,11 +34,8 @@ class PhotosViewController: UIViewController {
         collectionView.delegate = self
 //        collectionView.dataSource = self
         refreshControl.addTarget(self, action: #selector(loadDate(_:)), for: .valueChanged)
-        //collectionView.refreshControl = refreshControl
+        collectionView.refreshControl = refreshControl
         bindViewModel()
-//        viewModel.showLoader
-//        .bind(to: refreshControl.rx.isRefreshing)
-//        .disposed(by: disposeBag)
     }
     
     override func viewDidLayoutSubviews() {
@@ -57,7 +54,6 @@ class PhotosViewController: UIViewController {
     }
     
     func bindViewModel() {
-        
         viewModel.photos.bind(to: collectionView.rx.items(cellIdentifier: cellIdentifier)) { (index, photo, cell) in
             
             if let cell = cell as? PictureCell {
@@ -65,6 +61,10 @@ class PhotosViewController: UIViewController {
                 cell.picture.kf.setImage(with: provider)
             }
         }.disposed(by: disposeBag)
+        
+        viewModel.showLoader
+        .bind(to: refreshControl.rx.isRefreshing)
+        .disposed(by: disposeBag)
     }
     
     @IBAction func takePicture(_ sender: Any) {
@@ -82,7 +82,8 @@ class PhotosViewController: UIViewController {
     
     @objc func loadDate(_ sender: Any) {
         viewModel.fetchIssue(issueId: viewModel.issue.id ?? "") { (newIssue) in
-            
+            self.viewModel.issue = newIssue
+            self.collectionView.reloadData()
         }
     }
     

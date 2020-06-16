@@ -20,14 +20,14 @@ class PhotosViewModel {
     
     var photos: BehaviorSubject<[Photo]>!
     
-    let issue: Issue
-    
+    var issue: Issue
+    let showLoader: BehaviorSubject<Bool>
     var attachmentService: AttachmentService!
     let client = APIClient()
     
     init(issue: Issue) {
         self.issue = issue
-        
+        showLoader = .init(value: false)
         let photos = issue.fields?.attachment?.map({ self.photo(from: $0) }) ?? []
         self.photos = .init(value: photos)
     }
@@ -49,11 +49,10 @@ class PhotosViewModel {
     }
     
     func fetchIssue(issueId: String, completion: @escaping (Issue) -> Void) {
-        let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/issue/\(issueId)"
-        client.get(url: url, params: [:], completion: { (result) in
-            let object = try! JSONDecoder().decode(Issue.self, from: result as! Data)
-            print("object \(object)")
-            completion(object)
+        showLoader.onNext(true)
+        IssueService().fetchIssue(issueId: issueId, completion: { newIssue in
+            self.showLoader.onNext(false)
+            completion(newIssue)
         })
     }
 }
