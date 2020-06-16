@@ -52,7 +52,36 @@ class JobListViewController: UIViewController {
         
         datePickerContainer.isHidden = true
         
+        
+        self.setSwipeGesture()
         bindViewModel()
+    }
+    
+    
+    func setSwipeGesture(){
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+               swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+               self.tableView.addGestureRecognizer(swipeRight)
+
+               let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+               swipeDown.direction = UISwipeGestureRecognizer.Direction.left
+               self.tableView.addGestureRecognizer(swipeDown)
+    }
+    
+     @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case .right:
+                print("Swiped right")
+                viewModel.loadPrevDate()
+            case .left:
+                print("Swiped left")
+                viewModel.loadNextDate()
+                
+            default:
+                break
+            }
+        }
     }
     
     @IBAction func loadPrevious(_ sender: Any) {

@@ -33,8 +33,6 @@ class JobViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         title = viewModel.title
         contact.text = viewModel.contact
         location.text = viewModel.address

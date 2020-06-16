@@ -23,7 +23,7 @@ class PhotosViewController: UIViewController {
     
     var viewModel: PhotosViewModel!
     var imagePicker: UIImagePickerController!
-    
+    let refreshControl = UIRefreshControl()
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -33,9 +33,12 @@ class PhotosViewController: UIViewController {
         
         collectionView.delegate = self
 //        collectionView.dataSource = self
-        
+        refreshControl.addTarget(self, action: #selector(loadDate(_:)), for: .valueChanged)
+        //collectionView.refreshControl = refreshControl
         bindViewModel()
-        
+//        viewModel.showLoader
+//        .bind(to: refreshControl.rx.isRefreshing)
+//        .disposed(by: disposeBag)
     }
     
     override func viewDidLayoutSubviews() {
@@ -77,17 +80,12 @@ class PhotosViewController: UIViewController {
         present(imagePicker, animated: true, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func loadDate(_ sender: Any) {
+        viewModel.fetchIssue(issueId: viewModel.issue.id ?? "") { (newIssue) in
+            
+        }
     }
-    */
-
+    
 }
 
 extension PhotosViewController: UICollectionViewDelegate {

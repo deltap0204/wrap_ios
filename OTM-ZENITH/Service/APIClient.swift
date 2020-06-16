@@ -16,9 +16,11 @@ class APIClient {
     static let webClient = WebClient()
     
     static let oauthClient: OAuth2Swift = {
-        let key = "Fx6m0ehw9MFkS2LfyDH13kfif4JrDU5L" // otm-zenith
-        let secret = "QNwgGZQyKQKDHoJlquWVMi-CIND7YsFySAJRdQ2kxooxKQ_-f-sfj1Jh9euRon_Y" // otm-zenith
+//        let key = "Fx6m0ehw9MFkS2LfyDH13kfif4JrDU5L" // otm-zenith
+//        let secret = "QNwgGZQyKQKDHoJlquWVMi-CIND7YsFySAJRdQ2kxooxKQ_-f-sfj1Jh9euRon_Y" // otm-zenith
+        let key = "4RpYG2Ui8KYCXZMgtZ85d7OU7Wvu3ENi" // OTM-Zenith Wrapping
         
+        let secret = "VSO2E--XB4w85kDowFyR6BP51ekRH9YBnKlZ1onY00D3WyM-mDPC4TrMjHpXT9XY" // OTM-Zenith Wrapping
         //        let key = "UERRMTEy3A61QzXJ9O4gTLqRUc9eCJQK" // reallyram
         //        let secret = "yTZKz8Oy-QxinUGW8c6IGo6EaxC68AsWowIeFD_eAk3O84eTGTyN1pvYA68hrUrP" // reallyram
         

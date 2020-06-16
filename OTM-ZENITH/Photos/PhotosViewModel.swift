@@ -47,4 +47,13 @@ class PhotosViewModel {
             self?.photos.onNext(newPhotos!)
         }
     }
+    
+    func fetchIssue(issueId: String, completion: @escaping (Issue) -> Void) {
+        let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/issue/\(issueId)"
+        client.get(url: url, params: [:], completion: { (result) in
+            let object = try! JSONDecoder().decode(Issue.self, from: result as! Data)
+            print("object \(object)")
+            completion(object)
+        })
+    }
 }

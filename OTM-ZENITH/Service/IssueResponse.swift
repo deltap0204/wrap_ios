@@ -769,6 +769,13 @@ enum StatusName: String, Codable {
     case done = "Done"
     case inProgress = "In Progress"
     case toDo = "To Do"
+    case Terminé = "Terminé"
+    case Terminée = "Terminé(e)"
+    case aFaire = "À faire"
+    case aaFaire = "A faire"
+    case enCours = "En cours"
+    case problem = "Problem"
+    
 }
 
 // MARK: - StatusCategory

@@ -38,7 +38,14 @@ class IssueService {
         client.get(url: url,
                    params: params,
                    completion: { (result) in
-                    
+                    /*if let dt = result as? Data {
+                        let resURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("issue_response.txt")
+                        do {
+                            try dt.write(to: resURL)
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }*/
                     let object = try! JSONDecoder().decode(SearchIssueResponse.self, from: result as! Data)
                     
                     let issues = object.issues
@@ -69,6 +76,8 @@ class IssueService {
             id = 21
         case .done:
             id = 31
+        case .Terminé, .Terminée, .enCours, .aFaire, .aaFaire, .problem:
+            id = 41
         }
         
         let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/issue/\(issue.id!)/transitions"

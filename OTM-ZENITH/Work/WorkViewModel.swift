@@ -101,6 +101,14 @@ class WorkViewModel {
             state = "started"
         case .done:
             state = "completed"
+        case .Terminé, .Terminée:
+            state = "Terminé(e)"
+        case .aFaire, .aaFaire:
+            return "Á faire"
+        case .enCours:
+            return "En cours"
+        case .problem:
+            return "Problem"
         }
         
         let df = DateFormatter()
@@ -124,6 +132,14 @@ class WorkViewModel {
             state = "started"
         case .done:
             state = "stopped"
+        case .Terminé, .Terminée:
+            state = "Terminé(e)"
+        case .aFaire, .aaFaire:
+            return "Á faire"
+        case .enCours:
+            return "En cours"
+        case .problem:
+            return "Problem"
         }
         
         let df = DateFormatter()
