@@ -81,8 +81,12 @@ class IssueService {
         }
         
         let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/issue/\(issue.id!)/transitions"
-        
-        let params = ["transition": ["id": id]]
+        //let commentsCount = (issue.fields?.worklog?.comments ?? []).count
+        var googleMapURL = "https://www.google.com/maps/search/?api=1"
+        if let location = LocationService.location {
+            googleMapURL = "&query=\(location.latitude),\(location.longitude))"
+        }
+        let params: [String: [String: String]] = ["transition": ["id": "\(id)", "customfield_10132": googleMapURL]]
         
         let data = try? JSONEncoder().encode(params)
         
