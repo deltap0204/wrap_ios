@@ -96,7 +96,7 @@ class JobListViewModel {
                         client: $0.fields?.customfield10056 ?? "",
                         duedate: $0.fields?.duedate ?? "",
                         updated: $0.fields?.updated ?? "",
-                        statusColor: self?.color(for: $0.fields?.status?.name)
+                        statusColor: self?.color(for: $0.fields?.status?.statusCategory)
                     )
                 })
                 
@@ -107,9 +107,23 @@ class JobListViewModel {
         }
     }
     
-    func color(for status: StatusName?) -> String? {
+    func color(for status: StatusCategory?) -> String? {
         let color: String?
-        switch status {
+        switch status?.colorName {
+        case .green:
+            color = "statusDone"
+            break
+        case .blueGray:
+            color = "statusInProgress"
+            break
+        case .yellow:
+            color = "statusToDo"
+            break
+        default:
+            color = nil
+            break
+        }
+        /*switch status {
         case .done, .Terminé, .Terminée:
             color = "statusDone"
         case .inProgress, .enCours, .problem:
@@ -118,7 +132,7 @@ class JobListViewModel {
             color = "statusToDo"
         default:
             color = nil
-        }
+        }*/
         return color
     }
 }

@@ -34,9 +34,9 @@ class WorkViewModel {
         let status = issue.fields?.status?.name ?? .toDo
         enableStartJob = .init(value: status == .toDo)
         enableStopJob = .init(value: status == .inProgress)
-        enableCloseJob = .init(value: status != .done)
-        enableStartRoute = .init(value: status != .done)
-        enableStopRoute = .init(value: status != .done)
+        enableCloseJob = .init(value: !status.isDone)
+        enableStartRoute = .init(value: !status.isDone)
+        enableStopRoute = .init(value: !status.isDone)
         
         showLoader = .init(value: false)
         

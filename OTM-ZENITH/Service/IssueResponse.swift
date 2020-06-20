@@ -778,6 +778,10 @@ enum StatusName: String, Codable {
     case enCours = "En cours"
     case problem = "Problem"
     
+    var isDone: Bool {
+        return self == .done || self == .Terminé || self == .Terminée
+    }
+    
 }
 
 // MARK: - StatusCategory

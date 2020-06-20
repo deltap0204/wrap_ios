@@ -72,8 +72,7 @@ class PhotosViewController: UIViewController {
         imagePicker.delegate = self
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             imagePicker.sourceType = .camera
-        }
-        else {
+        } else {
             imagePicker.sourceType = .photoLibrary
         }
         imagePicker.allowsEditing = true
@@ -84,6 +83,20 @@ class PhotosViewController: UIViewController {
         viewModel.fetchIssue(issueId: viewModel.issue.id ?? "") { (newIssue) in
             self.viewModel.issue = newIssue
             self.collectionView.reloadData()
+        }
+    }
+    
+    //MARK: - Add image to Library
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            // we got back an error!
+            let ac = UIAlertController(title: "Save error", message: error.localizedDescription, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        } else {
+            let ac = UIAlertController(title: "Saved!", message: "Your altered image has been saved to your photos.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
         }
     }
     
@@ -109,10 +122,22 @@ extension PhotosViewController: UIImagePickerControllerDelegate, UINavigationCon
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        picker.dismiss(animated: true, completion: nil)
-        if let image = info[.editedImage] as? UIImage {
-            viewModel.upload(image: image)
-        }
+        picker.dismiss(animated: true, completion: {
+            guard let image = info[.editedImage] as? UIImage else { return }
+            
+            let alertController = UIAlertController(title: "Save in Gallery", message: "Do you want to save this photo to gallery and upload it later?", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "Upload Now", style: .default) { action in
+                self.viewModel.upload(image: image)
+            }
+            let noAction = UIAlertAction(title: "Upload Later", style: .default) { action in
+                alertController.dismiss(animated: true, completion: nil)
+                UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
+            }
+            alertController.addAction(noAction)
+            alertController.addAction(yesAction)
+            self.present(alertController, animated: true)
+        })
+        
     }
 }
 

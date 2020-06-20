@@ -637,17 +637,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = 4893W74YUR;
+				DEVELOPMENT_TEAM = 3949685KHL;
 				INFOPLIST_FILE = "OTM-ZENITH/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.reallyram.OTM-ZENITH1";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rajatmishra.EveryDay;
 				PRODUCT_NAME = "OTM-ZENITH iOS App";
+				PROVISIONING_PROFILE_SPECIFIER = EveryDay_Dev;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -657,17 +659,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = 4893W74YUR;
+				DEVELOPMENT_TEAM = 3949685KHL;
 				INFOPLIST_FILE = "OTM-ZENITH/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.reallyram.OTM-ZENITH1";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rajatmishra.EveryDay;
 				PRODUCT_NAME = "OTM-ZENITH iOS App";
+				PROVISIONING_PROFILE_SPECIFIER = EveryDay_Dev;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
