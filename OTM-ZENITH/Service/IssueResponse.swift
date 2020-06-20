@@ -405,6 +405,7 @@ enum MIMEType: String, Codable {
     case binaryOctetStream = "binary/octet-stream"
     case imageJPEG = "image/jpeg"
     case videoMp4 = "video/mp4"
+    case spreadsheet = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 }
 
 // MARK: - WorklogClass
@@ -506,6 +507,7 @@ enum FluffyType: String, Codable {
     case mediaGroup = "mediaGroup"
     case paragraph = "paragraph"
     case table = "table"
+    case orderedList = "orderedList"
 }
 
 enum BodyType: String, Codable {

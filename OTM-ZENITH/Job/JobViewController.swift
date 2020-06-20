@@ -22,6 +22,8 @@ class JobViewController: UIViewController {
     @IBOutlet var remarkContainer: UIView!
     @IBOutlet var photosContainer: UIView!
     @IBOutlet var locationTapGesture: UITapGestureRecognizer!
+    @IBOutlet var leftSwipeGesture: UISwipeGestureRecognizer!
+    @IBOutlet var rightSwipeGesture: UISwipeGestureRecognizer!
     @IBOutlet var contactTapGesture: UITapGestureRecognizer!
     
     var viewModel: JobViewModel!
@@ -49,28 +51,24 @@ class JobViewController: UIViewController {
     
     @IBAction func changeTab(_ sender: Any) {
         
-        detailContainer.isHidden = true
-        vehicleContainer.isHidden = true
-        workContainer.isHidden = true
-        remarkContainer.isHidden = true
-        photosContainer.isHidden = true
-    
-        switch tab.selectedSegmentIndex {
-        case 0:
-            detailContainer.isHidden = false
-        case 1:
-            vehicleContainer.isHidden = false
-        case 2:
-            workContainer.isHidden = false
-        case 3:
-            remarkContainer.isHidden = false
-        case 4:
-            photosContainer.isHidden = false
-        default:
-            detailContainer.isHidden = false
-        }
+        switchTab()
     }
     
+    @IBAction func swipeGestureHandler(_ sender: Any) {
+        guard let gesture = sender as? UISwipeGestureRecognizer else { return }
+        let newIndex = (tab.selectedSegmentIndex) + (gesture.direction == .right ? -1 : 1)
+        
+        if gesture.direction == .right {
+            if newIndex >= 0 {
+                tab.selectedSegmentIndex = newIndex
+            }
+        } else {
+            if newIndex <= tab.numberOfSegments {
+                tab.selectedSegmentIndex = newIndex
+            }
+        }
+        switchTab()
+    }
     @IBAction func navigate(_ sender: Any) {
         
         let latitude:CLLocationDegrees =  viewModel.latitude
@@ -96,6 +94,29 @@ class JobViewController: UIViewController {
     
     // MARK: - Navigation
 
+    private func switchTab() {
+        detailContainer.isHidden = true
+        vehicleContainer.isHidden = true
+        workContainer.isHidden = true
+        remarkContainer.isHidden = true
+        photosContainer.isHidden = true
+        
+        switch tab.selectedSegmentIndex {
+        case 0:
+            detailContainer.isHidden = false
+        case 1:
+            vehicleContainer.isHidden = false
+        case 2:
+            workContainer.isHidden = false
+        case 3:
+            remarkContainer.isHidden = false
+        case 4:
+            photosContainer.isHidden = false
+        default:
+            detailContainer.isHidden = false
+        }
+    }
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.

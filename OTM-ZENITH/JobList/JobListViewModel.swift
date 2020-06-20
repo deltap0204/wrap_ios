@@ -110,11 +110,11 @@ class JobListViewModel {
     func color(for status: StatusName?) -> String? {
         let color: String?
         switch status {
-        case .done:
+        case .done, .Terminé, .Terminée:
             color = "statusDone"
-        case .inProgress:
+        case .inProgress, .enCours, .problem:
             color = "statusInProgress"
-        case .toDo:
+        case .toDo, .aFaire, .aaFaire:
             color = "statusToDo"
         default:
             color = nil
