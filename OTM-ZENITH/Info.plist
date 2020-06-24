@@ -37,6 +37,8 @@
 	<string>This app will use camera.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Record routes and job locations</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Please allow access to save photo in your photo library</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>You can select photos to attach to jobs.</string>
 	<key>UIApplicationSceneManifest</key>
@@ -83,7 +85,5 @@
 	<string>Dark</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Please allow access to save photo in your photo library</string>
 </dict>
 </plist>
