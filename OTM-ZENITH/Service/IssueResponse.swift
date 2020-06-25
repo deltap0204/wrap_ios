@@ -755,7 +755,7 @@ struct Status: Codable {
     let statusSelf: String?
     let statusDescription: String?
     let iconURL: String?
-    let name: StatusName?
+    let name: String?
     let id: String?
     let statusCategory: StatusCategory?
 
@@ -769,30 +769,13 @@ struct Status: Codable {
     }
 }
 
-enum StatusName: String, Codable {
-    case done = "Done"
-    case inProgress = "In Progress"
-    case toDo = "To Do"
-    case Terminé = "Terminé"
-    case Terminée = "Terminé(e)"
-    case aFaire = "À faire"
-    case aaFaire = "A faire"
-    case enCours = "En cours"
-    case problem = "Problem"
-    
-    var isDone: Bool {
-        return self == .done || self == .Terminé || self == .Terminée
-    }
-    
-}
-
 // MARK: - StatusCategory
 struct StatusCategory: Codable {
     let statusCategorySelf: String?
-    let id: Int?
+    let id: StatusCategoryId?
     let key: StatusCategoryKey?
     let colorName: ColorName?
-    let name: StatusName?
+    let name: String?
 
     enum CodingKeys: String, CodingKey {
         case statusCategorySelf = "self"
@@ -801,6 +784,12 @@ struct StatusCategory: Codable {
         case colorName = "colorName"
         case name = "name"
     }
+}
+
+enum StatusCategoryId: Int, Codable {
+    case toDo = 2
+    case inProgress = 3
+    case done = 4
 }
 
 enum ColorName: String, Codable {

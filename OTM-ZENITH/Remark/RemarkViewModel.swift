@@ -43,7 +43,7 @@ class RemarkViewModel {
         
         showLoader = .init(value: false)
         
-        let status = issue.fields?.status?.name ?? StatusName.toDo
+        let status = issue.fields?.status?.statusCategory?.id ?? StatusCategoryId.toDo
         isEnabled = .init(value: status == .inProgress )
         
         washInstructions = .init(value: issue.fields?.customfield10080?.contains(where: { $0.id == "10116" }) ?? false)

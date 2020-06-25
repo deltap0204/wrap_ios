@@ -31,12 +31,12 @@ class WorkViewModel {
         
         self.service = IssueService()
         
-        let status = issue.fields?.status?.name ?? .toDo
+        let status = issue.fields?.status?.statusCategory?.id ?? .toDo
         enableStartJob = .init(value: status == .toDo)
         enableStopJob = .init(value: status == .inProgress)
-        enableCloseJob = .init(value: !status.isDone)
-        enableStartRoute = .init(value: !status.isDone)
-        enableStopRoute = .init(value: !status.isDone)
+        enableCloseJob = .init(value: status != .done)
+        enableStartRoute = .init(value: status != .done)
+        enableStopRoute = .init(value: status != .done)
         
         showLoader = .init(value: false)
         
@@ -90,7 +90,7 @@ class WorkViewModel {
         }
     }
     
-    func jobComment(for status: StatusName) -> String {
+    func jobComment(for status: StatusCategoryId) -> String {
 
         let state: String
         
@@ -101,14 +101,6 @@ class WorkViewModel {
             state = "started"
         case .done:
             state = "completed"
-        case .Terminé, .Terminée:
-            state = "Terminé(e)"
-        case .aFaire, .aaFaire:
-            return "Á faire"
-        case .enCours:
-            return "En cours"
-        case .problem:
-            return "Problem"
         }
         
         let df = DateFormatter()
@@ -121,7 +113,7 @@ class WorkViewModel {
         
     }
     
-    func routeComment(for status: StatusName) -> String {
+    func routeComment(for status: StatusCategoryId) -> String {
 
         let state: String
         
@@ -131,15 +123,7 @@ class WorkViewModel {
         case .inProgress:
             state = "started"
         case .done:
-            state = "stopped"
-        case .Terminé, .Terminée:
-            state = "Terminé(e)"
-        case .aFaire, .aaFaire:
-            return "Á faire"
-        case .enCours:
-            return "En cours"
-        case .problem:
-            return "Problem"
+            state = "completed"
         }
         
         let df = DateFormatter()

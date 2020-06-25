@@ -38,14 +38,15 @@ class IssueService {
         client.get(url: url,
                    params: params,
                    completion: { (result) in
-                    /*if let dt = result as? Data {
+                    if let dt = result as? Data {
                         let resURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("issue_response.txt")
                         do {
                             try dt.write(to: resURL)
+                            print(resURL.path)
                         } catch {
                             print(error.localizedDescription)
                         }
-                    }*/
+                    }
                     let object = try! JSONDecoder().decode(SearchIssueResponse.self, from: result as! Data)
                     
                     let issues = object.issues
@@ -65,16 +66,16 @@ class IssueService {
         })
     }
     
-    func update(status: StatusName, issue: Issue, comment: String, completion: @escaping () -> Void) {
+    func update(status: StatusCategoryId, issue: Issue, comment: String, completion: @escaping () -> Void) {
         
         let id: Int
         
         switch status {
-        case .toDo, .aFaire, .aaFaire:
+        case .toDo:
             id = 11
-        case .inProgress, .enCours, .problem:
+        case .inProgress:
             id = 21
-        case .done, .Terminé, .Terminée:
+        case .done:
             id = 31
         }
         
