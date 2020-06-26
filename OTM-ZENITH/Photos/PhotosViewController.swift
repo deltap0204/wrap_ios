@@ -70,13 +70,21 @@ class PhotosViewController: UIViewController {
     @IBAction func takePicture(_ sender: Any) {
         imagePicker = .init()
         imagePicker.delegate = self
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            imagePicker.sourceType = .camera
-        } else {
-            imagePicker.sourceType = .photoLibrary
-        }
         imagePicker.allowsEditing = true
-        present(imagePicker, animated: true, completion: nil)
+        let alertController = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
+        let camAction = UIAlertAction(title: "Take Photo", style: .default) { (_) in
+            self.imagePicker.sourceType = .camera
+            self.present(self.imagePicker, animated: true, completion: nil)
+        }
+        let galleryAction = UIAlertAction(title: "Gallery", style: .default) { (_) in
+            self.imagePicker.sourceType = .photoLibrary
+            self.present(self.imagePicker, animated: true, completion: nil)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(camAction)
+        alertController.addAction(galleryAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
     
     @objc func loadDate(_ sender: Any) {
