@@ -58,6 +58,8 @@
 		6AEF136423ED70080040B4BB /* QRCode_ScanBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEF136023ED70080040B4BB /* QRCode_ScanBox.png */; };
 		6AEF136523ED70080040B4BB /* SwiftQRCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEF136123ED70080040B4BB /* SwiftQRCodeVC.swift */; };
 		6AEF136723ED707C0040B4BB /* ScanCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEF136623ED707C0040B4BB /* ScanCodeViewController.swift */; };
+		C34CB30824DB218C00B8D4D4 /* PhotoVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34CB30724DB218C00B8D4D4 /* PhotoVController.swift */; };
+		C34CB30A24DB21ED00B8D4D4 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34CB30924DB21ED00B8D4D4 /* UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +122,8 @@
 		6AEF136023ED70080040B4BB /* QRCode_ScanBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QRCode_ScanBox.png; sourceTree = "<group>"; };
 		6AEF136123ED70080040B4BB /* SwiftQRCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftQRCodeVC.swift; sourceTree = "<group>"; };
 		6AEF136623ED707C0040B4BB /* ScanCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanCodeViewController.swift; sourceTree = "<group>"; };
+		C34CB30724DB218C00B8D4D4 /* PhotoVController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoVController.swift; sourceTree = "<group>"; };
+		C34CB30924DB21ED00B8D4D4 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +259,8 @@
 			children = (
 				21C8681623ADF07C00500744 /* Job.storyboard */,
 				21C8681823ADF66000500744 /* JobViewController.swift */,
+				C34CB30724DB218C00B8D4D4 /* PhotoVController.swift */,
+				C34CB30924DB21ED00B8D4D4 /* UIImage.swift */,
 				21C8681C23AE113F00500744 /* JobViewModel.swift */,
 			);
 			path = Job;
@@ -459,6 +465,7 @@
 				2137531A23B6ED3E006F6BDE /* RemarkViewModel.swift in Sources */,
 				6AEF136523ED70080040B4BB /* SwiftQRCodeVC.swift in Sources */,
 				21C8682523AE288200500744 /* PictureCell.swift in Sources */,
+				C34CB30A24DB21ED00B8D4D4 /* UIImage.swift in Sources */,
 				21BA74AE23AC0CF500EAB10B /* AppDelegate.swift in Sources */,
 				21631D5223B6B71C0079D333 /* WorkViewModel.swift in Sources */,
 				2113569B23AD1A9900738239 /* JobListViewModel.swift in Sources */,
@@ -469,6 +476,7 @@
 				21BA74B023AC0CF500EAB10B /* SceneDelegate.swift in Sources */,
 				2138FE2923AC36D1005FE09D /* APIClient.swift in Sources */,
 				212AA19D23AFB8B700A10B11 /* JIRAImageProvider.swift in Sources */,
+				C34CB30824DB218C00B8D4D4 /* PhotoVController.swift in Sources */,
 				2195796823DB96130039C583 /* UIViewController+Alert.swift in Sources */,
 				2113569623AD018100738239 /* JobListViewController.swift in Sources */,
 				21C8681B23AE101F00500744 /* DetailsViewController.swift in Sources */,

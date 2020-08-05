@@ -47,6 +47,7 @@ class IssueService {
                             print(error.localizedDescription)
                         }
                     }
+                    let str = String(decoding: result as! Data, as: UTF8.self)
                     let object = try! JSONDecoder().decode(SearchIssueResponse.self, from: result as! Data)
                     
                     let issues = object.issues

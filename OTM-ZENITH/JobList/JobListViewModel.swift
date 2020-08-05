@@ -114,10 +114,10 @@ class JobListViewModel {
             color = "statusDone"
             break
         case .blueGray:
-            color = "statusInProgress"
+            color = "statusToDo"
             break
         case .yellow:
-            color = "statusToDo"
+            color = "statusProblem"
             break
         default:
             color = nil

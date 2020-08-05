@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/tid-kijyun/Kanna.git",
         "state": {
           "branch": null,
-          "revision": "9b8f73f8c8e145dc496565bbf878a709793e7ba3",
-          "version": "5.0.0"
+          "revision": "609367a2cd84827a33383cf7923cb4fe8f69ee0a",
+          "version": "5.2.2"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/onevcat/Kingfisher.git",
         "state": {
           "branch": null,
-          "revision": "2f9d171f17869768f6dbec1d039b851e2503af35",
-          "version": "5.12.0"
+          "revision": "1339ebea9498ef6c3fc75cc195d7163d7c7167f9",
+          "version": "5.14.1"
         }
       },
       {
@@ -60,8 +60,8 @@
         "repositoryURL": "https://github.com/OAuthSwift/OAuthSwift.git",
         "state": {
           "branch": null,
-          "revision": "2e75d626532c2c6373e603312c0f1207e7e778ea",
-          "version": "2.1.0"
+          "revision": "fde77955e6983fbfaabd491709d52b8a82fda4d0",
+          "version": "2.1.2"
         }
       },
       {
@@ -78,8 +78,8 @@
         "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
         "state": {
           "branch": null,
-          "revision": "b3e888b4972d9bc76495dd74d30a8c7fad4b9395",
-          "version": "5.0.1"
+          "revision": "002d325b0bdee94e7882e1114af5ff4fe1e96afa",
+          "version": "5.1.1"
         }
       },
       {

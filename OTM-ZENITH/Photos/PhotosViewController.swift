@@ -115,7 +115,7 @@ extension PhotosViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! PictureCell
         
-        let viewController = DTPhotoViewerController(referencedView: cell.picture, image: cell.picture.image)
+        let viewController = PhotoVController(referencedView: cell.picture, image: cell.picture.image)
         viewController.dataSource = self
         present(viewController, animated: true)
         DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
