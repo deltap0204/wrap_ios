@@ -31,7 +31,7 @@ class JobListViewModel {
             let df = DateFormatter()
             df.dateStyle = .long
             let title = df.string(from: date)
-            self.title.onNext(title)
+           // self.title.onNext(title)
         }
     }
     
@@ -56,25 +56,30 @@ class JobListViewModel {
         hasJobs = BehaviorSubject(value: true)
         
         showLoader = BehaviorSubject(value: false)
-        fetchIssues()
+        fetchIssues(searchString: "")
     }
     
-    func loadNextDate() {
+    func loadNextDate(searchStr:String) {
         date.addTimeInterval(secondsInDay)
-        fetchIssues()
+        fetchIssues(searchString: searchStr)
     }
     
-    func loadPrevDate() {
+    func loadPrevDate(searchStr:String) {
         date.addTimeInterval(-secondsInDay)
-        fetchIssues()
+        fetchIssues(searchString: searchStr)
     }
     
-    func loadDate(date: Date) {
+    func loadFilterData(searchStr:String) {
+        fetchIssues(searchString: searchStr)
+    }
+    
+    func loadDate(date: Date,searchStr:String) {
         self.date = date
-        fetchIssues()
+        self.title.onNext("")
+        fetchIssues(searchString:searchStr)
     }
     
-    func fetchIssues() {
+    func fetchIssues(searchString:String) {
         
         jobs.onNext([])
         showLoader.onNext(true)
@@ -85,8 +90,20 @@ class JobListViewModel {
             self?.showLoader.onNext(false)
             
             if let issues = result {
+                
+                
+                let df = DateFormatter()
+                df.dateStyle = .long
+                let title = df.string(from: self?.date ?? Date())
+                self?.title.onNext(title)
                 self?.issues = issues
-                let jobs = issues.map({
+                var issueList = issues;
+                if(searchString != ""){
+                    issueList = issues.filter { ($0.key ?? "").starts(with: searchString)}
+                }
+                
+                self?.issues =  issueList
+                let jobs = issueList.map({
                     
                     Job(
                         id: $0.id ?? "",

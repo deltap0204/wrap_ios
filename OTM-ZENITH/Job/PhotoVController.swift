@@ -2,7 +2,7 @@
 //  SimplePhotoViewerController.swift
 //  DTPhotoViewerController
 //
-//  Created by Freddy Mendez on 01/10/16.
+//  Created by Admin on 01/10/16.
 //  Copyright © 2016 Vo Duc Tung. All rights reserved.
 //
 

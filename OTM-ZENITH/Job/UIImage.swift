@@ -2,7 +2,7 @@
 //  UIImage.swift
 //  DTPhotoViewerController
 //
-//  Created by Freddy Mendez on 18/01/2017.
+//  Created by Admin on 18/01/2017.
 //  Copyright © 2017 CocoaPods. All rights reserved.
 //
 

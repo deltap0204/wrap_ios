@@ -12,11 +12,15 @@ import RxCocoa
 import WebKit
 import Prephirences
 
-class JobListViewController: UIViewController {
+class JobListViewController: UIViewController,UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterSearchController(self.searchController.searchBar)
+    }
+    
     
     let cellIdentifier = "JobCell"
     var viewModel: JobListViewModel!
-    
+    fileprivate let searchController = UISearchController(searchResultsController: nil)
     @IBOutlet var dateButton: UIButton!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var tableView: UITableView!
@@ -39,9 +43,16 @@ class JobListViewController: UIViewController {
         super.viewDidLoad()
         
         
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.showsScopeBar = true
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
         viewModel = JobListViewModel(service: IssueService())
         
-        titleLabel.text = "Jobs"
+       // titleLabel.text = "Jobs"
         datePicker.date = viewModel.date
         
         tableView.delegate = nil
@@ -73,10 +84,10 @@ class JobListViewController: UIViewController {
             switch swipeGesture.direction {
             case .right:
                 print("Swiped right")
-                viewModel.loadPrevDate()
+                viewModel.loadPrevDate(searchStr: self.searchController.searchBar.text ?? "")
             case .left:
                 print("Swiped left")
-                viewModel.loadNextDate()
+                viewModel.loadNextDate(searchStr: self.searchController.searchBar.text ?? "")
                 
             default:
                 break
@@ -84,16 +95,29 @@ class JobListViewController: UIViewController {
         }
     }
     
+    func filterSearchController(_ searchBar: UISearchBar) {
+        viewModel.loadFilterData(searchStr: searchBar.text ?? "")
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+       
+    }
+    
     @IBAction func loadPrevious(_ sender: Any) {
-        viewModel.loadPrevDate()
+        viewModel.loadPrevDate(searchStr: self.searchController.searchBar.text ?? "")
     }
     
     @IBAction func loadNext(_ sender: Any) {
-        viewModel.loadNextDate()
+        viewModel.loadNextDate(searchStr: self.searchController.searchBar.text ?? "")
     }
     
     @IBAction func loadDate(_ sender: Any) {
-        viewModel.loadDate(date: datePicker.date)
+       
+       
+       
+        
+        datePicker.date = viewModel.date
+        viewModel.loadDate(date: datePicker.date,searchStr: self.searchController.searchBar.text ?? "" )
         
         hideDatePicker()
     }
