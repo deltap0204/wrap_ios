@@ -84,9 +84,9 @@ class IssueService {
         //let commentsCount = (issue.fields?.worklog?.comments ?? []).count
         var googleMapURL = "https://www.google.com/maps/search/?api=1"
         if let location = LocationService.location {
-            googleMapURL = "&query=\(location.latitude),\(location.longitude))"
+            googleMapURL = googleMapURL + "&query=\(location.latitude),\(location.longitude))"
         }
-        let params: [String: [String: String]] = ["transition": ["id": "\(id)", "customfield_10132": googleMapURL]]
+        let params: [String: [String: String]] = ["transition": ["id": "\(id)"],"fields":["customfield_10132": googleMapURL]]
         
         let data = try? JSONEncoder().encode(params)
         

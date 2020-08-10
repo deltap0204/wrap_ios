@@ -109,7 +109,12 @@ class WorkViewModel {
         
         let cordinates = cordinateString()
         
-        return "I \(state) the job at \(time) with geo-coordinates : \(cordinates)"
+        var googleMapURL = "https://www.google.com/maps/search/?api=1"
+        if let location = LocationService.location {
+                   googleMapURL = googleMapURL + "&query=\(location.latitude),\(location.longitude)"
+        }
+        
+        return "I \(state) the job at \(time) with geo-coordinates : \(googleMapURL)"
         
     }
     
