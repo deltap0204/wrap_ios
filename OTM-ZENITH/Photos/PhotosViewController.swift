@@ -84,7 +84,18 @@ class PhotosViewController: UIViewController {
         alertController.addAction(camAction)
         alertController.addAction(galleryAction)
         alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
+        if ( UI_USER_INTERFACE_IDIOM() == .pad ){
+
+            if let currentPopoverpresentioncontroller = alertController.popoverPresentationController{
+                currentPopoverpresentioncontroller.permittedArrowDirections = []
+                currentPopoverpresentioncontroller.sourceRect = CGRect(x: (self.view.bounds.midX), y: (self.view.bounds.midY), width: 0, height: 0)
+                currentPopoverpresentioncontroller.sourceView = self.view
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }else{
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
     }
     
     @objc func loadDate(_ sender: Any) {
