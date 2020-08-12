@@ -86,8 +86,10 @@ class IssueService {
         if let location = LocationService.location {
             googleMapURL = googleMapURL + "&query=\(location.latitude),\(location.longitude))"
         }
-        let params: [String: [String: String]] = ["transition": ["id": "\(id)"],"fields":["customfield_10132": googleMapURL]]
+        let params: [String: [String: String]] = ["transition": ["id": "\(id)", "customfield_10132": googleMapURL]]
         
+        //let params: [String: [String: String]] = ["transition": ["id": "\(id)"],"fields":["customfield_10132": googleMapURL]]
+           
         let data = try? JSONEncoder().encode(params)
         
         client.post(url: url,
