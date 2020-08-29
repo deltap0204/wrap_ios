@@ -1,0 +1,6 @@
+framework module Pods_OTM_ZENITHTests {
+  umbrella header "Pods-OTM-ZENITHTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

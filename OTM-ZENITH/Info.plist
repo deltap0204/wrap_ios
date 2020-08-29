@@ -34,7 +34,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>This app will use camera.</string>
+	<string>You can select photos to attach to jobs.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Record routes and job locations</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
