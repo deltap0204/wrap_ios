@@ -117,7 +117,7 @@ class APIClient {
     func put(url: String,
              params: [String: Any]?,
              completion: @escaping (Any?)-> Void) {
-        APIClient.oauthClient.startAuthorizedRequest(url, method: .PUT, parameters: params!) { (result) in
+        APIClient.oauthClient.startAuthorizedRequest(url, method: .PUT, parameters: params!,headers: ["Content-Type":"application/json"]) { (result) in
             switch result {
             case .success(let response):
                 debugPrint(response)

@@ -8,6 +8,24 @@
 
 import Foundation
 
+func stringify(json: Any, prettyPrinted: Bool = false) -> String {
+    var options: JSONSerialization.WritingOptions = []
+    if prettyPrinted {
+      options = JSONSerialization.WritingOptions.prettyPrinted
+    }
+
+    do {
+      let data = try JSONSerialization.data(withJSONObject: json, options: options)
+      if let string = String(data: data, encoding: String.Encoding.utf8) {
+        return string
+      }
+    } catch {
+      print(error)
+    }
+
+    return ""
+}
+
 class IssueService {
     
     var client: APIClient
@@ -83,25 +101,29 @@ class IssueService {
         let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/issue/\(issue.id!)/transitions"
         //let commentsCount = (issue.fields?.worklog?.comments ?? []).count
         var googleMapURL = "https://www.google.com/maps/search/?api=1"
+        var locationString = ""
         if let location = LocationService.location {
             googleMapURL = googleMapURL + "&query=\(location.latitude),\(location.longitude))"
+            locationString = "\(location.latitude),\(location.longitude)"
+            
         }
-        let params: [String: [String: String]] = ["transition": ["id": "\(id)", "customfield_10132": googleMapURL]]
+        let params: [String: Any] = ["transition": ["id": "\(id)"]]
         
         //let params: [String: [String: String]] = ["transition": ["id": "\(id)"],"fields":["customfield_10132": googleMapURL]]
            
-        let data = try? JSONEncoder().encode(params)
-        
-        client.post(url: url,
-                   data: data!,
-                   completion: { (result) in
-                    
+        let data: Data? = try? JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+        self.updateMetaData(googleURL:googleMapURL,location:locationString,issue: issue) {
+            self.client.post(url: url,
+                              data: data!,
+                              completion: { (result) in
+                                   self.add(comment: comment, issue: issue) {
 
-                    self.add(comment: comment, issue: issue) {
-                        
-                        completion()
-                    }
-        })
+                                       completion()
+                                   }
+                   })
+        }
+        
+       
         
         
     }
@@ -133,5 +155,19 @@ class IssueService {
                     
                     completion()
         })
+    }
+    
+    func updateMetaData( googleURL:String,location:String,issue: Issue, completion: @escaping () -> Void) {
+        
+              let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/2/issue/\(issue.key!)"
+              let params = ["fields":["customfield_10132":googleURL]]
+              let data: Data? = try? JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+              client.put(url: url,
+                         params: params,
+                           completion: { (result) in
+                        completion()
+                            
+                })
+              
     }
 }
