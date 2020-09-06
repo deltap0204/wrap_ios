@@ -103,7 +103,8 @@ class IssueService {
         var googleMapURL = "https://www.google.com/maps/search/?api=1"
         var locationString = ""
         if let location = LocationService.location {
-            googleMapURL = googleMapURL + "&query=\(location.latitude),\(location.longitude))"
+            googleMapURL = "https://www.google.com/maps/embed/v1/view?key=AIzaSyAQ9y8k71ddIOpT1pf1AcHZ0ahAvzqAKcA&center=\(location.latitude),\(location.longitude)&zoom=18"
+                //googleMapURL = googleMapURL + "&query=\(location.latitude),\(location.longitude))"
             locationString = "\(location.latitude),\(location.longitude)"
             
         }

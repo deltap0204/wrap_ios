@@ -55,12 +55,12 @@ class RemarkViewModel {
         redWhiteNotMounted = .init(value: issue.fields?.customfield10128?.contains(where: { $0.id == "10235" }) ?? false)
         GPSnotCorrect = .init(value: issue.fields?.customfield10128?.contains(where: { $0.id == "10236" }) ?? false)
 
-        plateHolder = .init(value: issue.fields?.customfield10105?.contains(where: { $0.id == "10145" }) ?? false)
-        interventionOfCarglass = .init(value: issue.fields?.customfield10105?.contains(where: { $0.id == "10146" }) ?? false)
-        interventionOfTiers = .init(value: issue.fields?.customfield10105?.contains(where: { $0.id == "10146" }) ?? false)
-        onlyRemoveTheLogo = .init(value: issue.fields?.customfield10105?.contains(where: { $0.id == "10146" }) ?? false)
-        removeMoreThanLogo = .init(value: issue.fields?.customfield10105?.contains(where: { $0.id == "10146" }) ?? false)
-        carPainted = .init(value: issue.fields?.customfield10105?.contains(where: { $0.id == "10331" }) ?? false)
+        plateHolder = .init(value: issue.fields?.customfield10105?.contains(where: { $0.id == "10329" }) ?? false)
+        interventionOfCarglass = .init(value: issue.fields?.customfield10105?.contains(where: { $0.id == "10364" }) ?? false)
+        interventionOfTiers = .init(value: issue.fields?.customfield10105?.contains(where: { $0.id == "10365" }) ?? false)
+        onlyRemoveTheLogo = .init(value: issue.fields?.customfield10105?.contains(where: { $0.id == "10366" }) ?? false)
+        removeMoreThanLogo = .init(value: issue.fields?.customfield10105?.contains(where: { $0.id == "10367" }) ?? false)
+        carPainted = .init(value: issue.fields?.customfield10105?.contains(where: { $0.id == "10368" }) ?? false)
         
         infrabelContainer = .init(value: (issue.fields?.customfield10128 == nil))
         fluviusContainer = .init(value: (issue.fields?.customfield10105 == nil))
