@@ -54,7 +54,7 @@ extension LocationService: CLLocationManagerDelegate {
         
         LocationService.location = locValue
         
-        locationManager.stopUpdatingLocation()
+     //   locationManager.stopUpdatingLocation()
         
         completion?(locValue)
         

@@ -85,6 +85,7 @@ class WorkViewModel {
     
     func stopRoute() {
         showLoader.onNext(true)
+        
         service.add(comment: routeComment(for: .done), issue: issue) {
             self.showLoader.onNext(false)
         }

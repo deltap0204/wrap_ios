@@ -1,26 +1,31 @@
 {
   "images" : [
     {
+      "filename" : "Webp.net-resizeimage 120-2.jpg",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
+      "filename" : "Webp.net-resizeimage 120-3.jpg",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
     },
     {
+      "filename" : "Webp.net-resizeimage 152.jpg",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
+      "filename" : "Webp.net-resizeimage 167.jpg",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
+      "filename" : "Untitled.jpg",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
@@ -44,49 +49,55 @@
       "size" : "60x60"
     },
     {
+      "filename" : "Webp.net-resizeimage 76-1.jpg",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "20x20"
-    },
-    {
-      "idiom" : "ipad",
-      "scale" : "2x",
-      "size" : "20x20"
-    },
-    {
-      "idiom" : "ipad",
-      "scale" : "1x",
-      "size" : "29x29"
-    },
-    {
-      "idiom" : "ipad",
-      "scale" : "2x",
-      "size" : "29x29"
-    },
-    {
-      "idiom" : "ipad",
-      "scale" : "1x",
-      "size" : "40x40"
-    },
-    {
-      "idiom" : "ipad",
-      "scale" : "2x",
-      "size" : "40x40"
     },
     {
       "filename" : "Webp.net-resizeimage 76.jpg",
       "idiom" : "ipad",
+      "scale" : "2x",
+      "size" : "20x20"
+    },
+    {
+      "filename" : "Webp.net-resizeimage 120-5.jpg",
+      "idiom" : "ipad",
+      "scale" : "1x",
+      "size" : "29x29"
+    },
+    {
+      "filename" : "Webp.net-resizeimage 120-4.jpg",
+      "idiom" : "ipad",
+      "scale" : "2x",
+      "size" : "29x29"
+    },
+    {
+      "filename" : "Webp.net-resizeimage 180-5.jpg",
+      "idiom" : "ipad",
+      "scale" : "1x",
+      "size" : "40x40"
+    },
+    {
+      "filename" : "Webp.net-resizeimage 180-3.jpg",
+      "idiom" : "ipad",
+      "scale" : "2x",
+      "size" : "40x40"
+    },
+    {
+      "filename" : "Webp.net-resizeimage 180-4.jpg",
+      "idiom" : "ipad",
       "scale" : "1x",
       "size" : "76x76"
     },
     {
-      "filename" : "Webp.net-resizeimage 152.jpg",
+      "filename" : "Webp.net-resizeimage 180-2.jpg",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
     },
     {
-      "filename" : "Webp.net-resizeimage 167.jpg",
+      "filename" : "Webp.net-resizeimage 180-1.jpg",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "83.5x83.5"

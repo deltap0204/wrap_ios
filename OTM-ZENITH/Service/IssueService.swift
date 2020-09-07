@@ -113,7 +113,7 @@ class IssueService {
         //let params: [String: [String: String]] = ["transition": ["id": "\(id)"],"fields":["customfield_10132": googleMapURL]]
            
         let data: Data? = try? JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
-        self.updateMetaData(googleURL:googleMapURL,location:locationString,issue: issue) {
+        
             self.client.post(url: url,
                               data: data!,
                               completion: { (result) in
@@ -125,9 +125,7 @@ class IssueService {
         }
         
        
-        
-        
-    }
+
     
     func add(comment: String, issue: Issue, completion: @escaping () -> Void) {
         
@@ -153,8 +151,19 @@ class IssueService {
         client.post(url: url,
                    data: data!,
                    completion: { (result) in
+                    var googleMapURL = "https://www.google.com/maps/search/?api=1"
+                    var locationString = ""
+                    if let location = LocationService.location {
+                        googleMapURL = "https://www.google.com/maps/embed/v1/view?key=AIzaSyAQ9y8k71ddIOpT1pf1AcHZ0ahAvzqAKcA&center=\(location.latitude),\(location.longitude)&zoom=18"
+                            //googleMapURL = googleMapURL + "&query=\(location.latitude),\(location.longitude))"
+                        locationString = "\(location.latitude),\(location.longitude)"
+                        
+                    }
+                    self.updateMetaData(googleURL:googleMapURL,location:locationString,issue: issue) {
+                        completion()
+                    }
                     
-                    completion()
+                    
         })
     }
     
