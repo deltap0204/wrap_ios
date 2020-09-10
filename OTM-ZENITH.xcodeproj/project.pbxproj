@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E145AE219C40A7212BA1846 /* Pods_OTM_ZENITHTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F36326B986AEB469DDB067E8 /* Pods_OTM_ZENITHTests.framework */; };
 		2113568F23ACF58700738239 /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2113568E23ACF58700738239 /* OAuthSwift */; };
 		2113569123ACFA4500738239 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2113569023ACFA4500738239 /* WebViewController.swift */; };
 		2113569423AD014600738239 /* JobList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2113569323AD014600738239 /* JobList.storyboard */; };
@@ -59,7 +58,6 @@
 		6AEF136423ED70080040B4BB /* QRCode_ScanBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEF136023ED70080040B4BB /* QRCode_ScanBox.png */; };
 		6AEF136523ED70080040B4BB /* SwiftQRCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEF136123ED70080040B4BB /* SwiftQRCodeVC.swift */; };
 		6AEF136723ED707C0040B4BB /* ScanCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEF136623ED707C0040B4BB /* ScanCodeViewController.swift */; };
-		811589E007B0A54CA3BCC999 /* Pods_OTM_ZENITH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0189B5566844F5D112D0BDE4 /* Pods_OTM_ZENITH.framework */; };
 		C34CB30824DB218C00B8D4D4 /* PhotoVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34CB30724DB218C00B8D4D4 /* PhotoVController.swift */; };
 		C34CB30A24DB21ED00B8D4D4 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34CB30924DB21ED00B8D4D4 /* UIImage.swift */; };
 		C3B6FBBB24E3FADE0014B3B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3B6FBBA24E3FADE0014B3B0 /* GoogleService-Info.plist */; };
@@ -76,8 +74,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0189B5566844F5D112D0BDE4 /* Pods_OTM_ZENITH.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OTM_ZENITH.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0972A55B7A3BB630D6C07F8A /* Pods-OTM-ZENITH.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OTM-ZENITH.debug.xcconfig"; path = "Target Support Files/Pods-OTM-ZENITH/Pods-OTM-ZENITH.debug.xcconfig"; sourceTree = "<group>"; };
 		2113569023ACFA4500738239 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		2113569323AD014600738239 /* JobList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JobList.storyboard; sourceTree = "<group>"; };
 		2113569523AD018100738239 /* JobListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewController.swift; sourceTree = "<group>"; };
@@ -127,13 +123,9 @@
 		6AEF136023ED70080040B4BB /* QRCode_ScanBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QRCode_ScanBox.png; sourceTree = "<group>"; };
 		6AEF136123ED70080040B4BB /* SwiftQRCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftQRCodeVC.swift; sourceTree = "<group>"; };
 		6AEF136623ED707C0040B4BB /* ScanCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanCodeViewController.swift; sourceTree = "<group>"; };
-		AE0FE3EEE61F4EB8C8328D88 /* Pods-OTM-ZENITHTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OTM-ZENITHTests.release.xcconfig"; path = "Target Support Files/Pods-OTM-ZENITHTests/Pods-OTM-ZENITHTests.release.xcconfig"; sourceTree = "<group>"; };
 		C34CB30724DB218C00B8D4D4 /* PhotoVController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoVController.swift; sourceTree = "<group>"; };
 		C34CB30924DB21ED00B8D4D4 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		C3B6FBBA24E3FADE0014B3B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		E382B387B63AE53A3880E0F3 /* Pods-OTM-ZENITHTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OTM-ZENITHTests.debug.xcconfig"; path = "Target Support Files/Pods-OTM-ZENITHTests/Pods-OTM-ZENITHTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F36326B986AEB469DDB067E8 /* Pods_OTM_ZENITHTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OTM_ZENITHTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F7E6D1AF2E0B9B1FB1E75DEF /* Pods-OTM-ZENITH.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OTM-ZENITH.release.xcconfig"; path = "Target Support Files/Pods-OTM-ZENITH/Pods-OTM-ZENITH.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +139,6 @@
 				212AA19B23AF8E1400A10B11 /* DTPhotoViewerController in Frameworks */,
 				2113568F23ACF58700738239 /* OAuthSwift in Frameworks */,
 				21D3E8F123AE5359004E14FF /* Kingfisher in Frameworks */,
-				811589E007B0A54CA3BCC999 /* Pods_OTM_ZENITH.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,7 +146,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E145AE219C40A7212BA1846 /* Pods_OTM_ZENITHTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,8 +212,6 @@
 				21BA74AC23AC0CF500EAB10B /* OTM-ZENITH */,
 				21BA74C323AC0CF600EAB10B /* OTM-ZENITHTests */,
 				21BA74AB23AC0CF500EAB10B /* Products */,
-				B5426C227472818BD998ACAD /* Pods */,
-				47F597655144BAD82163DDD1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -322,15 +310,6 @@
 			path = Details;
 			sourceTree = "<group>";
 		};
-		47F597655144BAD82163DDD1 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0189B5566844F5D112D0BDE4 /* Pods_OTM_ZENITH.framework */,
-				F36326B986AEB469DDB067E8 /* Pods_OTM_ZENITHTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		6AEF135C23ED70080040B4BB /* QRCode */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,17 +330,6 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		B5426C227472818BD998ACAD /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0972A55B7A3BB630D6C07F8A /* Pods-OTM-ZENITH.debug.xcconfig */,
-				F7E6D1AF2E0B9B1FB1E75DEF /* Pods-OTM-ZENITH.release.xcconfig */,
-				E382B387B63AE53A3880E0F3 /* Pods-OTM-ZENITHTests.debug.xcconfig */,
-				AE0FE3EEE61F4EB8C8328D88 /* Pods-OTM-ZENITHTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -369,12 +337,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21BA74C923AC0CF600EAB10B /* Build configuration list for PBXNativeTarget "OTM-ZENITH" */;
 			buildPhases = (
-				6449E1E1356EDE1AE9914A71 /* [CP] Check Pods Manifest.lock */,
 				21BA74A623AC0CF500EAB10B /* Sources */,
 				21BA74A723AC0CF500EAB10B /* Frameworks */,
 				21BA74A823AC0CF500EAB10B /* Resources */,
-				C4E8F3A92D4DA4B06D3D6588 /* [CP] Embed Pods Frameworks */,
-				C3B6FBBC24E3FB830014B3B0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -489,28 +454,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6449E1E1356EDE1AE9914A71 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-OTM-ZENITH-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7EC706C372C035EFB94EB026 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -531,40 +474,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C3B6FBBC24E3FB830014B3B0 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
-		};
-		C4E8F3A92D4DA4B06D3D6588 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OTM-ZENITH/Pods-OTM-ZENITH-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OTM-ZENITH/Pods-OTM-ZENITH-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OTM-ZENITH/Pods-OTM-ZENITH-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -764,20 +673,19 @@
 		};
 		21BA74CA23AC0CF600EAB10B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0972A55B7A3BB630D6C07F8A /* Pods-OTM-ZENITH.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = 2F9673MCG5;
+				DEVELOPMENT_TEAM = MC57CFQ355;
 				INFOPLIST_FILE = "OTM-ZENITH/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.otm.zeithfreddy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rajatmishra.EveryDay;
 				PRODUCT_NAME = "OTM-ZENITH iOS App";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -787,22 +695,21 @@
 		};
 		21BA74CB23AC0CF600EAB10B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F7E6D1AF2E0B9B1FB1E75DEF /* Pods-OTM-ZENITH.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = 2F9673MCG5;
+				DEVELOPMENT_TEAM = MC57CFQ355;
 				INFOPLIST_FILE = "OTM-ZENITH/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.otm.zeithfreddy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rajatmishra.EveryDay;
 				PRODUCT_NAME = "OTM-ZENITH iOS App";
-				PROVISIONING_PROFILE_SPECIFIER = otm_dev;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -810,7 +717,6 @@
 		};
 		21BA74CD23AC0CF600EAB10B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E382B387B63AE53A3880E0F3 /* Pods-OTM-ZENITHTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -832,7 +738,6 @@
 		};
 		21BA74CE23AC0CF600EAB10B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE0FE3EEE61F4EB8C8328D88 /* Pods-OTM-ZENITHTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

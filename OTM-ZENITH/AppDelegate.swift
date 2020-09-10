@@ -8,7 +8,6 @@
 
 import UIKit
 import OAuthSwift
-import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,13 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // Override point for customization after application launch.
-        //FIRApp.configure()
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let viewLogin:LoginViewController = (storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController)!
-//        navigation = UINavigationController(rootViewController: viewLogin)
-//        self.window?.rootViewController = self.navigation
-//        self.window?.makeKeyAndVisible()
+
         self.launchoption = launchOptions
         
         return true
