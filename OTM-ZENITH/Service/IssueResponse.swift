@@ -58,7 +58,7 @@ struct IssueFields: Codable {
 //    let fixVersions: [JSONAny]?
     let resolution: Priority?
     let customfield10079: String?
-  //  let customfield_10132: String?
+    let customfield_10132: String?
 //    let customfield10104: JSONNull?
     let customfield10105: [Customfield10]?
 //    let customfield10106: JSONNull?
@@ -192,7 +192,7 @@ struct IssueFields: Codable {
 //        case customfield10076 = "customfield_10076"
 //        case fixVersions = "fixVersions"
         case resolution = "resolution"
-   //     case customfield_10132 = "customfield_10132"
+        case customfield_10132 = "customfield_10132"
         
         case customfield10079 = "customfield_10079"
 //        case customfield10104 = "customfield_10104"

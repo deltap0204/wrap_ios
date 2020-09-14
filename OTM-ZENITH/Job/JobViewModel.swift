@@ -33,8 +33,10 @@ class JobViewModel {
 
         let person = issue.fields?.customfield10079 ?? ""
         contact = "\(person) - \(phone)"
-        
-        if let location = issue.fields?.customfield10101?.components(separatedBy: ","), location.count == 2 {
+        var locationURL = issue.fields?.customfield_10132
+        locationURL = locationURL?.replacingOccurrences(of: "https://www.google.com/maps/embed/v1/view?key=AIzaSyAQ9y8k71ddIOpT1pf1AcHZ0ahAvzqAKcA&center=", with: "")
+        locationURL = locationURL?.replacingOccurrences(of: "&zoom=18", with: "")
+        if let location = locationURL?.components(separatedBy: ","), location.count == 2 {
             let lat1 = location[0]
             let lng1 = location[1]
             let latitude =  Double(lat1)

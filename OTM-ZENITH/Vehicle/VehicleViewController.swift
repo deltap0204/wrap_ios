@@ -80,6 +80,7 @@ class VehicleViewController: UIViewController {
         
         self.viewModel.submit(problem: self.problem.text)
         self.problem.text = ""
+        self.buttonEnter.setTitle("Problem", for: .normal);
         
     }
 
