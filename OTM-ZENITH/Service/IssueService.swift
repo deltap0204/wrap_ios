@@ -35,7 +35,7 @@ class IssueService {
         client = APIClient()
     }
     
-    func fetch(date: Date, completion: @escaping ([Issue]?) -> Void) {
+    func fetch(date: Date,key:String, completion: @escaping ([Issue]?) -> Void) {
         
         
         let dateFormatter = DateFormatter()

@@ -85,7 +85,7 @@ class JobListViewModel {
         showLoader.onNext(true)
         hasJobs.onNext(true)
         
-        service.fetch(date: date) { [weak self] (result) in
+        service.fetch(date: date,key: searchString) { [weak self] (result) in
 
             self?.showLoader.onNext(false)
             
@@ -113,7 +113,7 @@ class JobListViewModel {
                         client: $0.fields?.customfield10056 ?? "",
                         duedate: $0.fields?.duedate ?? "",
                         updated: $0.fields?.updated ?? "",
-                        statusColor: self?.color(for: $0.fields?.status?.statusCategory)
+                        statusColor: self?.color(for: $0.fields?.status)
                     )
                 })
                 
@@ -124,17 +124,20 @@ class JobListViewModel {
         }
     }
     
-    func color(for status: StatusCategory?) -> String? {
+    func color(for status: Status?) -> String? {
         let color: String?
-        switch status?.colorName {
-        case .green:
-            color = "statusDone"
-            break
-        case .blueGray:
+        switch status?.id {
+        case "10030":
             color = "statusToDo"
             break
-        case .yellow:
+        case "10031":
+            color = "statusInProgress"
+            break
+        case "10124":
             color = "statusProblem"
+            break
+        case "10032":
+            color = "statusDone"
             break
         default:
             color = nil
