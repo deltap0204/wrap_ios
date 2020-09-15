@@ -41,17 +41,11 @@ class IssueService {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "y-M-d"
         let dateString = dateFormatter.string(from: date)
-        
-        let jql = "?fields=*all&jql=assignee=currentUser()"//%20AND%20duedate=" + dateString
-//        let jql = "?fields=*all&jql=project%20%3D%20WT%20AND%20assignee=david.mandelier"
+        var jql = "?fields=*all&jql=assignee=currentUser()"
+        if(key != ""){
+            jql = "?fields=*all&jql=project=WT"
+        }
         let params: [String: Any] = [:]
-//        [
-//            "jql": jql,
-//            "fields": ["summary","assignee","status"],
-//            "maxResults": 5
-//        ]
-        
-//        let url = "https://api.atlassian.com/oauth/token/accessible-resources"
         let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/search\(jql)"
         client.get(url: url,
                    params: params,

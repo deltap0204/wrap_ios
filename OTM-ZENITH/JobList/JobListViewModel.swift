@@ -99,7 +99,7 @@ class JobListViewModel {
                 self?.issues = issues
                 var issueList = issues;
                 if(searchString != ""){
-                    issueList = issues.filter { ($0.key ?? "").starts(with: searchString)}
+                    issueList = issues.filter { "\($0.key ?? ""): \($0.fields?.summary ?? "")".starts(with: searchString)}
                 }
                 
                 self?.issues =  issueList
