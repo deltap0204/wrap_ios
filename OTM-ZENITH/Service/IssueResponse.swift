@@ -793,6 +793,7 @@ enum StatusCategoryId: Int, Codable {
     case toDo = 2
     case inProgress = 3
     case done = 4
+    case problem = 5
 }
 
 enum ColorName: String, Codable {

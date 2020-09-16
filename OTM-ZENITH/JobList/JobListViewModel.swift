@@ -56,32 +56,35 @@ class JobListViewModel {
         hasJobs = BehaviorSubject(value: true)
         
         showLoader = BehaviorSubject(value: false)
-        fetchIssues(searchString: "")
+        fetchIssues(searchString: "",isRefresh: false)
     }
     
     func loadNextDate(searchStr:String) {
         date.addTimeInterval(secondsInDay)
-        fetchIssues(searchString: searchStr)
+        fetchIssues(searchString: searchStr,isRefresh: false)
     }
     
     func loadPrevDate(searchStr:String) {
         date.addTimeInterval(-secondsInDay)
-        fetchIssues(searchString: searchStr)
+        fetchIssues(searchString: searchStr, isRefresh: false)
     }
     
     func loadFilterData(searchStr:String) {
-        fetchIssues(searchString: searchStr)
+        fetchIssues(searchString: searchStr,isRefresh: false)
     }
     
-    func loadDate(date: Date,searchStr:String) {
+    func loadDate(date: Date,searchStr:String,isRefresh:Bool) {
         self.date = date
         self.title.onNext("")
-        fetchIssues(searchString:searchStr)
+        fetchIssues(searchString:searchStr,isRefresh: isRefresh)
     }
     
-    func fetchIssues(searchString:String) {
+    func fetchIssues(searchString:String,isRefresh:Bool) {
         
-        jobs.onNext([])
+        //
+        if(isRefresh == false){
+            jobs.onNext([])
+        }
         showLoader.onNext(true)
         hasJobs.onNext(true)
         

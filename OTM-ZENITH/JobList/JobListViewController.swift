@@ -117,7 +117,7 @@ class JobListViewController: UIViewController,UISearchResultsUpdating {
        
         
         datePicker.date = viewModel.date
-        viewModel.loadDate(date: datePicker.date,searchStr: self.searchController.searchBar.text ?? "" )
+        viewModel.loadDate(date: datePicker.date,searchStr: self.searchController.searchBar.text ?? "",isRefresh: true )
         
         hideDatePicker()
     }

@@ -79,42 +79,7 @@ class IssueService {
         })
     }
     
-    
-    func updateInProgress(status: StatusCategoryId, issue: Issue, comment: String, completion: @escaping () -> Void) {
-        
-        let id: Int
-        
-        switch status {
-        case .toDo:
-            id = 11
-        case .inProgress:
-            id = 21
-        case .done:
-            id = 31
-        }
-        
-        let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/issue/\(issue.id!)/transitions"
-        //let commentsCount = (issue.fields?.worklog?.comments ?? []).count
-        var googleMapURL = "https://www.google.com/maps/search/?api=1"
-        var locationString = ""
-        if let location = LocationService.location {
-            googleMapURL = "https://www.google.com/maps/embed/v1/view?key=AIzaSyAQ9y8k71ddIOpT1pf1AcHZ0ahAvzqAKcA&center=\(location.latitude),\(location.longitude)&zoom=18"
-                //googleMapURL = googleMapURL + "&query=\(location.latitude),\(location.longitude))"
-            locationString = "\(location.latitude),\(location.longitude)"
-            
-        }
-        let params: [String: Any] = ["transition": ["id": "\(id)"]]
-        
-        //let params: [String: [String: String]] = ["transition": ["id": "\(id)"],"fields":["customfield_10132": googleMapURL]]
-           
-        let data: Data? = try? JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
-        
-            self.client.post(url: url,
-                              data: data!,
-                              completion: { (result) in
-                                 
-                   })
-        }
+  
     
     
     
@@ -129,6 +94,8 @@ class IssueService {
             id = 21
         case .done:
             id = 31
+        case .problem:
+            id = 41
         }
         
         let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/issue/\(issue.id!)/transitions"
@@ -197,9 +164,7 @@ class IssueService {
                         completion()
                         }
                     }else{
-                        self.updateMetaDataStatus(issue: issue) {
-                            completion()
-                        }
+                        
                         completion()
                     }
                     
@@ -221,17 +186,5 @@ class IssueService {
               
     }
     
-    func updateMetaDataStatus(issue: Issue, completion: @escaping () -> Void) {
-           
-                 let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/2/issue/\(issue.key!)"
-                let params = ["fields":["status":["id":"10124"]]]
-                 let data: Data? = try? JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
-                 client.put(url: url,
-                            params: params,
-                              completion: { (result) in
-                           completion()
-                               
-                   })
-                 
-       }
+  
 }

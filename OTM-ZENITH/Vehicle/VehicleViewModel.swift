@@ -50,7 +50,7 @@ class VehicleViewModel {
     func submit(problem: String) {
         showLoader.onNext(true)
         let remark = "@Arnaud: a remark was added\n\(problem)"
-        service.update(status: .inProgress, issue: issue, comment: remark) {
+        service.update(status: .problem, issue: issue, comment: remark) {
             self.showLoader.onNext(false)
             self.showSuccessMessage.onNext("Sent successfully")
         }

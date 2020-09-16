@@ -105,6 +105,8 @@ class WorkViewModel {
             state = "started"
         case .done:
             state = "completed"
+        case .problem:
+            state = "problem"
         }
         
         let df = DateFormatter()
@@ -133,6 +135,8 @@ class WorkViewModel {
             state = "started"
         case .done:
             state = "completed"
+        case .problem:
+            state = "problem"
         }
         
         let df = DateFormatter()

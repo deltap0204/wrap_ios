@@ -70,26 +70,25 @@ class JobViewController: UIViewController {
         switchTab()
     }
     @IBAction func navigate(_ sender: Any) {
-        
-        let latitude:CLLocationDegrees =  viewModel.latitude
-        let longitude:CLLocationDegrees =  viewModel.longitude
-
-        let regionDistance:CLLocationDistance = 10000
-        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
-        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
-        let options = [
-            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-        ]
-        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-        let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = viewModel.address
-        mapItem.openInMaps(launchOptions: options)
+        var urlStr = "https://www.google.com/maps/place/\(viewModel.address)";
+        urlStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "";
+        let url = URL(string: urlStr)
+        if(url != nil){
+            if(UIApplication.shared.canOpenURL(url!)){
+                        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+            }
+        }
     }
     
     @IBAction func call(_ sender: Any) {
         let url = URL(string: "tel://\(viewModel.phone)")
-        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        if(url != nil){
+            if(UIApplication.shared.canOpenURL(url!)){
+                        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+            }
+        }
+       
+       
     }
     
     // MARK: - Navigation
