@@ -45,8 +45,8 @@ class JobViewController: UIViewController {
         remarkContainer.isHidden = true
         photosContainer.isHidden = true
         
-        locationTapGesture.isEnabled = viewModel.hasLocation
-        contactTapGesture.isEnabled = viewModel.hasPhone
+        locationTapGesture.isEnabled = true
+        contactTapGesture.isEnabled = true
     }
     
     @IBAction func changeTab(_ sender: Any) {
