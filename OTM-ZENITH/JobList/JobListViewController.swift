@@ -12,12 +12,37 @@ import RxCocoa
 import WebKit
 import Prephirences
 
-class JobListViewController: UIViewController,UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        filterSearchController(self.searchController.searchBar)
+extension UISearchBar {
+    func getTextField() -> UITextField? { return value(forKey: "searchField") as? UITextField }
+    func setTextField(color: UIColor) {
+        guard let textField = getTextField() else { return }
+        switch searchBarStyle {
+        case .minimal:
+            textField.layer.backgroundColor = color.cgColor
+            textField.layer.cornerRadius = 6
+        case .prominent, .default: textField.backgroundColor = color
+        @unknown default: break
+        }
     }
+}
+
+extension UITableView {
+    func hideSearchBar() {
+        if let bar = self.tableHeaderView as? UISearchBar {
+            let height = bar.frame.height
+            let offset = self.contentOffset.y
+            if offset < height {
+                self.contentOffset = CGPoint(x: 0, y: height)
+            }
+        }
+    }
+}
+class JobListViewController: UIViewController,UISearchBarDelegate {
+   
     
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
+        filterSearchController()
+    }
     let cellIdentifier = "JobCell"
     var viewModel: JobListViewModel!
     fileprivate let searchController = UISearchController(searchResultsController: nil)
@@ -36,20 +61,26 @@ class JobListViewController: UIViewController,UISearchResultsUpdating {
     
     let disposeBag = DisposeBag()
     let service = IssueService()
-    
+    let searchBar = UISearchBar()
     var taskurl : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchBar.setTextField(color: UIColor.white)
+        searchBar.frame = CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: 70)
+        searchBar.delegate = self
+        searchBar.showsCancelButton = true
+        searchBar.barTintColor = UIColor(named: "statusProblem")!
+        searchBar.searchBarStyle = .minimal
+        searchBar.setShowsCancelButton(false, animated: false)
+        searchBar.placeholder = " Search Here....."
+        searchBar.sizeToFit()
+       // searchBar.backgroundColor =
+        self.tableView.tableHeaderView = searchBar
+        self.tableView.sectionHeaderHeight = 60
         
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.showsScopeBar = true
-        navigationItem.hidesSearchBarWhenScrolling = false
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
-        
+        self.tableView.hideSearchBar()
         viewModel = JobListViewModel(service: IssueService())
         
        // titleLabel.text = "Jobs"
@@ -63,11 +94,35 @@ class JobListViewController: UIViewController,UISearchResultsUpdating {
         
         datePickerContainer.isHidden = true
         
-        
+        self.refreshControl.endRefreshing()
         self.setSwipeGesture()
         bindViewModel()
+        self.tableView.isHidden = true
+        NotificationCenter.default.addObserver(
+        self,
+        selector: #selector(self.batteryLevelChanged),
+        name: Notification.Name("newJobs"),
+        object: nil)
     }
     
+    @objc private func batteryLevelChanged(notification: NSNotification){
+        self.tableView.isHidden = false
+        self.refreshControl.endRefreshing()
+        //do stuff using the userInfo property of the notification object
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            // your code here
+            if(self.tableView.numberOfRows(inSection: 0) > 0){
+                self.tableView.hideSearchBar()
+            }
+        }
+       
+       
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+       
+    }
     
     func setSwipeGesture(){
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
@@ -95,7 +150,7 @@ class JobListViewController: UIViewController,UISearchResultsUpdating {
         }
     }
     
-    func filterSearchController(_ searchBar: UISearchBar) {
+    func filterSearchController() {
         viewModel.loadFilterData(searchStr: searchBar.text ?? "")
     }
     
@@ -112,9 +167,9 @@ class JobListViewController: UIViewController,UISearchResultsUpdating {
     }
     
     @IBAction func loadDate(_ sender: Any) {
-       
-       
-       
+        
+      
+        self.searchBar.text = ""
         
         datePicker.date = viewModel.date
         viewModel.loadDate(date: datePicker.date,searchStr: self.searchController.searchBar.text ?? "",isRefresh: true )
@@ -147,10 +202,7 @@ class JobListViewController: UIViewController,UISearchResultsUpdating {
             .bind(to: dateButton.rx.title())
             .disposed(by: disposeBag)
         
-        viewModel.showLoader
-//            .map({ !$0 })
-            .bind(to: refreshControl.rx.isRefreshing)
-            .disposed(by: disposeBag)
+
         
         viewModel.hasJobs
             .bind(to: noJobsLabel.rx.isHidden)
@@ -172,16 +224,9 @@ class JobListViewController: UIViewController,UISearchResultsUpdating {
         
     }
     
-    /*func opentask(link:String) {
-        if let url = URL(string: link) {
-            self.service.fetchIssue(issueId: url.lastPathComponent) { (issue) in
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Job", bundle:nil)
-                let jobdetailvc = storyBoard.instantiateViewController(withIdentifier: "JobViewController") as! JobViewController
-                jobdetailvc.viewModel = JobViewModel(issue: issue)
-                self.navigationController?.pushViewController(jobdetailvc, animated: true)
-            }
-        }
-    }*/
+    
+    
+
     
     @IBAction func LogOutMethod(_ sender: Any) {
         print("logout click")

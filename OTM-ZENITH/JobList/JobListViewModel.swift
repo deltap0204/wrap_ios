@@ -57,6 +57,9 @@ class JobListViewModel {
         
         showLoader = BehaviorSubject(value: false)
         fetchIssues(searchString: "",isRefresh: false)
+        
+        
+        
     }
     
     func loadNextDate(searchStr:String) {
@@ -119,9 +122,11 @@ class JobListViewModel {
                         statusColor: self?.color(for: $0.fields?.status)
                     )
                 })
-                
                 self?.hasJobs.onNext(jobs.count>0)
                 self?.jobs.onNext(jobs)
+                NotificationCenter.default.post(name: Notification.Name("newJobs"), object: nil)
+
+                
                 
             }
         }
