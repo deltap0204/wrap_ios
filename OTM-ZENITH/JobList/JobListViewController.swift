@@ -76,6 +76,11 @@ class JobListViewController: UIViewController,UISearchBarDelegate {
         searchBar.setShowsCancelButton(false, animated: false)
         searchBar.placeholder = " Search Here....."
         searchBar.sizeToFit()
+        
+        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
+            textfield.textColor = UIColor.gray
+        }
+        
        // searchBar.backgroundColor =
         self.tableView.tableHeaderView = searchBar
         self.tableView.sectionHeaderHeight = 60
