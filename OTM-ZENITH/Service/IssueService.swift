@@ -41,14 +41,15 @@ class IssueService {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "y-M-d"
         let dateString = dateFormatter.string(from: date)
-        var jql = "?fields=*all&jql=assignee=currentUser()"
+        var jql = "assignee=currentUser()"
         if(key != ""){
-            jql = "?fields=*all&jql=project=WT"
+            jql = "summary ~\(key) OR issuekey  in (\(key)) OR description  ~\(key)"
         }
-        let params: [String: Any] = [:]
-        let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/search\(jql)"
-        client.get(url: url,
-                   params: params,
+        let params: [String: Any] = ["jql":jql]
+        let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/search"
+        let data: Data? = try? JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+        client.post(url: url,
+                   data: data!,
                    completion: { (result) in
                     if let dt = result as? Data {
                         let resURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("issue_response.txt")

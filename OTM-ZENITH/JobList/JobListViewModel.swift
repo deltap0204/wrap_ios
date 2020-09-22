@@ -104,9 +104,7 @@ class JobListViewModel {
                 self?.title.onNext(title)
                 self?.issues = issues
                 var issueList = issues;
-                if(searchString != ""){
-                    issueList = issues.filter { "\($0.key ?? ""): \($0.fields?.summary ?? "")".starts(with: searchString)}
-                }
+                
                 
                 self?.issues =  issueList
                 let jobs = issueList.map({
