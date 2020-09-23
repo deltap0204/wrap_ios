@@ -43,7 +43,7 @@ class IssueService {
         let dateString = dateFormatter.string(from: date)
         var jql = "assignee=currentUser()"
         if(key != ""){
-            jql = "summary ~\(key) OR description  ~\(key)"
+            jql = "project = WT OR summary ~\(key) OR  description  ~\(key)"
         }
         let params: [String: Any] = ["jql":jql]
         let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/search"
@@ -61,11 +61,16 @@ class IssueService {
                         }
                     }
                     let str = String(decoding: result as! Data, as: UTF8.self)
-                    let object = try! JSONDecoder().decode(SearchIssueResponse.self, from: result as! Data)
+                    do{
+                        let object = try JSONDecoder().decode(SearchIssueResponse.self, from: result as! Data)
+                        let issues = object.issues
+                        completion(issues)
+                    }catch {
+                        print(error.localizedDescription);
+                    }
                     
-                    let issues = object.issues
                     
-                    completion(issues)
+                   
         })
     }
     
