@@ -28,7 +28,7 @@ extension UISearchBar {
 
 extension UITableView {
     func hideSearchBar() {
-        if let bar = self.tableHeaderView as? UISearchBar {
+        if let bar = self.tableHeaderView as? UIView {
             let height = bar.frame.height
             let offset = self.contentOffset.y
             if offset < height {
@@ -68,7 +68,7 @@ class JobListViewController: UIViewController,UISearchBarDelegate {
         super.viewDidLoad()
         
         searchBar.setTextField(color: UIColor.white)
-        searchBar.frame = CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: 70)
+        
         searchBar.delegate = self
         searchBar.showsCancelButton = true
         searchBar.barTintColor = UIColor(named: "statusProblem")!
@@ -79,9 +79,18 @@ class JobListViewController: UIViewController,UISearchBarDelegate {
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
                   textfield.textColor = UIColor.gray
               }
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 120))
+        let btnLogout = UIButton(frame: CGRect(x: 0, y: searchBar.frame.size.height, width: self.view.frame.size.width, height: 50))
+        searchBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 70)
+        btnLogout.setTitle("Logout", for: .normal);
+        btnLogout.setImage(UIImage(named: "logout")!, for: .normal);
+        btnLogout.addTarget(self, action:  #selector(LogOutMethod(_:)), for: .touchUpInside)
+        headerView.addSubview(searchBar)
+        headerView.addSubview(btnLogout)
+        
        // searchBar.backgroundColor =
-        self.tableView.tableHeaderView = searchBar
-        self.tableView.sectionHeaderHeight = 60
+        self.tableView.tableHeaderView = headerView
+        self.tableView.sectionHeaderHeight = 200
         
         self.tableView.hideSearchBar()
         viewModel = JobListViewModel(service: IssueService())
