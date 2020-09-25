@@ -41,9 +41,9 @@ class IssueService {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "y-M-d"
         let dateString = dateFormatter.string(from: date)
-        var jql = "assignee=currentUser()"
+        var jql = "assignee=currentUser() AND duedate=" + dateString
         if(key != ""){
-            jql = "project = WT OR summary ~\(key) OR  description  ~\(key)"
+            jql = "project = WT AND (summary ~\(key) OR  description  ~\(key))"
         }
         let params: [String: Any] = ["jql":jql]
         let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/search"
