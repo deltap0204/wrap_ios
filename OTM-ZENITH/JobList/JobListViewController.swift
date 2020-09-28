@@ -37,12 +37,17 @@ extension UITableView {
         }
     }
 }
-class JobListViewController: UIViewController,UISearchBarDelegate {
+class JobListViewController: UIViewController,UISearchBarDelegate,UITableViewDelegate,UIScrollViewDelegate {
    
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.endEditing(true)
         filterSearchController()
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
+        
+    }
+
     let cellIdentifier = "JobCell"
     var viewModel: JobListViewModel!
     fileprivate let searchController = UISearchController(searchResultsController: nil)
@@ -68,7 +73,7 @@ class JobListViewController: UIViewController,UISearchBarDelegate {
         super.viewDidLoad()
         
         searchBar.setTextField(color: UIColor.white)
-        
+        self.tableView.delegate = self;
         searchBar.delegate = self
         searchBar.showsCancelButton = true
         searchBar.barTintColor = UIColor(named: "statusProblem")!
@@ -136,7 +141,7 @@ class JobListViewController: UIViewController,UISearchBarDelegate {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-       
+        self.tableView.delegate = self
     }
     
     func setSwipeGesture(){
@@ -295,7 +300,18 @@ class JobListViewController: UIViewController,UISearchBarDelegate {
             vc.viewModel = JobViewModel(issue: issue)
         }
      }
-     
+    func scrollViewDidScroll(_ scrollView: UIScrollView){
+        print("scrollview")
+        if(scrollView.panGestureRecognizer.translation(in: scrollView.superview).y > 0) {
+            print("up")
+        }
+        else {
+            self.view.endEditing(true)
+            print("down")
+        }
+    }
+    
+   
     
 }
 
@@ -312,4 +328,6 @@ extension URL {
         }
         return queryStrings
     }
+    
+    
 }

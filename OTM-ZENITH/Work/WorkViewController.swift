@@ -43,7 +43,18 @@ class WorkViewController: UIViewController {
         
         routeView.layer.borderWidth = 0.5
         jobView.layer.borderWidth = 0.5
-        
+        let status =  viewModel.issue.fields?.status
+        if(status?.id == "10032"){
+            self.jobStart.isEnabled = false
+            self.jobStop.isEnabled = false
+            self.routeStop.isEnabled = false
+            self.routeStart.isEnabled = false
+        }else{
+            self.jobStart.isEnabled = true
+            self.jobStop.isEnabled = true
+            self.routeStop.isEnabled = true
+            self.routeStart.isEnabled = true
+        }
         bindViewModel()
     }
     
