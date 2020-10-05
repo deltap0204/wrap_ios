@@ -41,11 +41,11 @@ class IssueService {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "y-M-d"
         let dateString = dateFormatter.string(from: date)
-        var jql = "assignee=currentUser() AND duedate=" + dateString
+        var jql = "assignee=currentUser()"
         if(key != ""){
-            jql = "project = WT AND (summary ~\(key) OR  description  ~\(key))"
+            jql = "project = WT AND summary ~\(key) OR  description  ~\(key)"
         }
-        let params: [String: Any] = ["jql":jql]
+        let params: [String: Any] = ["jql":jql,"fields": [ "*all" ]]
         let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/search"
         let data: Data? = try? JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
         client.post(url: url,
