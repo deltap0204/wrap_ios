@@ -99,7 +99,7 @@
                                                             <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                                         </stackView>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.1009141281" green="0.17555627230000001" blue="0.25491982699999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="backgroundColor" red="0.10980392156862745" green="0.22352941176470587" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstItem="3rz-gA-79k" firstAttribute="leading" secondItem="iaY-7q-QcI" secondAttribute="leading" id="Joc-x2-vhR"/>
                                                         <constraint firstItem="3rz-gA-79k" firstAttribute="top" secondItem="iaY-7q-QcI" secondAttribute="top" id="m52-fg-TQN"/>

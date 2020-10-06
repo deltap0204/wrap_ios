@@ -21,7 +21,8 @@ class JobViewController: UIViewController {
     @IBOutlet var workContainer: UIView!
     @IBOutlet var remarkContainer: UIView!
     @IBOutlet var photosContainer: UIView!
-    @IBOutlet var locationTapGesture: UITapGestureRecognizer!
+	@IBOutlet weak var templateContainer: UIView!
+	@IBOutlet var locationTapGesture: UITapGestureRecognizer!
     @IBOutlet var leftSwipeGesture: UISwipeGestureRecognizer!
     @IBOutlet var rightSwipeGesture: UISwipeGestureRecognizer!
     @IBOutlet var contactTapGesture: UITapGestureRecognizer!
@@ -32,6 +33,7 @@ class JobViewController: UIViewController {
     var workVC: WorkViewController!
     var remarkVC: RemarkViewController!
     var photosVC: PhotosViewController!
+	var templatesVC: TemplatesViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,7 @@ class JobViewController: UIViewController {
         workContainer.isHidden = true
         remarkContainer.isHidden = true
         photosContainer.isHidden = true
+		templateContainer.isHidden = true
         
         locationTapGesture.isEnabled = true
         contactTapGesture.isEnabled = true
@@ -99,6 +102,7 @@ class JobViewController: UIViewController {
         workContainer.isHidden = true
         remarkContainer.isHidden = true
         photosContainer.isHidden = true
+		templateContainer.isHidden = true
         
         switch tab.selectedSegmentIndex {
         case 0:
@@ -111,6 +115,8 @@ class JobViewController: UIViewController {
             remarkContainer.isHidden = false
         case 4:
             photosContainer.isHidden = false
+		case 5:
+			templateContainer.isHidden = false
         default:
             detailContainer.isHidden = false
         }
@@ -139,6 +145,10 @@ class JobViewController: UIViewController {
         else if let vc = segue.destination as? PhotosViewController {
             photosVC = vc
             photosVC.viewModel = PhotosViewModel(issue: viewModel.issue)
-        }
+		}
+		else if let vc = segue.destination as? TemplatesViewController {
+			templatesVC = vc
+			templatesVC.issue = viewModel.issue
+		}
     }
 }

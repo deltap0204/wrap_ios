@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2XQ-gX-tQm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2XQ-gX-tQm">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -88,6 +89,7 @@
                                                     <segment title="" image="clock" catalog="system"/>
                                                     <segment title="" image="info.circle" catalog="system"/>
                                                     <segment title="" image="camera.fill" catalog="system"/>
+                                                    <segment title="" image="filemenu.and.selection" catalog="system"/>
                                                 </segments>
                                                 <connections>
                                                     <action selector="changeTab:" destination="2XQ-gX-tQm" eventType="valueChanged" id="KMx-H0-tnk"/>
@@ -154,7 +156,14 @@
                                     <segue destination="KFQ-39-wl8" kind="embed" id="5zY-2Z-ieM"/>
                                 </connections>
                             </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Qo-pg-WUq">
+                                <rect key="frame" x="8" y="240" width="398" height="656"/>
+                                <connections>
+                                    <segue destination="Hwr-br-xS1" kind="embed" id="Z7N-Ay-OGM"/>
+                                </connections>
+                            </containerView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="mAu-NR-WiO"/>
                         <color key="backgroundColor" red="0.34031230210000002" green="0.40728333589999999" blue="0.46276092530000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
                         <constraints>
@@ -162,6 +171,7 @@
                             <constraint firstItem="HL3-Rn-aWJ" firstAttribute="bottom" secondItem="l4C-b9-nNW" secondAttribute="bottom" id="9E2-rZ-eFx"/>
                             <constraint firstItem="kgJ-lW-8Jd" firstAttribute="bottom" secondItem="l4C-b9-nNW" secondAttribute="bottom" id="9gk-Tn-QU9"/>
                             <constraint firstItem="SXR-Fc-oH8" firstAttribute="top" secondItem="l4C-b9-nNW" secondAttribute="top" id="CKK-Ng-bdQ"/>
+                            <constraint firstItem="5Qo-pg-WUq" firstAttribute="bottom" secondItem="EMt-pB-goj" secondAttribute="bottom" id="KFu-ZE-7dI"/>
                             <constraint firstItem="kgJ-lW-8Jd" firstAttribute="leading" secondItem="l4C-b9-nNW" secondAttribute="leading" id="KlM-2G-2uX"/>
                             <constraint firstItem="HL3-Rn-aWJ" firstAttribute="top" secondItem="l4C-b9-nNW" secondAttribute="top" id="M6N-T3-UOn"/>
                             <constraint firstItem="kgJ-lW-8Jd" firstAttribute="trailing" secondItem="l4C-b9-nNW" secondAttribute="trailing" id="MJZ-jZ-A3x"/>
@@ -170,19 +180,21 @@
                             <constraint firstItem="HL3-Rn-aWJ" firstAttribute="trailing" secondItem="l4C-b9-nNW" secondAttribute="trailing" id="OtR-yb-buK"/>
                             <constraint firstItem="mAu-NR-WiO" firstAttribute="trailing" secondItem="l4C-b9-nNW" secondAttribute="trailing" constant="8" id="Owq-kM-I59"/>
                             <constraint firstItem="EMt-pB-goj" firstAttribute="bottom" secondItem="l4C-b9-nNW" secondAttribute="bottom" id="Pi7-MD-C1o"/>
+                            <constraint firstItem="5Qo-pg-WUq" firstAttribute="top" secondItem="EMt-pB-goj" secondAttribute="top" id="RVT-VJ-V2s"/>
                             <constraint firstItem="SXR-Fc-oH8" firstAttribute="trailing" secondItem="l4C-b9-nNW" secondAttribute="trailing" id="S61-mW-fNd"/>
                             <constraint firstItem="SXR-Fc-oH8" firstAttribute="bottom" secondItem="l4C-b9-nNW" secondAttribute="bottom" id="c4O-xP-Q8M"/>
                             <constraint firstItem="EMt-pB-goj" firstAttribute="trailing" secondItem="l4C-b9-nNW" secondAttribute="trailing" id="dDr-87-Dau"/>
+                            <constraint firstItem="5Qo-pg-WUq" firstAttribute="leading" secondItem="EMt-pB-goj" secondAttribute="leading" id="gZH-kD-l8W"/>
                             <constraint firstItem="l4C-b9-nNW" firstAttribute="top" secondItem="fj7-ij-ajq" secondAttribute="bottom" id="gcb-cq-Iql"/>
                             <constraint firstItem="l4C-b9-nNW" firstAttribute="leading" secondItem="mAu-NR-WiO" secondAttribute="leading" constant="8" id="lWA-Ga-dve"/>
                             <constraint firstAttribute="bottom" secondItem="l4C-b9-nNW" secondAttribute="bottom" id="r72-6D-4fu"/>
                             <constraint firstItem="fj7-ij-ajq" firstAttribute="leading" secondItem="mAu-NR-WiO" secondAttribute="leading" constant="8" id="rRF-gx-Jjj"/>
                             <constraint firstItem="EMt-pB-goj" firstAttribute="top" secondItem="l4C-b9-nNW" secondAttribute="top" id="rtn-Yt-cHm"/>
                             <constraint firstItem="mAu-NR-WiO" firstAttribute="trailing" secondItem="fj7-ij-ajq" secondAttribute="trailing" constant="8" id="rtr-9U-YbT"/>
+                            <constraint firstItem="5Qo-pg-WUq" firstAttribute="trailing" secondItem="EMt-pB-goj" secondAttribute="trailing" id="rv0-Ke-Qt5"/>
                             <constraint firstItem="kgJ-lW-8Jd" firstAttribute="top" secondItem="l4C-b9-nNW" secondAttribute="top" id="sl6-bx-3le"/>
                             <constraint firstItem="HL3-Rn-aWJ" firstAttribute="leading" secondItem="l4C-b9-nNW" secondAttribute="leading" id="tLf-Jp-hey"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="mAu-NR-WiO"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="jHY-hh-rns" appends="YES" id="Poa-G8-c9x"/>
                             <outletCollection property="gestureRecognizers" destination="54k-zb-TGN" appends="YES" id="pZF-Ve-k6B"/>
@@ -202,6 +214,7 @@
                         <outlet property="remarkContainer" destination="SXR-Fc-oH8" id="s2m-5w-ibf"/>
                         <outlet property="rightSwipeGesture" destination="54k-zb-TGN" id="gCM-wA-dah"/>
                         <outlet property="tab" destination="via-Gj-ncv" id="88x-eR-0pt"/>
+                        <outlet property="templateContainer" destination="5Qo-pg-WUq" id="RyR-ao-vxa"/>
                         <outlet property="vehicleContainer" destination="kgJ-lW-8Jd" id="Jxp-l6-TL5"/>
                         <outlet property="workContainer" destination="HL3-Rn-aWJ" id="lIN-ae-yO6"/>
                     </connections>
@@ -254,6 +267,14 @@
             </objects>
             <point key="canvasLocation" x="775" y="123"/>
         </scene>
+        <!--Template-->
+        <scene sceneID="uIP-fY-wgC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Template" id="Hwr-br-xS1" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PZm-2F-Mhe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="775" y="179"/>
+        </scene>
         <!--Remark-->
         <scene sceneID="mvC-xg-8dT">
             <objects>
@@ -272,9 +293,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera.fill" catalog="system" width="128" height="96"/>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="car.fill" catalog="system" width="128" height="93"/>
         <image name="clock" catalog="system" width="128" height="121"/>
+        <image name="filemenu.and.selection" catalog="system" width="128" height="93"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <image name="phone" catalog="system" width="128" height="115"/>
