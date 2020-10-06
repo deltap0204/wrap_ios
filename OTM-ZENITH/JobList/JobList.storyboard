@@ -150,7 +150,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="hOF-fr-j6c">
+                                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="hOF-fr-j6c">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
                                                         </datePicker>
                                                     </subviews>

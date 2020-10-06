@@ -43,18 +43,7 @@ class WorkViewController: UIViewController {
         
         routeView.layer.borderWidth = 0.5
         jobView.layer.borderWidth = 0.5
-        let status =  viewModel.issue.fields?.status
-        if(status?.id == "10032"){
-            self.jobStart.isEnabled = false
-            self.jobStop.isEnabled = false
-            self.routeStop.isEnabled = false
-            self.routeStart.isEnabled = false
-        }else{
-            self.jobStart.isEnabled = true
-            self.jobStop.isEnabled = true
-            self.routeStop.isEnabled = true
-            self.routeStart.isEnabled = true
-        }
+
         bindViewModel()
     }
     
@@ -62,31 +51,41 @@ class WorkViewController: UIViewController {
         
         viewModel.showLoader.map({ !$0 }).bind(to: overlayView.rx.isHidden).disposed(by: disposeBag)
         
-        viewModel.enableStartJob.bind(to: jobStart.rx.isEnabled).disposed(by: disposeBag)
-        viewModel.enableStopJob.bind(to: jobStop.rx.isEnabled).disposed(by: disposeBag)
-        viewModel.enableCloseJob.bind(to: jobClose.rx.isEnabled).disposed(by: disposeBag)
-        viewModel.enableStartRoute.bind(to: routeStart.rx.isEnabled).disposed(by: disposeBag)
-        viewModel.enableStopRoute.bind(to: routeStop.rx.isEnabled).disposed(by: disposeBag)
+		guard let status = viewModel.issue.fields?.status?.id, status == "10032" else {
+			viewModel.enableStartJob.bind(to: jobStart.rx.isEnabled).disposed(by: disposeBag)
+			viewModel.enableStopJob.bind(to: jobStop.rx.isEnabled).disposed(by: disposeBag)
+			viewModel.enableCloseJob.bind(to: jobClose.rx.isEnabled).disposed(by: disposeBag)
+			viewModel.enableStartRoute.bind(to: routeStart.rx.isEnabled).disposed(by: disposeBag)
+			viewModel.enableStopRoute.bind(to: routeStop.rx.isEnabled).disposed(by: disposeBag)
+			return
+		}
+		
+		// disable these buttons if job is done
+		self.jobStart.isEnabled = false
+		self.jobStop.isEnabled = false
+		self.jobClose.isEnabled = false
+		self.routeStop.isEnabled = false
+		self.routeStart.isEnabled = false
     }
     
     @IBAction func startRoute(_ sender: Any) {
-        viewModel.startRoute()
+		viewModel.startRoute()
     }
     
     @IBAction func stopRoute(_ sender: Any) {
-        viewModel.stopRoute()
+		viewModel.stopRoute()
     }
     
     @IBAction func startJob(_ sender: Any) {
-        viewModel.startJob()
+		viewModel.startJob()
     }
     
     @IBAction func stopJob(_ sender: Any) {
-        viewModel.stopJob()
+		viewModel.stopJob()
     }
     
     @IBAction func closeJob( _ sender: Any) {
-        viewModel.closeJob()
+		viewModel.closeJob()
     }
 
     /*
