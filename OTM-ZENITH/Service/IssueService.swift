@@ -55,6 +55,9 @@ class IssueService {
 					data: data!,
 					completion: { (result) in
 						if let dt = result as? Data {
+							
+							
+							print(JSON(dt))
 							let resURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("issue_response.txt")
 							do {
 								try dt.write(to: resURL)

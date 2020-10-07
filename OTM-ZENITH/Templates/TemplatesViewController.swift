@@ -2,11 +2,12 @@
 //  TemplatesViewController.swift
 //  OTM-ZENITH
 //
-//  Created by Freddy Mendez on 10/6/20.
+//  Created by Nam Phong Nguyen on 10/6/20.
 //  Copyright © 2020 Ram Suthar. All rights reserved.
 //
 
 import UIKit
+import Toast
 
 class TemplatesViewController: UIViewController {
 
@@ -36,7 +37,7 @@ class TemplatesViewController: UIViewController {
 		IssueService().getTemplates(customer: issue.fields?.customfield10056 ?? "", vehicle_brand: issue.fields?.customfield10062 ?? "") { objects in
 			self.datasource = objects
 		} failure: { (error) in
-//			self.view.makeToast(error.localizedDescription)
+			self.view.makeToast(error.localizedDescription)
 		}
 
 	}
