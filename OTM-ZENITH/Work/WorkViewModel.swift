@@ -31,7 +31,21 @@ class WorkViewModel {
         
         self.service = IssueService()
         
-        let status = issue.fields?.status?.statusCategory?.id ?? .toDo
+//        let status = issue.fields?.status?.statusCategory?.id ?? .toDo
+		
+		var status: StatusCategoryId = .toDo
+		if let status_id = issue.fields?.status?.id {
+			if status_id == "10030" {
+				status = .toDo
+			} else if status_id == "10031" {
+				status = .inProgress
+			} else if status_id == "10124" {
+				status = .problem
+			} else if status_id == "10032" {
+				status = .done
+			}
+		}
+		
         enableStartJob = .init(value: status == .toDo)
         enableStopJob = .init(value: status == .inProgress)
         enableCloseJob = .init(value: status != .done)
