@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Toast
 
 class TemplatesViewController: UIViewController {
 
@@ -34,10 +33,10 @@ class TemplatesViewController: UIViewController {
 	}
 	
 	func loadData() {
-		IssueService().getTemplates(customer: issue.fields?.customfield10056 ?? "", vehicle_brand: issue.fields?.customfield10062 ?? "") { objects in
+		IssueService().getTemplates(customer: issue.fields?.customfield10056 ?? "", vehicle_brand: issue.fields?.customfield10062 ?? "") { [unowned self] objects in
 			self.datasource = objects
-		} failure: { (error) in
-			self.view.makeToast(error.localizedDescription)
+		} failure: { [unowned self](error) in
+			debugPrint(error.localizedDescription)
 		}
 
 	}
