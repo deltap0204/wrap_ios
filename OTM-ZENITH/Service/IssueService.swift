@@ -203,7 +203,7 @@ class IssueService {
 	func getTemplates(customer: String, vehicle_brand: String, completion: @escaping([IssueModel]) -> Void, failure: @escaping AppServiceFailure) {
 		
 		
-		var jql = "project = \"WT\" AND assignee IN (currentUser()) AND (cf[10189] in (\"YES\"))"
+		var jql = "project = \"WT\" AND (cf[10189] in (\"YES\"))"
 		
 		if customer.isEmpty {
 			jql += " AND cf[10056] is empty"
