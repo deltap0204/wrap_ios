@@ -33,6 +33,7 @@ class FieldsModel {
 	var vehicle_type = ""
 	var vehicle_version = ""
 	var summary = ""
+	var attachments = [AttachmentModel]()
 	var templates = [CustomFieldModel]()
 	
 	init() {
@@ -46,7 +47,7 @@ class FieldsModel {
 		vehicle_brand = json["customfield_10062"].stringValue
 		vehicle_type = json["customfield_10063"].stringValue
 		vehicle_version = json["customfield_10064"].stringValue
-		
+		attachments = json["attachment"].arrayValue.map({AttachmentModel($0)})
 	}
 }
 
@@ -59,5 +60,25 @@ class CustomFieldModel {
 		customFieldSelf = json["self"].stringValue
 		value = json["value"].stringValue
 		id = json["id"].stringValue
+	}
+}
+
+class AttachmentModel {
+	var mimeType = ""
+	var created_at = ""
+	var id = ""
+	var filename = ""
+	var thumbnail = ""
+	var content = ""
+	var size: Double = 0
+	
+	init(_ json: JSON) {
+		mimeType = json["mimeType"].stringValue
+		created_at = json["created_at"].stringValue
+		id = json["id"].stringValue
+		filename = json["filename"].stringValue
+		thumbnail = json["thumbnail"].stringValue
+		content = json["content"].stringValue
+		size = json["size"].doubleValue
 	}
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DTPhotoViewerController
 
 class TemplatesViewController: UIViewController {
 
@@ -18,6 +19,7 @@ class TemplatesViewController: UIViewController {
 			tableView?.reloadData()
 		}
 	}
+	private var selectedTemplate: IssueModel!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,5 +60,43 @@ extension TemplatesViewController: UITableViewDataSource {
 }
 
 extension TemplatesViewController: UITableViewDelegate {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		self.selectedTemplate = datasource[indexPath.row]
+		
+		let cell = tableView.cellForRow(at: indexPath)! as! TemplatesTableViewCell
+		
+		let viewController = PhotoVController(referencedView: cell, image: nil)
+		viewController.dataSource = self
+		present(viewController, animated: true)
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+			(viewController.scrollView as! UICollectionView).scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+		}
+	}
+}
 
+
+extension TemplatesViewController: DTPhotoViewerControllerDataSource {
+	
+	func numberOfItems(in photoViewerController: DTPhotoViewerController) -> Int {
+		
+		return selectedTemplate?.fields.attachments.count ?? 0
+	}
+	
+	func photoViewerController(_ photoViewerController: DTPhotoViewerController, referencedViewForPhotoAt index: Int) -> UIView? {
+		return nil
+	}
+	
+	func photoViewerController(_ photoViewerController: DTPhotoViewerController, configurePhotoAt index: Int, withImageView imageView: UIImageView) {
+		
+		
+		guard let url = URL(string: selectedTemplate.fields.attachments[index].thumbnail) else {
+			imageView.kf.indicator?.startAnimatingView()
+			return
+		}
+		imageView.kf.indicatorType = .activity
+		imageView.kf.setImage(with: url)
+		
+	}
+	
+	
 }
