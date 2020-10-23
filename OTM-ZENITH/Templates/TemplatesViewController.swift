@@ -2,8 +2,8 @@
 //  TemplatesViewController.swift
 //  OTM-ZENITH
 //
-//  Created by Nam Phong Nguyen on 10/6/20.
-//  Copyright © 2020 Ram Suthar. All rights reserved.
+//  Created Freddy Mendez on 10/6/20.
+//  Copyright © 2020 Freddy Mendez. All rights reserved.
 //
 
 import UIKit
