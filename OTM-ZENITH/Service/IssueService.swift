@@ -47,9 +47,10 @@ class IssueService {
 		var jql = "assignee=currentUser()"
 		if(key != ""){
 //			jql = "project = WT AND summary ~\(key) OR  description  ~\(key)"
-            jql = "project = WT AND key in (\(key))"
+//            jql = "project = WT AND key in (\(key))"
+			jql = "project = WT AND (summary ~\(key) OR  description  ~\(key) OR key in (\(key)))"
 		}
-		let params: [String: Any] = ["jql":jql,"fields": [ "*all" ]]
+		let params: [String: Any] = ["jql":jql,"fields": [ "*all" ], "validateQuery": "false"]
 		let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/search"
 		let data: Data? = try? JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
 		client.post(url: url,

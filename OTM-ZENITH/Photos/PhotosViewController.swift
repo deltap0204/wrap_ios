@@ -178,15 +178,19 @@ extension PhotosViewController: DTPhotoViewerControllerDataSource {
     func photoViewerController(_ photoViewerController: DTPhotoViewerController, configurePhotoAt index: Int, withImageView imageView: UIImageView) {
         
         let photo = try? viewModel.photos.value()[index].original
-        let provider = JIRAImageProvider(url: photo!)
-        imageView.kf.indicatorType = .activity
-        
-        var image: UIImage? = nil
-        if let cell = self.collectionView?.cellForItem(at: IndexPath(item: index, section: 0)) as? PictureCell {
-            image = cell.picture.image
-        }
-        imageView.kf.setImage(with: provider, placeholder: image)
-        
+
+		guard let url = URL(string: photo ?? "") else {
+			return
+		}
+		
+		var image: UIImage? = nil
+		if let cell = self.collectionView?.cellForItem(at: IndexPath(item: index, section: 0)) as? PictureCell {
+			image = cell.picture.image
+		}
+
+		imageView.kf.setImage(with: url, placeholder: image, options: [.requestModifier(ImageDownloadTokenManager())]) { (result) in
+			print(result)
+		}
     }
     
     

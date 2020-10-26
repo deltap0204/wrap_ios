@@ -2,7 +2,7 @@
 //  WebView.swift
 //  OAuthSwift
 //
-//  Created by Freddy Mendez on 2/11/15.
+//  Created by Dongri Jin on 2/11/15.
 //  Copyright (c) 2015 Dongri Jin. All rights reserved.
 //
 

@@ -12,6 +12,7 @@
 		07A0CE53252D24B4008124ED /* TemplatesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A0CE50252D24B4008124ED /* TemplatesTableViewCell.swift */; };
 		07A0CE54252D24B4008124ED /* TemplatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A0CE51252D24B4008124ED /* TemplatesViewController.swift */; };
 		07A0CE59252D296F008124ED /* IssueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A0CE58252D296F008124ED /* IssueModel.swift */; };
+		07E7C8832546FE6D00EA588B /* ImageDownloadTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E7C8822546FE6C00EA588B /* ImageDownloadTokenManager.swift */; };
 		2113568F23ACF58700738239 /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2113568E23ACF58700738239 /* OAuthSwift */; };
 		2113569123ACFA4500738239 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2113569023ACFA4500738239 /* WebViewController.swift */; };
 		2113569423AD014600738239 /* JobList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2113569323AD014600738239 /* JobList.storyboard */; };
@@ -83,6 +84,7 @@
 		07A0CE50252D24B4008124ED /* TemplatesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplatesTableViewCell.swift; sourceTree = "<group>"; };
 		07A0CE51252D24B4008124ED /* TemplatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplatesViewController.swift; sourceTree = "<group>"; };
 		07A0CE58252D296F008124ED /* IssueModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueModel.swift; sourceTree = "<group>"; };
+		07E7C8822546FE6C00EA588B /* ImageDownloadTokenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloadTokenManager.swift; sourceTree = "<group>"; };
 		2113569023ACFA4500738239 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		2113569323AD014600738239 /* JobList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JobList.storyboard; sourceTree = "<group>"; };
 		2113569523AD018100738239 /* JobListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 		21665C2B23AFE0FC00451EA5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				07E7C8822546FE6C00EA588B /* ImageDownloadTokenManager.swift */,
 				2138FE2823AC36D1005FE09D /* APIClient.swift */,
 				2138FE2623AC36BD005FE09D /* IssueService.swift */,
 				21C8681323ADEB2C00500744 /* IssueResponse.swift */,
@@ -539,6 +542,7 @@
 				212AA1A223AFD0E700A10B11 /* VehicleViewController.swift in Sources */,
 				07A0CE59252D296F008124ED /* IssueModel.swift in Sources */,
 				21BA74B023AC0CF500EAB10B /* SceneDelegate.swift in Sources */,
+				07E7C8832546FE6D00EA588B /* ImageDownloadTokenManager.swift in Sources */,
 				2138FE2923AC36D1005FE09D /* APIClient.swift in Sources */,
 				212AA19D23AFB8B700A10B11 /* JIRAImageProvider.swift in Sources */,
 				C34CB30824DB218C00B8D4D4 /* PhotoVController.swift in Sources */,

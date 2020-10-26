@@ -2,7 +2,7 @@
 //  TemplatesViewController.swift
 //  OTM-ZENITH
 //
-//  Created Freddy Mendez on 10/6/20.
+//  Created by Freddy Mendez on 10/6/20.
 //  Copyright © 2020 Freddy Mendez. All rights reserved.
 //
 
@@ -89,12 +89,15 @@ extension TemplatesViewController: DTPhotoViewerControllerDataSource {
 	func photoViewerController(_ photoViewerController: DTPhotoViewerController, configurePhotoAt index: Int, withImageView imageView: UIImageView) {
 		
 		
-		guard let url = URL(string: selectedTemplate.fields.attachments[index].thumbnail) else {
+		guard let url = URL(string: selectedTemplate.fields.attachments[index].content) else {
 			imageView.kf.indicator?.startAnimatingView()
 			return
 		}
 		imageView.kf.indicatorType = .activity
-		imageView.kf.setImage(with: url)
+
+		imageView.kf.setImage(with: url, options: [.requestModifier(ImageDownloadTokenManager())]) { (result) in
+			print(result)
+		}
 		
 	}
 	
