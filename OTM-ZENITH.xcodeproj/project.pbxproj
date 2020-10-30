@@ -59,6 +59,8 @@
 		21D3E8EC23AE4858004E14FF /* Remark.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D3E8EB23AE4858004E14FF /* Remark.storyboard */; };
 		21D3E8EE23AE51C4004E14FF /* PhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3E8ED23AE51C4004E14FF /* PhotosViewModel.swift */; };
 		21D3E8F123AE5359004E14FF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 21D3E8F023AE5359004E14FF /* Kingfisher */; };
+		31E8913F254BDDA300547EF7 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E8913E254BDDA300547EF7 /* AppService.swift */; };
+		31E89144254BDDFA00547EF7 /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = 31E89143254BDDFA00547EF7 /* JWTDecode */; };
 		6AEF136223ED70080040B4BB /* QRCode_ScanLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEF135E23ED70080040B4BB /* QRCode_ScanLine.png */; };
 		6AEF136323ED70080040B4BB /* noticeMusic.caf in Resources */ = {isa = PBXBuildFile; fileRef = 6AEF135F23ED70080040B4BB /* noticeMusic.caf */; };
 		6AEF136423ED70080040B4BB /* QRCode_ScanBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEF136023ED70080040B4BB /* QRCode_ScanBox.png */; };
@@ -129,6 +131,7 @@
 		21D3E8E923AE4850004E14FF /* Work.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Work.storyboard; sourceTree = "<group>"; };
 		21D3E8EB23AE4858004E14FF /* Remark.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Remark.storyboard; sourceTree = "<group>"; };
 		21D3E8ED23AE51C4004E14FF /* PhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModel.swift; sourceTree = "<group>"; };
+		31E8913E254BDDA300547EF7 /* AppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		6AEF135E23ED70080040B4BB /* QRCode_ScanLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QRCode_ScanLine.png; sourceTree = "<group>"; };
 		6AEF135F23ED70080040B4BB /* noticeMusic.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = noticeMusic.caf; sourceTree = "<group>"; };
 		6AEF136023ED70080040B4BB /* QRCode_ScanBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QRCode_ScanBox.png; sourceTree = "<group>"; };
@@ -146,6 +149,7 @@
 			files = (
 				21616AC723AD47C2003123B9 /* RxSwift in Frameworks */,
 				07A0CE49252D00F4008124ED /* SwiftyJSON in Frameworks */,
+				31E89144254BDDFA00547EF7 /* JWTDecode in Frameworks */,
 				21BCD40A23AD40D4005712BA /* Prephirences in Frameworks */,
 				21616AC923AD47C2003123B9 /* RxCocoa in Frameworks */,
 				212AA19B23AF8E1400A10B11 /* DTPhotoViewerController in Frameworks */,
@@ -217,6 +221,7 @@
 		21665C2B23AFE0FC00451EA5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				31E8913E254BDDA300547EF7 /* AppService.swift */,
 				07E7C8822546FE6C00EA588B /* ImageDownloadTokenManager.swift */,
 				2138FE2823AC36D1005FE09D /* APIClient.swift */,
 				2138FE2623AC36BD005FE09D /* IssueService.swift */,
@@ -387,6 +392,7 @@
 				21D3E8F023AE5359004E14FF /* Kingfisher */,
 				212AA19A23AF8E1400A10B11 /* DTPhotoViewerController */,
 				07A0CE48252D00F4008124ED /* SwiftyJSON */,
+				31E89143254BDDFA00547EF7 /* JWTDecode */,
 			);
 			productName = "OTM-ZENITH";
 			productReference = 21BA74AA23AC0CF500EAB10B /* OTM-ZENITH iOS App.app */;
@@ -446,6 +452,7 @@
 				21D3E8EF23AE5359004E14FF /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				212AA19923AF8E1400A10B11 /* XCRemoteSwiftPackageReference "DTPhotoViewerController" */,
 				07A0CE47252D00F4008124ED /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				31E89142254BDDFA00547EF7 /* XCRemoteSwiftPackageReference "JWTDecode" */,
 			);
 			productRefGroup = 21BA74AB23AC0CF500EAB10B /* Products */;
 			projectDirPath = "";
@@ -552,6 +559,7 @@
 				21C8681423ADEB2C00500744 /* IssueResponse.swift in Sources */,
 				07A0CE54252D24B4008124ED /* TemplatesViewController.swift in Sources */,
 				21AD620A23C76C570072C4D5 /* DetailsViewModel.swift in Sources */,
+				31E8913F254BDDA300547EF7 /* AppService.swift in Sources */,
 				2137531823B6E776006F6BDE /* LocationService.swift in Sources */,
 				21D3E8EE23AE51C4004E14FF /* PhotosViewModel.swift in Sources */,
 				2138FE2723AC36BD005FE09D /* IssueService.swift in Sources */,
@@ -878,6 +886,14 @@
 				minimumVersion = 5.12.0;
 			};
 		};
+		31E89142254BDDFA00547EF7 /* XCRemoteSwiftPackageReference "JWTDecode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/JWTDecode.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -915,6 +931,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 21D3E8EF23AE5359004E14FF /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		31E89143254BDDFA00547EF7 /* JWTDecode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 31E89142254BDDFA00547EF7 /* XCRemoteSwiftPackageReference "JWTDecode" */;
+			productName = JWTDecode;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
