@@ -117,7 +117,7 @@ class JobListViewController: UIViewController,UISearchBarDelegate,UITableViewDel
 		self.refreshControl.endRefreshing()
 		self.setSwipeGesture()
 		bindViewModel()
-		self.tableView.isHidden = true
+//		self.tableView.isHidden = true
 		NotificationCenter.default.addObserver(
 			self,
 			selector: #selector(self.batteryLevelChanged),

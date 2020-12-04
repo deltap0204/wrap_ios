@@ -35,9 +35,9 @@ class TemplatesViewController: UIViewController {
 	}
 	
 	func loadData() {
-		IssueService().getTemplates(customer: issue.fields?.customfield10056 ?? "", vehicle_brand: issue.fields?.customfield10062 ?? "") { [unowned self] objects in
-			self.datasource = objects
-		} failure: { [unowned self](error) in
+		IssueService().getTemplates(customer: issue.fields?.customfield10056 ?? "", vehicle_brand: issue.fields?.customfield10062 ?? "") { [weak self] objects in
+			self?.datasource = objects
+		} failure: { (error) in
 			debugPrint(error.localizedDescription)
 		}
 
