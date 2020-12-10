@@ -24,9 +24,25 @@ class DetailsViewModel {
         self.issue = issue
         
         self.service = IssueService()
-        
-        details = issue.fields?.fieldsDescription?.content?.first?.content?.map({ $0.text ?? "" }).joined(separator: "\n") ?? ""
-        
+		
+		var tempDescription = ""
+		if let contents = issue.fields?.fieldsDescription?.content {
+			for content in contents {
+				var paragraph = ""
+				if content.content != nil {
+					paragraph = content.content!.map({$0.text ?? ""}).joined(separator: " ")
+				}
+				if !paragraph.isEmpty {
+					if tempDescription.isEmpty {
+						tempDescription = paragraph
+					} else {
+						tempDescription += "\n" + paragraph
+					}
+				}
+			}
+		}
+		details = tempDescription
+
         showLoader = .init(value: false)
         
     }

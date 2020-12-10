@@ -22,12 +22,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5mb-gL-qvE">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJt-gD-4q8">
-                                                <rect key="frame" x="8" y="8" width="398" height="20.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oS-2X-IUk">
                                                 <rect key="frame" x="104" y="786" width="206" height="40"/>
                                                 <color key="backgroundColor" red="0.24250346419999999" green="0.29723656180000002" blue="0.37256702780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -42,17 +36,23 @@
                                                     <action selector="makeTemplate:" destination="KUU-Jo-llw" eventType="touchUpInside" id="GCv-bR-43X"/>
                                                 </connections>
                                             </button>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1kq-cd-JRc">
+                                                <rect key="frame" x="8" y="8" width="398" height="770"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES" shipmentTrackingNumber="YES" flightNumber="YES"/>
+                                            </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="IJt-gD-4q8" firstAttribute="top" secondItem="5mb-gL-qvE" secondAttribute="top" constant="8" id="6du-ho-he1"/>
-                                            <constraint firstItem="IJt-gD-4q8" firstAttribute="leading" secondItem="5mb-gL-qvE" secondAttribute="leading" constant="8" id="Asx-4Z-Lsg"/>
-                                            <constraint firstItem="6oS-2X-IUk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="IJt-gD-4q8" secondAttribute="bottom" constant="8" id="BjV-WK-005"/>
                                             <constraint firstItem="6oS-2X-IUk" firstAttribute="centerX" secondItem="5mb-gL-qvE" secondAttribute="centerX" id="EOl-86-mjW"/>
-                                            <constraint firstItem="IJt-gD-4q8" firstAttribute="top" secondItem="5mb-gL-qvE" secondAttribute="top" constant="8" id="T7i-q7-LNw"/>
-                                            <constraint firstAttribute="trailing" secondItem="IJt-gD-4q8" secondAttribute="trailing" constant="8" id="bLL-bT-kNx"/>
-                                            <constraint firstItem="IJt-gD-4q8" firstAttribute="leading" secondItem="5mb-gL-qvE" secondAttribute="leading" constant="8" id="u3V-Go-enG"/>
-                                            <constraint firstAttribute="trailing" secondItem="IJt-gD-4q8" secondAttribute="trailing" constant="8" id="vXs-eS-Y5t"/>
+                                            <constraint firstAttribute="trailing" secondItem="1kq-cd-JRc" secondAttribute="trailing" constant="8" id="FfS-kf-dPU"/>
+                                            <constraint firstItem="6oS-2X-IUk" firstAttribute="top" secondItem="1kq-cd-JRc" secondAttribute="bottom" constant="8" id="Zcy-gH-mKx"/>
+                                            <constraint firstItem="1kq-cd-JRc" firstAttribute="top" secondItem="5mb-gL-qvE" secondAttribute="top" constant="8" id="uH8-DM-yMi"/>
+                                            <constraint firstItem="1kq-cd-JRc" firstAttribute="leading" secondItem="5mb-gL-qvE" secondAttribute="leading" constant="8" id="uzL-je-xzR"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -78,7 +78,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="details" destination="IJt-gD-4q8" id="Lrr-aZ-qIa"/>
+                        <outlet property="detailsTextView" destination="1kq-cd-JRc" id="Znp-RW-yWq"/>
                         <outlet property="templateButton" destination="6oS-2X-IUk" id="fKf-1f-fUN"/>
                     </connections>
                 </viewController>

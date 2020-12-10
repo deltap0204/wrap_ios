@@ -10,15 +10,16 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
-    @IBOutlet var details: UILabel!
-    @IBOutlet var templateButton: UIButton!
+    
+	@IBOutlet weak var detailsTextView: UITextView!
+	@IBOutlet var templateButton: UIButton!
    
     var viewModel: DetailsViewModel!
    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        details.text = viewModel.details
+        detailsTextView.text = viewModel.details
     }
     
     @IBAction func makeTemplate(_ sender: Any) {
