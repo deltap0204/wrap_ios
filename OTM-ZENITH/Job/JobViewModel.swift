@@ -28,7 +28,7 @@ class JobViewModel {
         title = issue.fields?.summary ?? ""
         address = issue.fields?.customfield10061 ?? ""
         
-        phone = issue.fields?.customfield10065 ?? ""
+		phone = (issue.fields?.customfield10065 ?? "").filter("0123456789".contains)
         hasPhone = !phone.isEmpty
 
         let person = issue.fields?.customfield10079 ?? ""
