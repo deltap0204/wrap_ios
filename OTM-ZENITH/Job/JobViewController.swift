@@ -128,7 +128,7 @@ class JobViewController: UIViewController {
         // Pass the selected object to the new view controller.
         if let vc = segue.destination as? DetailsViewController {
             detailVC = vc
-            detailVC.viewModel = DetailsViewModel(issue: viewModel.issue)
+			detailVC.viewModel = DetailsViewModel(title: viewModel.title, issue: viewModel.issue)
         }
         else if let vc = segue.destination as? VehicleViewController {
             vehicleVC = vc

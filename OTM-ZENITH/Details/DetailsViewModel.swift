@@ -11,6 +11,8 @@ import RxSwift
 
 class DetailsViewModel {
     
+	let title: String
+	
     let details: String
     
     let issue: Issue
@@ -19,8 +21,10 @@ class DetailsViewModel {
     
     let service: IssueService!
     
-    init(issue: Issue) {
+	init(title: String = "", issue: Issue) {
     
+		self.title = title
+		
         self.issue = issue
         
         self.service = IssueService()

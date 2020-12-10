@@ -11,6 +11,7 @@ import UIKit
 class DetailsViewController: UIViewController {
 
     
+	@IBOutlet weak var subjectLabel: UILabel!
 	@IBOutlet weak var detailsTextView: UITextView!
 	@IBOutlet var templateButton: UIButton!
    
@@ -19,6 +20,7 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+		subjectLabel.text = viewModel.title
         detailsTextView.text = viewModel.details
     }
     
