@@ -31,12 +31,6 @@ class VehicleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        license.superview?.isHidden = viewModel.license.isEmpty
-        objectID.superview?.isHidden = viewModel.objectID.isEmpty
-        brand.superview?.isHidden = viewModel.brand.isEmpty
-        type.superview?.isHidden = viewModel.type.isEmpty
-        km.superview?.isHidden = viewModel.km.isEmpty
         
         license.text = viewModel.license
         objectID.text = viewModel.objectID
