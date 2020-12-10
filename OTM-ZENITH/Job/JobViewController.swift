@@ -13,6 +13,7 @@ class JobViewController: UIViewController {
 
     @IBOutlet var location: UILabel!
     @IBOutlet var contact: UILabel!
+	@IBOutlet weak var asigneeLabel: UILabel!
     @IBOutlet var tab: UISegmentedControl!
     @IBOutlet var headerView: UIView!
     @IBOutlet var headerHeight: NSLayoutConstraint!
@@ -40,6 +41,7 @@ class JobViewController: UIViewController {
         title = viewModel.title
         contact.text = viewModel.contact
         location.text = viewModel.address
+		asigneeLabel.text = viewModel.issue.fields?.assignee?.displayName
                 
         detailContainer.isHidden = false
         vehicleContainer.isHidden = true
