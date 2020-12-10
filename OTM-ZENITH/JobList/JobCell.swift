@@ -15,7 +15,8 @@ class JobCell: UITableViewCell {
     @IBOutlet var client: UILabel!
     @IBOutlet var bgView: UIView!
     @IBOutlet var statusIndicator: UIView!
-    
+	@IBOutlet weak var asigneeLabel: UILabel!
+	
     override func awakeFromNib() {
         super.awakeFromNib()
         

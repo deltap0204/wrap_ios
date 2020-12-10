@@ -23,6 +23,7 @@ class JobListViewModel {
         let duedate: String
         let updated: String
         let statusColor: String?
+		let assignee: String?
     }
     
     let service: IssueService
@@ -57,8 +58,6 @@ class JobListViewModel {
         
         showLoader = BehaviorSubject(value: false)
         fetchIssues(searchString: "",isRefresh: false)
-        
-        
         
     }
     
@@ -117,7 +116,8 @@ class JobListViewModel {
                         client: $0.fields?.customfield10056 ?? "",
                         duedate: $0.fields?.duedate ?? "",
                         updated: $0.fields?.updated ?? "",
-                        statusColor: self?.color(for: $0.fields?.status)
+                        statusColor: self?.color(for: $0.fields?.status),
+						assignee: $0.fields?.assignee?.displayName
                     )
                 })
                 self?.hasJobs.onNext(jobs.count>0)
