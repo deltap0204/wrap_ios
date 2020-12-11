@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.launchoption = launchOptions
 		IQKeyboardManager.shared.enable = true
+		IQKeyboardManager.shared.disabledToolbarClasses = [JobListViewController.self]
         
         return true
     }

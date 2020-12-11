@@ -195,7 +195,7 @@ class JobListViewController: UIViewController,UISearchBarDelegate,UITableViewDel
 		
 		self.searchBar.text = ""
 		
-		datePicker.date = viewModel.date
+		viewModel.date = datePicker.date
 		viewModel.loadDate(date: datePicker.date,searchStr: self.searchController.searchBar.text ?? "",isRefresh: true )
 		
 		hideDatePicker()
