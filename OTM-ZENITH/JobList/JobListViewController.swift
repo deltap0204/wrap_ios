@@ -61,7 +61,6 @@ class JobListViewController: UIViewController,UISearchBarDelegate,UITableViewDel
 	@IBOutlet var doneButton: UIBarButtonItem!
 	@IBOutlet var datePickerContainer: UIView!
 	@IBOutlet var noJobsLabel: UILabel!
-	@IBOutlet weak var workingSwitch: UISwitch!
 	
 	let refreshControl = UIRefreshControl()
 	
@@ -113,7 +112,7 @@ class JobListViewController: UIViewController,UISearchBarDelegate,UITableViewDel
 		tableView.refreshControl = refreshControl
 		
 		datePickerContainer.isHidden = true
-		
+		self.view.bringSubviewToFront(self.datePickerContainer)
 		self.refreshControl.endRefreshing()
 		self.setSwipeGesture()
 		bindViewModel()
@@ -123,11 +122,6 @@ class JobListViewController: UIViewController,UISearchBarDelegate,UITableViewDel
 			selector: #selector(self.batteryLevelChanged),
 			name: Notification.Name("newJobs"),
 			object: nil)
-		
-		// switch
-		workingSwitch.onTintColor = UIColor(named: "statusProblem")
-		workingSwitch.tintColor = UIColor(named: "statusInProgress")
-		workingSwitch.isOn = UserDefaults.standard.bool(forKey: "workingStatus")
 		
 		locationService = LocationService()
 		
@@ -214,24 +208,7 @@ class JobListViewController: UIViewController,UISearchBarDelegate,UITableViewDel
 			self.datePickerContainer.transform = .identity
 		}
 	}
-	
-	@IBAction func workingSwitchChanged(_ sender: Any) {
-		
-		locationService.getLocation { (location) in
-			if let currentLocation = location {
-				AppService.shared.sendWorkingEvent(start: self.workingSwitch.isOn, longitude: currentLocation.longitude, latitude: currentLocation.latitude) {
-					UserDefaults.standard.setValue(self.workingSwitch.isOn, forKey: "workingStatus")
-				} failure: { (error) in
-					print(error.localizedDescription)
-					self.workingSwitch.isOn = UserDefaults.standard.bool(forKey: "workingStatus")
-				}
-			} else {
-				print("Can not get location")
-				self.workingSwitch.isOn = UserDefaults.standard.bool(forKey: "workingStatus")
-			}
-		}
-	}
-	
+
 	
 	func hideDatePicker() {
 		
