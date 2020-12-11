@@ -44,9 +44,9 @@ class IssueService {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "y-M-d"
 		let dateString = dateFormatter.string(from: date)
-        //var jql = "assignee=currentUser()" //used by Freddy to test
+        var jql = "assignee=currentUser()" //used by Freddy to test
         //var jql = "assignee=currentUser() and duedate = " + dateString //the real deal!!
-        var jql = "project = WT AND duedate = " + dateString //to be used for Thomas, Peter, Hendrik, ...
+        //var jql = "project = WT AND duedate = " + dateString //to be used for Thomas, Peter, Hendrik, ...
 		if(key != ""){
 //			jql = "project = WT AND summary ~\(key) OR  description  ~\(key)"
 //            jql = "project = WT AND key in (\(key))"
@@ -205,14 +205,14 @@ class IssueService {
 	func updateVehicleInfo(issue: Issue, license_plate: String, object_id: String, brand: String, type: String, km: Double, completion: @escaping() -> Void) {
 		
 
-//		let url1 = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/2/issue/\(issue.key!)/editmeta"
-//		client.get(url: url1, params: [:]) { (result) in
-//			if let dt = result as? Data {
-//				print(JSON(dt))
-//			}
-//		}
+		let url1 = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/issue/\(issue.key!)/editmeta"
+		client.get(url: url1, params: [:]) { (result) in
+			if let dt = result as? Data {
+				print(JSON(dt))
+			}
+		}
 ////
-		let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/2/issue/\(issue.key!)"
+		let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/issue/\(issue.key!)"
 		let params = ["fields":["customfield_10059": license_plate, "customfield_10058": object_id, "customfield_10062": brand, "customfield_10063": type, "customfield_10082": km]]
 		client.put(url: url,
 				   params: params,
