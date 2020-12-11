@@ -56,4 +56,12 @@ class VehicleViewModel {
         }
         
     }
+	
+	func updateVehicleInfo(license_plate: String, object_id: String, brand: String, type: String, km: Double) {
+		showLoader.onNext(true)
+		service.updateVehicleInfo(issue: issue, license_plate: license_plate, object_id: object_id, brand: brand, type: type, km: km) {
+			self.showLoader.onNext(false)
+			self.showSuccessMessage.onNext("Update successfully")
+		}
+	}
 }

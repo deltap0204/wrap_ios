@@ -12,12 +12,12 @@ import RxCocoa
 
 class VehicleViewController: UIViewController {
 
-    @IBOutlet var license: UILabel!
-    @IBOutlet var objectID: UILabel!
-    @IBOutlet var brand: UILabel!
-    @IBOutlet var type: UILabel!
-    @IBOutlet var km: UILabel!
-    
+	@IBOutlet weak var licenseTextField: UITextField!
+	@IBOutlet weak var objectIDTextField: UITextField!
+	@IBOutlet weak var brandTextField: UITextField!
+	@IBOutlet weak var typeTextField: UITextField!
+	@IBOutlet weak var kmTextField: UITextField!
+	
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var problem: UITextView!
     @IBOutlet var buttonEnter: UIButton!
@@ -33,11 +33,11 @@ class VehicleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        license.text = viewModel.license
-        objectID.text = viewModel.objectID
-        brand.text = viewModel.brand
-        type.text = viewModel.type
-        km.text = viewModel.km
+        licenseTextField.text = viewModel.license
+        objectIDTextField.text = viewModel.objectID
+        brandTextField.text = viewModel.brand
+        typeTextField.text = viewModel.type
+        kmTextField.text = viewModel.km
         
         problem.layer.cornerRadius = 8
         buttonEnter.layer.cornerRadius = 8
@@ -62,6 +62,13 @@ class VehicleViewController: UIViewController {
     //    self.buttonEnter.setTitle("Problem", for: .normal);
         
     }
+	
+	@IBAction func doSaveButton(_ sender: Any) {
+		self.view.endEditing(true)
+		let km = Double(kmTextField.text ?? "0") ?? 0
+		self.viewModel.updateVehicleInfo(license_plate: licenseTextField.text ?? "", object_id: objectIDTextField.text ?? "", brand: brandTextField.text ?? "", type: typeTextField.text ?? "", km: km)
+	}
+	
 
     /*
     // MARK: - Navigation
