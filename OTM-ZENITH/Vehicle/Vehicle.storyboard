@@ -217,6 +217,7 @@
                         <outlet property="activityIndicator" destination="IFH-WB-3K5" id="uYV-yk-cd9"/>
                         <outlet property="brand" destination="TA4-DE-V19" id="HGi-cf-I9z"/>
                         <outlet property="buttonEnter" destination="xZg-ar-ylv" id="mAM-2D-gS4"/>
+                        <outlet property="buttonSendBottomConstraint" destination="IYd-J6-BUg" id="x7G-st-fS6"/>
                         <outlet property="km" destination="jOp-f3-1oa" id="9py-Kx-TrN"/>
                         <outlet property="license" destination="7PB-HN-XcK" id="sYA-zb-atc"/>
                         <outlet property="objectID" destination="aDb-bn-wby" id="w7T-i9-bFE"/>

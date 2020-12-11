@@ -8,6 +8,7 @@
 
 import UIKit
 import OAuthSwift
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 
         self.launchoption = launchOptions
+		IQKeyboardManager.shared.enable = true
         
         return true
     }

@@ -21,7 +21,8 @@ class VehicleViewController: UIViewController {
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var problem: UITextView!
     @IBOutlet var buttonEnter: UIButton!
-    
+	@IBOutlet weak var buttonSendBottomConstraint: NSLayoutConstraint!
+	
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var overlayView: UIView!
     
@@ -45,23 +46,7 @@ class VehicleViewController: UIViewController {
     }
 
     private func bindViewModel() {
-        problem.rx.didBeginEditing
-            .bind(onNext: { (_) in
-                var contentInset = self.scrollView.contentInset
-                contentInset.bottom = 290
-                self.scrollView.contentInset = contentInset
-                self.scrollView.scrollToView(view: self.problem, animated: true)
-            })
-            .disposed(by: disposeBag)
-        
-        problem.rx.didEndEditing
-            .bind(onNext: { (_) in
-                var contentInset = self.scrollView.contentInset
-                contentInset.bottom = 0
-                self.scrollView.contentInset = contentInset
-            })
-            .disposed(by: disposeBag)
-        
+
         viewModel.showLoader.map({ !$0 }).bind(to: overlayView.rx.isHidden).disposed(by: disposeBag)
         
         viewModel.showSuccessMessage.bind(onNext: { self.alert(message: $0) }).disposed(by: disposeBag)
