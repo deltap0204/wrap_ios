@@ -95,7 +95,6 @@
                                                     <segment title="" image="clock" catalog="system"/>
                                                     <segment title="" image="info.circle" catalog="system"/>
                                                     <segment title="" image="camera.fill" catalog="system"/>
-                                                    <segment title="" image="filemenu.and.selection" catalog="system"/>
                                                 </segments>
                                                 <connections>
                                                     <action selector="changeTab:" destination="2XQ-gX-tQm" eventType="valueChanged" id="KMx-H0-tnk"/>
@@ -164,9 +163,6 @@
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Qo-pg-WUq">
                                 <rect key="frame" x="8" y="260.5" width="398" height="635.5"/>
-                                <connections>
-                                    <segue destination="Hwr-br-xS1" kind="embed" id="Z7N-Ay-OGM"/>
-                                </connections>
                             </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mAu-NR-WiO"/>
@@ -274,14 +270,6 @@
             </objects>
             <point key="canvasLocation" x="775" y="123"/>
         </scene>
-        <!--Template-->
-        <scene sceneID="uIP-fY-wgC">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Template" id="Hwr-br-xS1" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PZm-2F-Mhe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="775" y="179"/>
-        </scene>
         <!--Remark-->
         <scene sceneID="mvC-xg-8dT">
             <objects>
@@ -303,7 +291,6 @@
         <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="car.fill" catalog="system" width="128" height="93"/>
         <image name="clock" catalog="system" width="128" height="121"/>
-        <image name="filemenu.and.selection" catalog="system" width="128" height="93"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <image name="phone" catalog="system" width="128" height="115"/>

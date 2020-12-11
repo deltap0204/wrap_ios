@@ -200,44 +200,5 @@ class IssueService {
 		
 	}
 	
-	// MARK: GET LIST OF TEMPLATE
-	func getTemplates(customer: String, vehicle_brand: String, completion: @escaping([IssueModel]) -> Void, failure: @escaping AppServiceFailure) {
-		
-		
-		var jql = "project = \"WT\" AND (cf[10189] in (\"YES\"))"
-		
-		if customer.isEmpty {
-			jql += " AND cf[10056] is empty"
-		} else {
-			jql += " AND cf[10056] ~ \"\(customer)\""
-		}
-		if vehicle_brand.isEmpty {
-			jql += " AND cf[10062] is empty"
-		} else {
-			jql += " AND cf[10062] ~ \"\(vehicle_brand)\""
-		}
-		
-		let params: [String: Any] = ["jql":jql,"fields": [ "*all" ]]
-		let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/search"
-		let data: Data? = try? JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
-		client.post(url: url,
-					data: data!,
-					completion: { (result) in
-						
-						
-						guard let data = result as? Data else {
-							return
-						}
-						do {
-							let json = try JSON(data: data)
-							print(json)
-							completion(json["issues"].arrayValue.map({IssueModel($0)}))
-						} catch {
-							failure(error)
-						}
-						
-					})
-	}
-	
 	
 }

@@ -34,7 +34,6 @@ class JobViewController: UIViewController {
     var workVC: WorkViewController!
     var remarkVC: RemarkViewController!
     var photosVC: PhotosViewController!
-	var templatesVC: TemplatesViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -147,10 +146,6 @@ class JobViewController: UIViewController {
         else if let vc = segue.destination as? PhotosViewController {
             photosVC = vc
             photosVC.viewModel = PhotosViewModel(issue: viewModel.issue)
-		}
-		else if let vc = segue.destination as? TemplatesViewController {
-			templatesVC = vc
-			templatesVC.issue = viewModel.issue
 		}
     }
 }
