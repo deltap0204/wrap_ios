@@ -42,6 +42,8 @@ class DetailsViewModel {
 					} else {
 						tempDescription += "\n" + paragraph
 					}
+				} else {
+					tempDescription += "\n"
 				}
 			}
 		}
