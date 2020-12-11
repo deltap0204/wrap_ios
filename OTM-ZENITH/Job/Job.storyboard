@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fj7-ij-ajq">
-                                <rect key="frame" x="8" y="96" width="398" height="164.5"/>
+                                <rect key="frame" x="8" y="96" width="398" height="162"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="g8m-PJ-urw">
-                                        <rect key="frame" x="0.0" y="0.0" width="398" height="116.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="114"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OnM-Dk-5M2">
                                                 <rect key="frame" x="8" y="8" width="382" height="40"/>
@@ -68,9 +68,9 @@
                                                     <outletCollection property="gestureRecognizers" destination="20U-rS-cGZ" appends="YES" id="LZX-s5-raV"/>
                                                 </connections>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0b-1V-U8y">
-                                                <rect key="frame" x="8" y="88" width="382" height="20.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0b-1V-U8y">
+                                                <rect key="frame" x="8" y="88" width="382" height="18"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -78,14 +78,14 @@
                                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qRF-dA-5xe">
-                                        <rect key="frame" x="8" y="115.5" width="382" height="1"/>
+                                        <rect key="frame" x="8" y="113" width="382" height="1"/>
                                         <color key="backgroundColor" red="0.34031230210000002" green="0.40728333589999999" blue="0.46276092530000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="cRl-E7-DJE"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Hd-Gu-Q8c">
-                                        <rect key="frame" x="0.0" y="120.5" width="398" height="44"/>
+                                        <rect key="frame" x="0.0" y="118" width="398" height="44"/>
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="via-Gj-ncv">
                                                 <rect key="frame" x="8" y="4" width="382" height="37"/>
@@ -132,37 +132,37 @@
                                 </variation>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l4C-b9-nNW">
-                                <rect key="frame" x="8" y="260.5" width="398" height="635.5"/>
+                                <rect key="frame" x="8" y="258" width="398" height="638"/>
                                 <connections>
                                     <segue destination="qWU-5f-Rq8" kind="embed" id="FLf-iv-l47"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kgJ-lW-8Jd">
-                                <rect key="frame" x="8" y="260.5" width="398" height="635.5"/>
+                                <rect key="frame" x="8" y="258" width="398" height="638"/>
                                 <connections>
                                     <segue destination="VfJ-RW-2qh" kind="embed" id="2UN-7L-cjD"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HL3-Rn-aWJ">
-                                <rect key="frame" x="8" y="260.5" width="398" height="635.5"/>
+                                <rect key="frame" x="8" y="258" width="398" height="638"/>
                                 <connections>
                                     <segue destination="NSw-Nc-6kY" kind="embed" id="CcI-SN-T3g"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SXR-Fc-oH8">
-                                <rect key="frame" x="8" y="260.5" width="398" height="635.5"/>
+                                <rect key="frame" x="8" y="258" width="398" height="638"/>
                                 <connections>
                                     <segue destination="Sjy-CF-vEa" kind="embed" id="8yZ-yU-XY2"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EMt-pB-goj">
-                                <rect key="frame" x="8" y="260.5" width="398" height="635.5"/>
+                                <rect key="frame" x="8" y="258" width="398" height="638"/>
                                 <connections>
                                     <segue destination="KFQ-39-wl8" kind="embed" id="5zY-2Z-ieM"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Qo-pg-WUq">
-                                <rect key="frame" x="8" y="260.5" width="398" height="635.5"/>
+                                <rect key="frame" x="8" y="258" width="398" height="638"/>
                             </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mAu-NR-WiO"/>
