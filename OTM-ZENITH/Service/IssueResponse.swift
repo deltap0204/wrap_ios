@@ -168,6 +168,7 @@ struct IssueFields: Codable {
     let customfield10080: [Customfield10]?
 //    let customfield10081: JSONNull?
     let customfield10082: Double?
+	let customfield10083: Double?
 //    let customfield10083: JSONNull?
 //    let customfield10088: JSONNull?
     let customfield10000: Customfield10000?
@@ -304,7 +305,7 @@ struct IssueFields: Codable {
         case customfield10080 = "customfield_10080"
 //        case customfield10081 = "customfield_10081"
         case customfield10082 = "customfield_10082"
-//        case customfield10083 = "customfield_10083"
+        case customfield10083 = "customfield_10083"
 //        case customfield10088 = "customfield_10088"
         case customfield10000 = "customfield_10000"
 //        case customfield10001 = "customfield_10001"

@@ -34,7 +34,7 @@ class VehicleViewModel {
         objectID = issue.fields?.customfield10058 ?? ""
         brand = issue.fields?.customfield10062 ?? ""
         type = issue.fields?.customfield10063 ?? ""
-        km = String(issue.fields?.customfield10082 ?? 0)
+        km = String(issue.fields?.customfield10083 ?? 0)
         vehicleOnTime = ""
         vehicleDirty = ""
         washInstructionApplied = ""

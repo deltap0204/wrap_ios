@@ -109,7 +109,7 @@
                                                         <rect key="frame" x="20" y="270" width="335" height="40"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29F-2u-NUH">
-                                                                <rect key="frame" x="216" y="0.0" width="119" height="40"/>
+                                                                <rect key="frame" x="143" y="0.0" width="192" height="40"/>
                                                                 <color key="backgroundColor" red="0.041786156589999998" green="0.51668661829999996" blue="0.99862962960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="Mbj-MG-8db"/>
@@ -225,6 +225,7 @@
                             <constraint firstItem="nme-MU-mdF" firstAttribute="trailing" secondItem="LfH-Bt-Fxb" secondAttribute="trailing" constant="20" id="XAq-Sh-zsO"/>
                             <constraint firstItem="LfH-Bt-Fxb" firstAttribute="top" secondItem="i9C-p6-tmx" secondAttribute="bottom" constant="20" id="Z71-As-Meh"/>
                             <constraint firstItem="mJs-R5-6Kp" firstAttribute="bottom" secondItem="nme-MU-mdF" secondAttribute="bottom" id="imN-uQ-UQC"/>
+                            <constraint firstItem="xZg-ar-ylv" firstAttribute="width" secondItem="29F-2u-NUH" secondAttribute="width" id="lvG-zq-sWY"/>
                         </constraints>
                     </view>
                     <connections>
@@ -237,6 +238,7 @@
                         <outlet property="objectIDTextField" destination="Rvn-Yp-Sk5" id="605-qH-6N0"/>
                         <outlet property="overlayView" destination="mJs-R5-6Kp" id="t8c-ap-Jid"/>
                         <outlet property="problem" destination="SFb-yd-a7Z" id="9Fh-BM-gZc"/>
+                        <outlet property="saveButton" destination="29F-2u-NUH" id="Rw4-Nm-Sl2"/>
                         <outlet property="scrollView" destination="i9C-p6-tmx" id="cg1-8K-oj0"/>
                         <outlet property="typeTextField" destination="o0K-zb-fNF" id="6O8-Yo-x6y"/>
                     </connections>

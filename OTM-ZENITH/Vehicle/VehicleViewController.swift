@@ -17,6 +17,7 @@ class VehicleViewController: UIViewController {
 	@IBOutlet weak var brandTextField: UITextField!
 	@IBOutlet weak var typeTextField: UITextField!
 	@IBOutlet weak var kmTextField: UITextField!
+	@IBOutlet weak var saveButton: UIButton!
 	
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var problem: UITextView!
@@ -41,6 +42,7 @@ class VehicleViewController: UIViewController {
         
         problem.layer.cornerRadius = 8
         buttonEnter.layer.cornerRadius = 8
+		saveButton.layer.cornerRadius = 8
         
         bindViewModel()
     }

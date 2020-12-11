@@ -124,6 +124,7 @@ class JobListViewController: UIViewController,UISearchBarDelegate,UITableViewDel
 			object: nil)
 		
 		locationService = LocationService()
+		NotificationCenter.default.addObserver(self, selector: #selector(loadDate(_:)), name: NSNotification.Name.init("reload_tasks"), object: nil)
 		
 	}
 	
