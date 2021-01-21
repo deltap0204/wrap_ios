@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import SwiftyJSON
 
 class DetailsViewModel {
     
@@ -22,7 +23,6 @@ class DetailsViewModel {
     let service: IssueService!
     
 	init(title: String = "", issue: Issue) {
-    
 		self.title = title
 		
         self.issue = issue
@@ -32,10 +32,8 @@ class DetailsViewModel {
 		var tempDescription = ""
 		if let contents = issue.fields?.fieldsDescription?.content {
 			for content in contents {
-				var paragraph = ""
-				if content.content != nil {
-					paragraph = content.content!.map({$0.text ?? ""}).joined(separator: " ")
-				}
+				let paragraph = DetailsViewModel.getSubContent(content: content)
+				
 				if !paragraph.isEmpty {
 					if tempDescription.isEmpty {
 						tempDescription = paragraph
@@ -60,4 +58,51 @@ class DetailsViewModel {
             self.showLoader.onNext(false)
         }
     }
+	
+	
+	class func getSubContent(content: DescriptionContent) -> String {
+		var text = ""
+		if content.content != nil {
+			//fluppycontent
+			for subContent in content.content! {
+				if subContent.text != nil {
+					if text.isEmpty {
+						text = subContent.text!
+					} else {
+						text += subContent.text!
+					}
+					
+				} else if subContent.content != nil {
+					//TentacledContent
+					for content1 in subContent.content! {
+						if content1.content != nil {
+//							StickyContent
+							for stickyContent in content1.content! {
+								if stickyContent.text != nil {
+									if text.isEmpty {
+										text = stickyContent.text!
+									} else {
+										text += stickyContent.text!
+									}
+								} else if stickyContent.content != nil {
+//									IndigoContent
+									for indigoContent in stickyContent.content! {
+										if indigoContent.text != nil {
+											if text.isEmpty {
+												text = indigoContent.text!
+											} else {
+												text += indigoContent.text!
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return text
+	}
+	
 }

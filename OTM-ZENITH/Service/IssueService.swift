@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+import CoreLocation
 
 typealias AppServiceFailure = ((Error) -> Void)
 
@@ -44,13 +45,13 @@ class IssueService {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "y-M-d"
 		let dateString = dateFormatter.string(from: date)
-        var jql = "assignee=currentUser()" //used by Freddy to test
-        //var jql = "assignee=currentUser() and duedate = " + dateString //the real deal!!
-        //var jql = "project = WT AND duedate = " + dateString //to be used for Thomas, Peter, Hendrik, ...
+		//var jql = "assignee=currentUser()" //used by Freddy to test
+		//var jql = "assignee=currentUser() and duedate = " + dateString //the real deal!!
+		var jql = "project = WT AND duedate = " + dateString //to be used for Thomas, Peter, Hendrik, ...
 		if(key != ""){
 //			jql = "project = WT AND summary ~\(key) OR  description  ~\(key)"
-//            jql = "project = WT AND key in (\(key))"
-			jql = "project = WT AND (summary ~\(key) OR  description  ~\(key) OR key in (\(key)))"
+			//            jql = "project = WT AND key in (\(key))"
+						jql = "project = WT AND (summary ~\(key) OR  description  ~\(key) OR key in (\(key)))"
 		}
 		let params: [String: Any] = ["jql":jql,"fields": [ "*all" ], "validateQuery": "false"]
 		let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/search"
@@ -166,21 +167,34 @@ class IssueService {
 		
 		client.post(url: url,
 					data: data!,
-					completion: { (result) in
-						var googleMapURL = "https://www.google.com/maps/search/?api=1"
-						var locationString = ""
-						if let location = LocationService.location {
-							googleMapURL = "https://www.google.com/maps/embed/v1/view?key=AIzaSyBhiqcP_bAdHxn2PIilDhj76W7rHhQBmwE&center=\(location.latitude),\(location.longitude)&zoom=18"
-							//   googleMapURL = googleMapURL + "&query=\(location.latitude),\(location.longitude))"
-							locationString = "\(location.latitude),\(location.longitude)"
-							
-						}
+					completion: { [self] (result) in
+						
+						
+						
+						
 						if(!comment.contains("a remark was added")){
-							self.updateMetaData(googleURL:googleMapURL,location:locationString,issue: issue) {
-								completion()
+							var googleMapURL = "https://www.google.com/maps/search/?api=1"
+							var locationString = ""
+							if let location = LocationService.location {
+//								googleMapURL = "https://www.google.com/maps/search/?api=1&query=\(location.latitude),\(location.longitude)"
+								googleMapURL = "https://www.google.com/maps/embed/v1/view?key=AIzaSyBhiqcP_bAdHxn2PIilDhj76W7rHhQBmwE&center=\(location.latitude),\(location.longitude)&zoom=18"
+
+								//   googleMapURL = googleMapURL + "&query=\(location.latitude),\(location.longitude))"
+								locationString = "\(location.latitude),\(location.longitude)"
+								getAddressFromLocation(coordinate: location) { (addressString) in
+									self.updateMetaData(googleURL:googleMapURL + " || \(addressString)",location:locationString,issue: issue) {
+										completion()
+									}
+								}
+								
+							} else {
+								self.updateMetaData(googleURL:googleMapURL,location:locationString,issue: issue) {
+									completion()
+								}
 							}
-						}else{
 							
+							
+						}else{
 							completion()
 						}
 						
@@ -203,7 +217,7 @@ class IssueService {
 	}
 	
 	func updateVehicleInfo(issue: Issue, license_plate: String, object_id: String, brand: String, type: String, km: Double, completion: @escaping() -> Void) {
-	
+		
 		let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/issue/\(issue.key!)"
 		let params = ["fields":["customfield_10059": license_plate, "customfield_10058": object_id, "customfield_10062": brand, "customfield_10063": type, "customfield_10083": km]]
 		client.put(url: url,
@@ -215,5 +229,46 @@ class IssueService {
 		
 	}
 	
-	
+	func getAddressFromLocation(coordinate: CLLocationCoordinate2D, completion: @escaping (String) -> Void) {
+		let geocoder: CLGeocoder = CLGeocoder()
+		let location: CLLocation = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+		geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
+			if (error != nil)
+			{
+				completion("")
+				return
+			}
+			let pm = placemarks! as [CLPlacemark]
+			
+			if pm.count > 0 {
+				let pm = placemarks![0]
+				var addressString : String = ""
+				if pm.name != nil {
+					addressString = addressString + pm.name! + ", "
+				}
+				if pm.subLocality != nil {
+					addressString = addressString + pm.subLocality! + ", "
+				}
+				if pm.thoroughfare != nil {
+					addressString = addressString + pm.thoroughfare! + ", "
+				}
+				if pm.locality != nil {
+					addressString = addressString + pm.locality! + ", "
+				}
+				if pm.country != nil {
+					addressString = addressString + pm.country! + ", "
+				}
+				if pm.postalCode != nil {
+					addressString = addressString + pm.postalCode! + " "
+				}
+				completion(addressString)
+			} else {
+				completion("")
+			}
+			
+			
+		}
+		
+		
+	}
 }

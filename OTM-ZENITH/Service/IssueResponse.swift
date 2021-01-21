@@ -411,7 +411,9 @@ enum MIMEType: String, Codable {
     case videoMp4 = "video/mp4"
     case spreadsheet = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     case imagePNG = "image/png"
+	case imageGIF = "image/gif"
 	case illustrator = "application/vnd.adobe.illustrator"
+	case applicationZip = "application/zip"
 }
 
 // MARK: - WorklogClass
