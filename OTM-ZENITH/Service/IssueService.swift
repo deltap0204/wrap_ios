@@ -49,11 +49,11 @@ class IssueService {
 		//var jql = "assignee=currentUser() and duedate = " + dateString //the real deal!!
 		var jql = "project = WT AND duedate = " + dateString //to be used for Thomas, Peter, Hendrik, ...
 		if(key != ""){
-//			jql = "project = WT AND summary ~\(key) OR  description  ~\(key)"
+			//			jql = "project = WT AND summary ~\(key) OR  description  ~\(key)"
 			//            jql = "project = WT AND key in (\(key))"
-						jql = "project = WT AND (summary ~\(key) OR  description  ~\(key) OR key in (\(key)))"
+			jql = "project = WT AND (summary ~\(key) OR  description  ~\(key) OR key in (\(key)))"
 		}
-		let params: [String: Any] = ["jql":jql,"fields": [ "*all" ], "validateQuery": "false"]
+		let params: [String: Any] = ["jql":jql,"fields": [ "*all" ], "validateQuery": "false", "expand": ["renderedFields"]]
 		let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/search"
 		let data: Data? = try? JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
 		client.post(url: url,
@@ -91,14 +91,9 @@ class IssueService {
 				   params: [:],
 				   completion: { (result) in
 					let object = try! JSONDecoder().decode(Issue.self, from: result as! Data)
-					print("object \(object)")
 					completion(object)
 				   })
 	}
-	
-	
-	
-	
 	
 	func update(status: StatusCategoryId, issue: Issue, comment: String, completion: @escaping () -> Void) {
 		
@@ -176,9 +171,9 @@ class IssueService {
 							var googleMapURL = "https://www.google.com/maps/search/?api=1"
 							var locationString = ""
 							if let location = LocationService.location {
-//								googleMapURL = "https://www.google.com/maps/search/?api=1&query=\(location.latitude),\(location.longitude)"
+								//								googleMapURL = "https://www.google.com/maps/search/?api=1&query=\(location.latitude),\(location.longitude)"
 								googleMapURL = "https://www.google.com/maps/embed/v1/view?key=AIzaSyBhiqcP_bAdHxn2PIilDhj76W7rHhQBmwE&center=\(location.latitude),\(location.longitude)&zoom=18"
-
+								
 								//   googleMapURL = googleMapURL + "&query=\(location.latitude),\(location.longitude))"
 								locationString = "\(location.latitude),\(location.longitude)"
 								getAddressFromLocation(coordinate: location) { (addressString) in

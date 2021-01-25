@@ -56,6 +56,8 @@
 		21D3E8EE23AE51C4004E14FF /* PhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3E8ED23AE51C4004E14FF /* PhotosViewModel.swift */; };
 		21D3E8F123AE5359004E14FF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 21D3E8F023AE5359004E14FF /* Kingfisher */; };
 		310F68C32581DA640080B029 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 310F68C22581DA640080B029 /* IQKeyboardManagerSwift */; };
+		31D0FA2F25BE6CF800A041DD /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D0FA2E25BE6CF800A041DD /* String+Extension.swift */; };
+		31D0FA3325BE6D7D00A041DD /* WebViewStyle.css in Resources */ = {isa = PBXBuildFile; fileRef = 31D0FA3225BE6D7D00A041DD /* WebViewStyle.css */; };
 		31E8913F254BDDA300547EF7 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E8913E254BDDA300547EF7 /* AppService.swift */; };
 		31E89144254BDDFA00547EF7 /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = 31E89143254BDDFA00547EF7 /* JWTDecode */; };
 		6AEF136223ED70080040B4BB /* QRCode_ScanLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEF135E23ED70080040B4BB /* QRCode_ScanLine.png */; };
@@ -124,6 +126,8 @@
 		21D3E8E923AE4850004E14FF /* Work.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Work.storyboard; sourceTree = "<group>"; };
 		21D3E8EB23AE4858004E14FF /* Remark.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Remark.storyboard; sourceTree = "<group>"; };
 		21D3E8ED23AE51C4004E14FF /* PhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModel.swift; sourceTree = "<group>"; };
+		31D0FA2E25BE6CF800A041DD /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		31D0FA3225BE6D7D00A041DD /* WebViewStyle.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = WebViewStyle.css; sourceTree = "<group>"; };
 		31E8913E254BDDA300547EF7 /* AppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		6AEF135E23ED70080040B4BB /* QRCode_ScanLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QRCode_ScanLine.png; sourceTree = "<group>"; };
 		6AEF135F23ED70080040B4BB /* noticeMusic.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = noticeMusic.caf; sourceTree = "<group>"; };
@@ -214,6 +218,8 @@
 			isa = PBXGroup;
 			children = (
 				2195796723DB96130039C583 /* UIViewController+Alert.swift */,
+				31D0FA3225BE6D7D00A041DD /* WebViewStyle.css */,
+				31D0FA2E25BE6CF800A041DD /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -458,6 +464,7 @@
 				21BA74B523AC0CF500EAB10B /* Main.storyboard in Resources */,
 				21D3E8EC23AE4858004E14FF /* Remark.storyboard in Resources */,
 				2113569423AD014600738239 /* JobList.storyboard in Resources */,
+				31D0FA3325BE6D7D00A041DD /* WebViewStyle.css in Resources */,
 				C3B6FBBB24E3FADE0014B3B0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -529,6 +536,7 @@
 				2195796823DB96130039C583 /* UIViewController+Alert.swift in Sources */,
 				2113569623AD018100738239 /* JobListViewController.swift in Sources */,
 				21C8681B23AE101F00500744 /* DetailsViewController.swift in Sources */,
+				31D0FA2F25BE6CF800A041DD /* String+Extension.swift in Sources */,
 				21C8681423ADEB2C00500744 /* IssueResponse.swift in Sources */,
 				21AD620A23C76C570072C4D5 /* DetailsViewModel.swift in Sources */,
 				31E8913F254BDDA300547EF7 /* AppService.swift in Sources */,

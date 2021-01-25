@@ -21,7 +21,7 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
 
 		subjectLabel.text = viewModel.title
-        detailsTextView.text = viewModel.details
+		detailsTextView.attributedText = viewModel.details.addCssStyle().html2AttributedString
     }
     
     @IBAction func makeTemplate(_ sender: Any) {

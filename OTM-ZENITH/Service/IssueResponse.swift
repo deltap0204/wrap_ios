@@ -12,6 +12,7 @@
 //   let searchIssueResponse = try? newJSONDecoder().decode(SearchIssueResponse.self, from: jsonData)
 
 import Foundation
+import SwiftyJSON
 
 // MARK: - SearchIssueResponse
 struct SearchIssueResponse: Codable {
@@ -37,6 +38,7 @@ struct Issue: Codable {
     let issueSelf: String?
     let key: String?
     let fields: IssueFields?
+	let renderedFields: JSON?
 
     enum CodingKeys: String, CodingKey {
         case expand = "expand"
@@ -44,6 +46,7 @@ struct Issue: Codable {
         case issueSelf = "self"
         case key = "key"
         case fields = "fields"
+		case renderedFields = "renderedFields"
     }
 }
 
