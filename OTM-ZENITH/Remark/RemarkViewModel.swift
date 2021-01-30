@@ -74,4 +74,11 @@ class RemarkViewModel {
             self.showLoader.onNext(false)
         }
     }
+	
+	func update(washInstructions: Bool, vehicleLate: Bool, vehicleDirty: Bool, fluviusContainer: Bool, railroadCrossing: Bool, positionNotClear: Bool, redWhiteNotMounted: Bool, GPSnotCorrect: Bool, infrabelContainer: Bool, plateHolder: Bool, interventionOfCarglass: Bool, interventionOfTiers: Bool, onlyRemoveTheLogo: Bool, removeMoreThanLogo: Bool, carPainted: Bool) {
+		service.updateRemarks(issue: issue, washInstructions: washInstructions, vehicleLate: vehicleLate, vehicleDirty: vehicleDirty, fluviusContainer: fluviusContainer, railroadCrossing: railroadCrossing, positionNotClear: positionNotClear, redWhiteNotMounted: redWhiteNotMounted, GPSnotCorrect: GPSnotCorrect, infrabelContainer: infrabelContainer, plateHolder: plateHolder, interventionOfCarglass: interventionOfCarglass, interventionOfTiers: interventionOfTiers, onlyRemoveTheLogo: onlyRemoveTheLogo, removeMoreThanLogo: removeMoreThanLogo, carPainted: carPainted) {
+			
+		}
+
+	}
 }

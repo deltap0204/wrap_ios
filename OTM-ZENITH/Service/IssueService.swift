@@ -45,9 +45,9 @@ class IssueService {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "y-M-d"
 		let dateString = dateFormatter.string(from: date)
-		//var jql = "assignee=currentUser()" //used by Freddy to test
+		var jql = "assignee=currentUser()" //used by Freddy to test
 		//var jql = "assignee=currentUser() and duedate = " + dateString //the real deal!!
-		var jql = "project = WT AND duedate = " + dateString //to be used for Thomas, Peter, Hendrik, ...
+		//var jql = "project = WT AND duedate = " + dateString //to be used for Thomas, Peter, Hendrik, ...
 		if(key != ""){
 			//			jql = "project = WT AND summary ~\(key) OR  description  ~\(key)"
 			//            jql = "project = WT AND key in (\(key))"
@@ -222,6 +222,76 @@ class IssueService {
 					NotificationCenter.default.post(name: NSNotification.Name.init("reload_tasks"), object: nil)
 				   })
 		
+	}
+	
+	func updateRemarks(issue: Issue,
+					   washInstructions: Bool, vehicleLate: Bool, vehicleDirty: Bool,
+					   fluviusContainer: Bool, railroadCrossing: Bool, positionNotClear: Bool, redWhiteNotMounted: Bool, GPSnotCorrect: Bool,
+					   infrabelContainer: Bool, plateHolder: Bool, interventionOfCarglass: Bool, interventionOfTiers: Bool, onlyRemoveTheLogo: Bool, removeMoreThanLogo: Bool, carPainted: Bool, completion: @escaping() -> Void) {
+		let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/issue/\(issue.key!)"
+		
+		var defaultInstruction = [[String: Any]]()
+		if washInstructions {
+			defaultInstruction.append(["id": "10116"])
+		}
+		if vehicleDirty {
+			defaultInstruction.append(["id": "10304"])
+		}
+		if vehicleLate {
+			defaultInstruction.append(["id": "10328"])
+		}
+		
+		var fields = [String: Any]()
+		fields["customfield_10080"] = defaultInstruction
+		
+		if fluviusContainer {
+			var customFields10105Values = [[String: Any]]()
+			if plateHolder {
+				customFields10105Values.append(["id": "10329"])
+			}
+			if interventionOfCarglass {
+				customFields10105Values.append(["id": "10364"])
+			}
+			if interventionOfTiers {
+				customFields10105Values.append(["id": "10365"])
+			}
+			if onlyRemoveTheLogo {
+				customFields10105Values.append(["id": "10366"])
+			}
+			if removeMoreThanLogo {
+				customFields10105Values.append(["id": "10367"])
+			}
+			if carPainted {
+				customFields10105Values.append(["id": "10368"])
+			}
+			fields["customfield_10105"] = customFields10105Values
+			
+		}
+		if infrabelContainer {
+			var infrabelInstructions = [[String: Any]]()
+			if railroadCrossing {
+				infrabelInstructions.append(["id": "10203"])
+			}
+			if positionNotClear {
+				infrabelInstructions.append(["id": "10204"])
+			}
+			if redWhiteNotMounted {
+				infrabelInstructions.append(["id": "10235"])
+			}
+			if GPSnotCorrect {
+				infrabelInstructions.append(["id": "10236"])
+			}
+			fields["customfield_10128"] = infrabelInstructions
+			
+		}
+
+		let params = ["fields": fields]
+		client.put(url: url,
+				   params: params,
+				   completion: { (result) in
+					completion()
+					NotificationCenter.default.post(name: NSNotification.Name.init("reload_tasks"), object: nil)
+				   })
 	}
 	
 	func getAddressFromLocation(coordinate: CLLocationCoordinate2D, completion: @escaping (String) -> Void) {

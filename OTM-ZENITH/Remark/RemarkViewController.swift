@@ -93,13 +93,53 @@ class RemarkViewController: UIViewController {
         }
         
 //        viewModel.showLoader.bind(to: activityIndicator.rx.isAnimating).disposed(by: disposeBag)
+		
+		// handle value changed
+		washInstructions.rx.controlEvent(.valueChanged).withLatestFrom(washInstructions.rx.value).subscribe(onNext: {bool in
+			self.submit()
+		}).disposed(by: disposeBag)
+		vehicleLate.rx.controlEvent(.valueChanged).withLatestFrom(vehicleLate.rx.value).subscribe(onNext: {bool in
+			self.submit()
+		}).disposed(by: disposeBag)
+		vehicleDirty.rx.controlEvent(.valueChanged).withLatestFrom(vehicleDirty.rx.value).subscribe(onNext: {bool in
+			self.submit()
+		}).disposed(by: disposeBag)
+		railroadCrossing.rx.controlEvent(.valueChanged).withLatestFrom(railroadCrossing.rx.value).subscribe(onNext: {bool in
+			self.submit()
+		}).disposed(by: disposeBag)
+		positionNotClear.rx.controlEvent(.valueChanged).withLatestFrom(positionNotClear.rx.value).subscribe(onNext: {bool in
+			self.submit()
+		}).disposed(by: disposeBag)
+		redWhiteNotMounted.rx.controlEvent(.valueChanged).withLatestFrom(redWhiteNotMounted.rx.value).subscribe(onNext: {bool in
+			self.submit()
+		}).disposed(by: disposeBag)
+		GPSnotCorrect.rx.controlEvent(.valueChanged).withLatestFrom(GPSnotCorrect.rx.value).subscribe(onNext: {bool in
+			self.submit()
+		}).disposed(by: disposeBag)
+		plateHolder.rx.controlEvent(.valueChanged).withLatestFrom(plateHolder.rx.value).subscribe(onNext: {bool in
+			self.submit()
+		}).disposed(by: disposeBag)
+		interventionOfCarglass.rx.controlEvent(.valueChanged).withLatestFrom(interventionOfCarglass.rx.value).subscribe(onNext: {bool in
+			self.submit()
+		}).disposed(by: disposeBag)
+		interventionOfTiers.rx.controlEvent(.valueChanged).withLatestFrom(interventionOfTiers.rx.value).subscribe(onNext: {bool in
+			self.submit()
+		}).disposed(by: disposeBag)
+		onlyRemoveTheLogo.rx.controlEvent(.valueChanged).withLatestFrom(onlyRemoveTheLogo.rx.value).subscribe(onNext: {bool in
+			self.submit()
+		}).disposed(by: disposeBag)
+		removeMoreThanLogo.rx.controlEvent(.valueChanged).withLatestFrom(removeMoreThanLogo.rx.value).subscribe(onNext: {bool in
+			self.submit()
+		}).disposed(by: disposeBag)
+		carPainted.rx.controlEvent(.valueChanged).withLatestFrom(carPainted.rx.value).subscribe(onNext: {bool in
+			self.submit()
+		}).disposed(by: disposeBag)
     }
-    
-    @IBAction func submit(_ sender: Any) {
+	
+	func submit() {
+		viewModel.update(washInstructions: washInstructions.isOn, vehicleLate: vehicleLate.isOn, vehicleDirty: vehicleDirty.isOn, fluviusContainer: !fluviusContainer.isHidden, railroadCrossing: railroadCrossing.isOn, positionNotClear: positionNotClear.isOn, redWhiteNotMounted: redWhiteNotMounted.isOn, GPSnotCorrect: GPSnotCorrect.isOn, infrabelContainer: !infrabelContainer.isHidden, plateHolder: plateHolder.isOn, interventionOfCarglass: interventionOfCarglass.isOn, interventionOfTiers: interventionOfTiers.isOn, onlyRemoveTheLogo: onlyRemoveTheLogo.isOn, removeMoreThanLogo: removeMoreThanLogo.isOn, carPainted: carPainted.isOn)
+	}
 
-//        viewModel.submit(problem: problem.text)
-        
-    }
 
 }
 
