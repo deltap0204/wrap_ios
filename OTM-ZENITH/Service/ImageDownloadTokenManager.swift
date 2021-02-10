@@ -3,7 +3,7 @@
 //  OTM-ZENITH
 //
 //  Created by Freddy Mendez on 10/26/20.
-//  Copyright © 2020 Freddy Mendez. All rights reserved.
+//  Copyright © 2020 Freddy Mendez∑. All rights reserved.
 //
 
 import UIKit

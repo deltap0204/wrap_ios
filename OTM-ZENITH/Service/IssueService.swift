@@ -171,13 +171,13 @@ class IssueService {
 							var googleMapURL = "https://www.google.com/maps/search/?api=1"
 							var locationString = ""
 							if let location = LocationService.location {
-								//								googleMapURL = "https://www.google.com/maps/search/?api=1&query=\(location.latitude),\(location.longitude)"
+                                //googleMapURL = "https://www.google.com/maps/search/?api=1&query=\(location.latitude),\(location.longitude)"
 								googleMapURL = "https://www.google.com/maps/embed/v1/view?key=AIzaSyBhiqcP_bAdHxn2PIilDhj76W7rHhQBmwE&center=\(location.latitude),\(location.longitude)&zoom=18"
 								
 								//   googleMapURL = googleMapURL + "&query=\(location.latitude),\(location.longitude))"
 								locationString = "\(location.latitude),\(location.longitude)"
 								getAddressFromLocation(coordinate: location) { (addressString) in
-									self.updateMetaData(googleURL:googleMapURL + " || \(addressString)",location:locationString,issue: issue) {
+									self.updateMetaData(googleURL:googleMapURL, location:locationString,issue: issue) {
 										completion()
 									}
 								}
