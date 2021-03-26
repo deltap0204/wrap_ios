@@ -12,7 +12,7 @@ extension String {
 	var html2AttributedString: NSAttributedString? {
 		guard
 			let data = data(using: String.Encoding.utf8)
-			else { return nil }
+		else { return nil }
 		do {
 			let attString = try NSAttributedString(data: data, options: [NSAttributedString.DocumentReadingOptionKey.documentType : NSAttributedString.DocumentType.html, NSAttributedString.DocumentReadingOptionKey.characterEncoding:  String.Encoding.utf8.rawValue], documentAttributes: nil)
 			
@@ -37,5 +37,13 @@ extension String {
 		} catch _ {
 			return self
 		}
+	}
+	
+	func capitalizingFirstLetter() -> String {
+		return prefix(1).capitalized + dropFirst()
+	}
+	
+	mutating func capitalizeFirstLetter() {
+		self = self.capitalizingFirstLetter()
 	}
 }

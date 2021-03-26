@@ -214,7 +214,7 @@ class IssueService {
 	func updateVehicleInfo(issue: Issue, license_plate: String, object_id: String, brand: String, type: String, km: Double, completion: @escaping() -> Void) {
 		
 		let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/issue/\(issue.key!)"
-		let params = ["fields":["customfield_10059": license_plate, "customfield_10058": object_id, "customfield_10062": brand, "customfield_10063": type, "customfield_10083": km]]
+		let params = ["fields":["customfield_10059": license_plate, "customfield_10058": object_id, "customfield_10062": brand.capitalizingFirstLetter(), "customfield_10063": type.capitalizingFirstLetter(), "customfield_10083": km]]
 		client.put(url: url,
 				   params: params,
 				   completion: { (result) in
