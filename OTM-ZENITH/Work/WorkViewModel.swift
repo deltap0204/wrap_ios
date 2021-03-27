@@ -16,6 +16,7 @@ class WorkViewModel {
     let enableCloseJob: BehaviorSubject<Bool>
     let enableStartRoute: BehaviorSubject<Bool>
     let enableStopRoute: BehaviorSubject<Bool>
+	var routeStatus: BehaviorSubject<Bool>
     
     let showLoader: BehaviorSubject<Bool>
     
@@ -51,6 +52,7 @@ class WorkViewModel {
         enableCloseJob = .init(value: status != .done)
         enableStartRoute = .init(value: status != .done)
         enableStopRoute = .init(value: status != .done)
+		routeStatus = .init(value: false)
         
         showLoader = .init(value: false)
         
@@ -58,7 +60,15 @@ class WorkViewModel {
         locationService.getLocation { (_) in
             
         }
+		getRouteStatus()
+		
     }
+	
+	func getRouteStatus() {
+		service.getRouteStatus(issue: issue) { (started) in
+			self.routeStatus.onNext(started)
+		}
+	}
     
     func startJob() {
         showLoader.onNext(true)
@@ -68,9 +78,6 @@ class WorkViewModel {
             self.enableStopJob.onNext(true)
         }
     }
-    
-    
-    
     
     func stopJob() {
         showLoader.onNext(true)
@@ -97,7 +104,11 @@ class WorkViewModel {
         showLoader.onNext(true)
         service.add(comment: routeComment(for: .inProgress), issue: issue) {
             self.showLoader.onNext(false)
+			self.service.setRoute(isStart: true, issue: self.issue) {
+				self.routeStatus.onNext(true)
+			}
         }
+		
     }
     
     func stopRoute() {
@@ -105,7 +116,11 @@ class WorkViewModel {
         
         service.add(comment: routeComment(for: .done), issue: issue) {
             self.showLoader.onNext(false)
+			self.service.setRoute(isStart: false, issue: self.issue) {
+				self.routeStatus.onNext(false)
+			}
         }
+		
     }
     
     func jobComment(for status: StatusCategoryId) -> String {

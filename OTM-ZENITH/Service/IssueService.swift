@@ -136,7 +136,33 @@ class IssueService {
 						 })
 	}
 	
+	func getRouteStatus(issue: Issue, completion: @escaping(Bool) -> Void) {
+		let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/issue/\(issue.id!)/properties/route.status"
+		client.get(url: url, params: [:]) { (result) in
+			if let dt = result as? Data {
+				
+				
+				print(JSON(dt))
+				let json = JSON(dt)
+				if json["value"]["status"].exists() {
+					completion(json["value"]["status"].boolValue)
+				} else {
+					completion(false)
+				}
+
+			} else {
+				completion(false)
+			}
+		}
+	}
 	
+	func setRoute(isStart: Bool, issue: Issue, completion: @escaping() -> Void) {
+		let url = "https://api.atlassian.com/ex/jira/\(cloudId)/rest/api/3/issue/\(issue.id!)/properties/route.status"
+		client.put(url: url, params: ["status": isStart == true ? 1 : 0]) { (result) in
+			completion()
+		}
+		
+	}
 	
 	
 	func add(comment: String, issue: Issue, completion: @escaping () -> Void) {
@@ -171,7 +197,7 @@ class IssueService {
 							var googleMapURL = "https://www.google.com/maps/search/?api=1"
 							var locationString = ""
 							if let location = LocationService.location {
-                                //googleMapURL = "https://www.google.com/maps/search/?api=1&query=\(location.latitude),\(location.longitude)"
+								//googleMapURL = "https://www.google.com/maps/search/?api=1&query=\(location.latitude),\(location.longitude)"
 								googleMapURL = "https://www.google.com/maps/embed/v1/view?key=AIzaSyBhiqcP_bAdHxn2PIilDhj76W7rHhQBmwE&center=\(location.latitude),\(location.longitude)&zoom=18"
 								
 								//   googleMapURL = googleMapURL + "&query=\(location.latitude),\(location.longitude))"
@@ -284,7 +310,7 @@ class IssueService {
 			fields["customfield_10128"] = infrabelInstructions
 			
 		}
-
+		
 		let params = ["fields": fields]
 		client.put(url: url,
 				   params: params,

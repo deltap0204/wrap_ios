@@ -55,8 +55,10 @@ class WorkViewController: UIViewController {
 			viewModel.enableStartJob.bind(to: jobStart.rx.isEnabled).disposed(by: disposeBag)
 			viewModel.enableStopJob.bind(to: jobStop.rx.isEnabled).disposed(by: disposeBag)
 			viewModel.enableCloseJob.bind(to: jobClose.rx.isEnabled).disposed(by: disposeBag)
-			viewModel.enableStartRoute.bind(to: routeStart.rx.isEnabled).disposed(by: disposeBag)
-			viewModel.enableStopRoute.bind(to: routeStop.rx.isEnabled).disposed(by: disposeBag)
+//			viewModel.enableStartRoute.bind(to: routeStart.rx.isEnabled).disposed(by: disposeBag)
+//			viewModel.enableStopRoute.bind(to: routeStop.rx.isEnabled).disposed(by: disposeBag)
+			viewModel.routeStatus.map(!).bind(to: routeStart.rx.isEnabled).disposed(by: disposeBag)
+			viewModel.routeStatus.bind(to: routeStop.rx.isEnabled).disposed(by: disposeBag)
 			return
 		}
 		
