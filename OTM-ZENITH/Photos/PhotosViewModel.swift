@@ -41,10 +41,18 @@ class PhotosViewModel {
         let data = image.jpegData(compressionQuality: 0.7)!
         attachmentService.uploadImage(data: data, issueIdOrKey: issue.id!) { [weak self] (result) in
             
-            let photo = self?.photo(from: result!)
-            var newPhotos = try? self?.photos.value() ?? []
-            newPhotos?.append(photo!)
-            self?.photos.onNext(newPhotos!)
+            var googleMapURL = "https://www.google.com/maps/search/?api=1"
+            var locationString = ""
+            if let location = LocationService.location {
+                googleMapURL = "https://www.google.com/maps/embed/v1/view?key=AIzaSyBhiqcP_bAdHxn2PIilDhj76W7rHhQBmwE&center=\(location.latitude),\(location.longitude)&zoom=18"
+                locationString = "\(location.latitude),\(location.longitude)"
+                IssueService.shareInstance.updateMetaData(googleURL: googleMapURL, location: locationString, issue: self!.issue) {
+                    let photo = self?.photo(from: result!)
+                    var newPhotos = try? self?.photos.value() ?? []
+                    newPhotos?.append(photo!)
+                    self?.photos.onNext(newPhotos!)
+                }
+            }
         }
     }
     

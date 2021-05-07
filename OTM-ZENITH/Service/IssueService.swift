@@ -34,6 +34,7 @@ class IssueService {
 	
 	var client: APIClient
 	let cloudId = "0322c746-c9ad-4bf8-8033-022305956776"
+    static let shareInstance = IssueService()
 	
 	init() {
 		client = APIClient()
