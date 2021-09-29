@@ -153,7 +153,8 @@ struct IssueFields: Codable {
 //    let customfield10095: JSONNull?
 //    let customfield10096: JSONNull?
 //    let customfield10097: JSONNull?
-    let fieldsDescription: DescriptionClass?
+    //    FVDFVDFVD let fieldsDescription: DescriptionClass?
+//FVD    let fieldsDescription: DescriptionClass?
 //    let customfield10010: JSONNull?
 //    let customfield10098: JSONNull?
 //    let customfield10099: JSONNull?
@@ -290,7 +291,7 @@ struct IssueFields: Codable {
 //        case customfield10095 = "customfield_10095"
 //        case customfield10096 = "customfield_10096"
 //        case customfield10097 = "customfield_10097"
-        case fieldsDescription = "description"
+//FVD        case fieldsDescription = "description"
 //        case customfield10010 = "customfield_10010"
 //        case customfield10098 = "customfield_10098"
 //        case customfield10099 = "customfield_10099"
@@ -1124,3 +1125,4 @@ struct Watches: Codable {
 //        }
 //    }
 //}
+
