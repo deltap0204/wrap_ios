@@ -26,6 +26,8 @@ class PhotosViewController: UIViewController {
     let refreshControl = UIRefreshControl()
     let disposeBag = DisposeBag()
     
+    var pdfData: Data!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,7 +60,25 @@ class PhotosViewController: UIViewController {
             
             if let cell = cell as? PictureCell {
                 let provider = JIRAImageProvider(url: photo.thumb)
-                cell.picture.kf.setImage(with: provider)
+                let isPDF = (self.viewModel.issue.fields?.attachment?[index].mimeType.debugDescription)!.lowercased().contains("pdf")
+                if isPDF {
+                    cell.nameArea.isHidden = false
+                    cell.picture.image = UIImage.init(named: "pdf_icon")
+                    cell.nameLabel.text = self.viewModel.issue.fields?.attachment?[index].filename
+                    provider.data { result in
+                    switch result {
+                        case .success(let data):
+                            self.pdfData = data
+                        case .failure(let error):
+                                self.pdfData = nil
+                            print(error);
+                            }
+                        
+                    }
+                } else {
+                    cell.picture.kf.setImage(with: provider)
+                    cell.nameArea.isHidden = true
+                }
             }
         }.disposed(by: disposeBag)
         
@@ -124,16 +144,29 @@ class PhotosViewController: UIViewController {
 extension PhotosViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! PictureCell
         
-        let viewController = PhotoVController(referencedView: cell.picture, image: cell.picture.image)
-        viewController.dataSource = self
-        present(viewController, animated: true)
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
-
-            (viewController.scrollView as! UICollectionView).scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+        let isPDF = (viewModel.issue.fields?.attachment?[indexPath.row].mimeType.debugDescription)!.lowercased().contains("pdf")
+        if isPDF {
+            let pdfLink = viewModel.issue.fields?.attachment?[indexPath.row].content
+//            let pdfVC = PDFViewerCV()
+//            pdfVC.pdfLink = pdfLink!
+//            pdfVC.pdfData = self.pdfData
+            
+            let pdfVC = PDFLoadViewController(nibName: "PDFLoadViewController", bundle: nil)
+            pdfVC.pdfLink = pdfLink!
+            pdfVC.modalPresentationStyle = .fullScreen
+            present(pdfVC, animated: true)
+        } else {
+            let cell = collectionView.cellForItem(at: indexPath) as! PictureCell
+            
+            let viewController = PhotoVController(referencedView: cell.picture, image: cell.picture.image)
+            viewController.dataSource = self
+            viewController.scrollView.isScrollEnabled = false
+            present(viewController, animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
+                (viewController.scrollView as! UICollectionView).scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+            }
         }
-        
     }
 }
 

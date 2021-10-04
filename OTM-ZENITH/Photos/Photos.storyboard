@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ERc-qj-ZJU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ERc-qj-ZJU">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,15 +44,47 @@
                                                                 <constraint firstAttribute="width" secondItem="QaD-pM-VxO" secondAttribute="height" multiplier="1:1" id="28y-JB-SA7"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ioQ-Uf-G6D">
+                                                            <rect key="frame" x="0.0" y="65" width="125" height="60"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWS-H1-ahS">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="125" height="60"/>
+                                                                    <color key="backgroundColor" white="1" alpha="0.75796771523178808" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </view>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZuF-ig-Khe">
+                                                                    <rect key="frame" x="9.5" y="3" width="106" height="54"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstItem="oWS-H1-ahS" firstAttribute="height" secondItem="ioQ-Uf-G6D" secondAttribute="height" id="1Xa-ug-L3T"/>
+                                                                <constraint firstItem="ZuF-ig-Khe" firstAttribute="height" secondItem="ioQ-Uf-G6D" secondAttribute="height" multiplier="0.9" id="2pt-eE-xS7"/>
+                                                                <constraint firstItem="ZuF-ig-Khe" firstAttribute="centerX" secondItem="ioQ-Uf-G6D" secondAttribute="centerX" id="514-Wn-ZxF"/>
+                                                                <constraint firstItem="oWS-H1-ahS" firstAttribute="width" secondItem="ioQ-Uf-G6D" secondAttribute="width" id="84n-FS-wza"/>
+                                                                <constraint firstItem="oWS-H1-ahS" firstAttribute="centerY" secondItem="ioQ-Uf-G6D" secondAttribute="centerY" id="9jt-3v-9KK"/>
+                                                                <constraint firstAttribute="height" constant="60" id="YWB-Ij-Kk5"/>
+                                                                <constraint firstItem="ZuF-ig-Khe" firstAttribute="centerY" secondItem="ioQ-Uf-G6D" secondAttribute="centerY" id="wat-Ov-JdV"/>
+                                                                <constraint firstItem="ZuF-ig-Khe" firstAttribute="width" secondItem="ioQ-Uf-G6D" secondAttribute="width" multiplier="0.85" id="za0-gN-gos"/>
+                                                                <constraint firstItem="oWS-H1-ahS" firstAttribute="centerX" secondItem="ioQ-Uf-G6D" secondAttribute="centerX" id="zux-U3-atX"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="QaD-pM-VxO" secondAttribute="bottom" id="5wm-qV-xaz"/>
                                                         <constraint firstItem="QaD-pM-VxO" firstAttribute="top" secondItem="qL9-g4-cNT" secondAttribute="top" id="TZ6-V0-04D"/>
                                                         <constraint firstAttribute="trailing" secondItem="QaD-pM-VxO" secondAttribute="trailing" id="i51-K4-gUg"/>
+                                                        <constraint firstItem="ioQ-Uf-G6D" firstAttribute="bottom" secondItem="QaD-pM-VxO" secondAttribute="bottom" id="jyN-H3-euU"/>
                                                         <constraint firstItem="QaD-pM-VxO" firstAttribute="leading" secondItem="qL9-g4-cNT" secondAttribute="leading" id="lnf-Zc-MHq"/>
+                                                        <constraint firstItem="ioQ-Uf-G6D" firstAttribute="width" secondItem="QaD-pM-VxO" secondAttribute="width" id="o3c-6u-MIM"/>
+                                                        <constraint firstItem="ioQ-Uf-G6D" firstAttribute="centerX" secondItem="QaD-pM-VxO" secondAttribute="centerX" id="rLv-am-tXC"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
                                                 <connections>
+                                                    <outlet property="nameArea" destination="ioQ-Uf-G6D" id="faH-uz-3Zg"/>
+                                                    <outlet property="nameLabel" destination="ZuF-ig-Khe" id="NYP-8i-CjA"/>
                                                     <outlet property="picture" destination="QaD-pM-VxO" id="woA-7n-WGl"/>
                                                 </connections>
                                             </collectionViewCell>
@@ -67,8 +100,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="93D-n9-mvd">
                                         <rect key="frame" x="0.0" y="802" width="374" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOL-7h-h5t">
-                                                <rect key="frame" x="97.5" y="0.0" width="179" height="40"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOL-7h-h5t">
+                                                <rect key="frame" x="105.5" y="0.0" width="163" height="40"/>
                                                 <color key="backgroundColor" red="0.24250346419999999" green="0.29723656180000002" blue="0.37256702780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="cqy-yU-UoP"/>
@@ -86,6 +119,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="jIc-sR-prL"/>
                         <color key="backgroundColor" red="0.1009141281" green="0.17555627230000001" blue="0.25491982699999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="jIc-sR-prL" firstAttribute="bottom" secondItem="7dW-aQ-s8f" secondAttribute="bottom" id="KFr-IE-Mog"/>
@@ -93,7 +127,6 @@
                             <constraint firstItem="7dW-aQ-s8f" firstAttribute="leading" secondItem="vyD-Kh-qPS" secondAttribute="leading" constant="20" symbolic="YES" id="SqY-XI-yNs"/>
                             <constraint firstAttribute="trailing" secondItem="7dW-aQ-s8f" secondAttribute="trailing" constant="20" symbolic="YES" id="zfS-jB-CsF"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="jIc-sR-prL"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="r9A-7V-65a" id="oNu-mN-MS9"/>

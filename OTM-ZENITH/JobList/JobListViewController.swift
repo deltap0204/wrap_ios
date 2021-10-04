@@ -240,8 +240,7 @@ class JobListViewController: UIViewController,UISearchBarDelegate,UITableViewDel
 					cell.name.text = job.summary
 					cell.location.text = job.location
 					cell.client.text = job.client
-					cell.asigneeLabel.text = job.assignee
-					
+					cell.asigneeLabel.text = job.assignee					
 					cell.statusIndicator.backgroundColor = UIColor(named: job.statusColor ?? "black")
 				}
 			}

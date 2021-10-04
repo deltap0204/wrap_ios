@@ -23,14 +23,14 @@ struct JIRAImageProvider: ImageDataProvider {
         
         webClient.handle(URL(string: url)!) { (url) in
             let downloader = ImageDownloader.default
-            downloader.downloadImage(with: url!) { result in
+            downloader.downloadImage(with: url!, completionHandler:  { result in
                 switch result {
                 case .success(let value):
                     handler(.success(value.originalData))
                 case .failure(let error):
                     handler(.failure(error))
                 }
-            }
+            })
         }
     }
 }

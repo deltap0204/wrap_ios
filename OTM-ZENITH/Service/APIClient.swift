@@ -151,6 +151,8 @@ class APIClient {
             }
         }
         
+//        APIClient.oauthClient.down
+        
         
 //        let headers = [
 //            "Authorization":"Bearer \(oauthToken)",
@@ -171,6 +173,20 @@ class APIClient {
 //                    debugPrint("HTTP Request failed: \(response.result.error)")
 //                }
 //        }
+        
+    }
+    func get11(url: String,
+             params: [String: Any]?,
+             completion: @escaping (Any?)-> Void) {
+        APIClient.oauthClient.client.get(url) { result in
+            switch result {
+            case .success(let response):
+                debugPrint(response)
+                completion(response.data)
+            case .failure(let error):
+                debugPrint(error)
+            }
+        }
         
     }
 }

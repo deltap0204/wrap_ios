@@ -11,4 +11,7 @@ import WebKit
 
 class PictureCell: UICollectionViewCell {
     @IBOutlet var picture: UIImageView!
+    @IBOutlet weak var nameArea: UIView!
+    @IBOutlet weak var nameLabel: UILabel!
+    
 }
