@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		07A0CE49252D00F4008124ED /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 07A0CE48252D00F4008124ED /* SwiftyJSON */; };
 		07E7C8832546FE6D00EA588B /* ImageDownloadTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E7C8822546FE6C00EA588B /* ImageDownloadTokenManager.swift */; };
+		1FF8CE68270A6EB60045A1EF /* PDFTron in Frameworks */ = {isa = PBXBuildFile; productRef = 1FF8CE67270A6EB60045A1EF /* PDFTron */; };
+		1FF8CE6B270BAB560045A1EF /* PDFLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF8CE69270BAB560045A1EF /* PDFLoadViewController.swift */; };
+		1FF8CE6C270BAB560045A1EF /* PDFLoadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF8CE6A270BAB560045A1EF /* PDFLoadViewController.xib */; };
 		2113568F23ACF58700738239 /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2113568E23ACF58700738239 /* OAuthSwift */; };
 		2113569123ACFA4500738239 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2113569023ACFA4500738239 /* WebViewController.swift */; };
 		2113569423AD014600738239 /* JobList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2113569323AD014600738239 /* JobList.storyboard */; };
@@ -82,6 +85,8 @@
 
 /* Begin PBXFileReference section */
 		07E7C8822546FE6C00EA588B /* ImageDownloadTokenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloadTokenManager.swift; sourceTree = "<group>"; };
+		1FF8CE69270BAB560045A1EF /* PDFLoadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFLoadViewController.swift; sourceTree = "<group>"; };
+		1FF8CE6A270BAB560045A1EF /* PDFLoadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PDFLoadViewController.xib; sourceTree = "<group>"; };
 		2113569023ACFA4500738239 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		2113569323AD014600738239 /* JobList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JobList.storyboard; sourceTree = "<group>"; };
 		2113569523AD018100738239 /* JobListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +153,7 @@
 				07A0CE49252D00F4008124ED /* SwiftyJSON in Frameworks */,
 				31E89144254BDDFA00547EF7 /* JWTDecode in Frameworks */,
 				21BCD40A23AD40D4005712BA /* Prephirences in Frameworks */,
+				1FF8CE68270A6EB60045A1EF /* PDFTron in Frameworks */,
 				21616AC923AD47C2003123B9 /* RxCocoa in Frameworks */,
 				310F68C32581DA640080B029 /* IQKeyboardManagerSwift in Frameworks */,
 				212AA19B23AF8E1400A10B11 /* DTPhotoViewerController in Frameworks */,
@@ -294,6 +300,8 @@
 				21C8682223AE27E800500744 /* PhotosViewController.swift */,
 				21C8682423AE288200500744 /* PictureCell.swift */,
 				21D3E8ED23AE51C4004E14FF /* PhotosViewModel.swift */,
+				1FF8CE69270BAB560045A1EF /* PDFLoadViewController.swift */,
+				1FF8CE6A270BAB560045A1EF /* PDFLoadViewController.xib */,
 			);
 			path = Photos;
 			sourceTree = "<group>";
@@ -374,6 +382,7 @@
 				07A0CE48252D00F4008124ED /* SwiftyJSON */,
 				31E89143254BDDFA00547EF7 /* JWTDecode */,
 				310F68C22581DA640080B029 /* IQKeyboardManagerSwift */,
+				1FF8CE67270A6EB60045A1EF /* PDFTron */,
 			);
 			productName = "OTM-ZENITH";
 			productReference = 21BA74AA23AC0CF500EAB10B /* OTM-ZENITH iOS App.app */;
@@ -435,6 +444,7 @@
 				07A0CE47252D00F4008124ED /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				31E89142254BDDFA00547EF7 /* XCRemoteSwiftPackageReference "JWTDecode" */,
 				310F68C12581DA640080B029 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				1FF8CE66270A6EB60045A1EF /* XCRemoteSwiftPackageReference "pdftron-apple-package" */,
 			);
 			productRefGroup = 21BA74AB23AC0CF500EAB10B /* Products */;
 			projectDirPath = "";
@@ -454,6 +464,7 @@
 				21BA74BA23AC0CF600EAB10B /* LaunchScreen.storyboard in Resources */,
 				21D3E8EA23AE4850004E14FF /* Work.storyboard in Resources */,
 				6AEF136323ED70080040B4BB /* noticeMusic.caf in Resources */,
+				1FF8CE6C270BAB560045A1EF /* PDFLoadViewController.xib in Resources */,
 				21D3E8E823AE4849004E14FF /* Details.storyboard in Resources */,
 				212AA1A023AFD0C100A10B11 /* Vehicle.storyboard in Resources */,
 				6AEF136423ED70080040B4BB /* QRCode_ScanBox.png in Resources */,
@@ -540,6 +551,7 @@
 				21C8681423ADEB2C00500744 /* IssueResponse.swift in Sources */,
 				21AD620A23C76C570072C4D5 /* DetailsViewModel.swift in Sources */,
 				31E8913F254BDDA300547EF7 /* AppService.swift in Sources */,
+				1FF8CE6B270BAB560045A1EF /* PDFLoadViewController.swift in Sources */,
 				2137531823B6E776006F6BDE /* LocationService.swift in Sources */,
 				21D3E8EE23AE51C4004E14FF /* PhotosViewModel.swift in Sources */,
 				2138FE2723AC36BD005FE09D /* IssueService.swift in Sources */,
@@ -706,7 +718,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = 2F9673MCG5;
+				DEVELOPMENT_TEAM = Z87XQH9DJZ;
 				INFOPLIST_FILE = "OTM-ZENITH/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -728,7 +740,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = 2F9673MCG5;
+				DEVELOPMENT_TEAM = Z87XQH9DJZ;
 				INFOPLIST_FILE = "OTM-ZENITH/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -826,6 +838,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		1FF8CE66270A6EB60045A1EF /* XCRemoteSwiftPackageReference "pdftron-apple-package" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PDFTron/pdftron-apple-package";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.78529;
+			};
+		};
 		2113568D23ACF58700738239 /* XCRemoteSwiftPackageReference "OAuthSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/OAuthSwift/OAuthSwift.git";
@@ -889,6 +909,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 07A0CE47252D00F4008124ED /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		1FF8CE67270A6EB60045A1EF /* PDFTron */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1FF8CE66270A6EB60045A1EF /* XCRemoteSwiftPackageReference "pdftron-apple-package" */;
+			productName = PDFTron;
 		};
 		2113568E23ACF58700738239 /* OAuthSwift */ = {
 			isa = XCSwiftPackageProductDependency;

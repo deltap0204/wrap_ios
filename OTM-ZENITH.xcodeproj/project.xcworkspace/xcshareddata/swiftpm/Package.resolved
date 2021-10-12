@@ -110,6 +110,15 @@
         }
       },
       {
+        "package": "PDFTron",
+        "repositoryURL": "https://github.com/PDFTron/pdftron-apple-package",
+        "state": {
+          "branch": null,
+          "revision": "ddd5df80cbd7e83fc80556d77864872f5dfafc61",
+          "version": "9.1.78529"
+        }
+      },
+      {
         "package": "Prephirences",
         "repositoryURL": "https://github.com/phimage/Prephirences.git",
         "state": {
