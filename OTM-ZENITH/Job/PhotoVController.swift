@@ -58,15 +58,15 @@ class PhotoVController: DTPhotoViewerController {
         return cancelButton
     }()
 
-    lazy var moreButton: UIButton = {
-        let moreButton = UIButton(frame: CGRect.zero)
-        moreButton.setImage(UIImage.moreIcon(size: CGSize(width: 16, height: 16), color: UIColor.white), for: UIControl.State())
-        moreButton.contentHorizontalAlignment = .right
-        moreButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: kElementHorizontalMargin)
-        moreButton.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
-        moreButton.addTarget(self, action: #selector(moreButtonTapped(_:)), for: UIControl.Event.touchUpInside)
-        return moreButton
-    }()
+//    lazy var moreButton: UIButton = {
+//        let moreButton = UIButton(frame: CGRect.zero)
+//        moreButton.setImage(UIImage.moreIcon(size: CGSize(width: 16, height: 16), color: UIColor.white), for: UIControl.State())
+//        moreButton.contentHorizontalAlignment = .right
+//        moreButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: kElementHorizontalMargin)
+//        moreButton.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
+//        moreButton.addTarget(self, action: #selector(moreButtonTapped(_:)), for: UIControl.Event.touchUpInside)
+//        return moreButton
+//    }()
 
     deinit {
         print("SimplePhotoViewerController deinit")
@@ -76,7 +76,7 @@ class PhotoVController: DTPhotoViewerController {
         super.viewDidLoad()
         registerClassPhotoViewer(CustomPhotoCollectionViewCell.self)
         view.addSubview(cancelButton)
-        view.addSubview(moreButton)
+//        view.addSubview(moreButton)
 
         configureOverlayViews(hidden: true, animated: false)
         // Do any additional setup after loading the view.
@@ -92,7 +92,7 @@ class PhotoVController: DTPhotoViewerController {
         let buttonWidth: CGFloat = kElementWidth
 
         cancelButton.frame = CGRect(origin: CGPoint(x: 20, y: 40), size: CGSize(width: buttonWidth, height: buttonHeight))
-        moreButton.frame = CGRect(origin: CGPoint(x: view.bounds.width - buttonWidth, y: y), size: CGSize(width: buttonWidth, height: kElementHeight))
+//        moreButton.frame = CGRect(origin: CGPoint(x: view.bounds.width - buttonWidth, y: y), size: CGSize(width: buttonWidth, height: kElementHeight))
     }
 
     @IBAction private func moreButtonTapped(_ sender: UIButton) {
@@ -145,11 +145,11 @@ class PhotoVController: DTPhotoViewerController {
 
     func setOverlayElementsHidden(isHidden: Bool) {
         cancelButton.isHidden = isHidden
-        moreButton.isHidden = isHidden
+//        moreButton.isHidden = isHidden
     }
 
     func setOverlayElementsAlpha(alpha: CGFloat) {
-        moreButton.alpha = alpha
+//        moreButton.alpha = alpha
         cancelButton.alpha = alpha
     }
 

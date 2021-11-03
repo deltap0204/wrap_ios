@@ -60,7 +60,10 @@ class PhotosViewController: UIViewController {
             
             if let cell = cell as? PictureCell {
                 let provider = JIRAImageProvider(url: photo.thumb)
-                let isPDF = (self.viewModel.issue.fields?.attachment?[index].mimeType.debugDescription)!.lowercased().contains("pdf")
+                var isPDF = false;
+                if (self.viewModel.issue.fields?.attachment!.count ?? 0 > index) {
+                    isPDF = (self.viewModel.issue.fields?.attachment?[index].mimeType.debugDescription)!.lowercased().contains("pdf")
+                }
                 if isPDF {
                     cell.nameArea.isHidden = false
                     cell.picture.image = UIImage.init(named: "pdf_icon")
@@ -145,7 +148,10 @@ extension PhotosViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let isPDF = (viewModel.issue.fields?.attachment?[indexPath.row].mimeType.debugDescription)!.lowercased().contains("pdf")
+        var isPDF = false;
+        if (self.viewModel.issue.fields?.attachment!.count ?? 0 > indexPath.row) {
+            isPDF = (self.viewModel.issue.fields?.attachment?[indexPath.row].mimeType.debugDescription)!.lowercased().contains("pdf")
+        }
         if isPDF {
             let pdfLink = viewModel.issue.fields?.attachment?[indexPath.row].content
 //            let pdfVC = PDFViewerCV()
