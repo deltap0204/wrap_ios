@@ -79,7 +79,18 @@ class PhotosViewController: UIViewController {
                         
                     }
                 } else {
-                    cell.picture.kf.setImage(with: provider)
+                    guard let imageURL = URL(string: photo.thumb) else { return }
+
+                            // just not to cause a deadlock in UI!
+                        DispatchQueue.global().async {
+                            guard let imageData = try? Data(contentsOf: imageURL) else { return }
+
+                            let image = UIImage(data: imageData)
+                            DispatchQueue.main.async {
+                                cell.picture.image = image
+                            }
+                        }
+//                    cell.picture.kf.setImage(with: provider)
                     cell.nameArea.isHidden = true
                 }
             }
