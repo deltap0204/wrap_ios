@@ -31,19 +31,19 @@
       "size" : "40x40"
     },
     {
-      "filename" : "Webp.net-resizeimage 120.jpg",
+      "filename" : "logos_OTM_Zenith_APP_RGB_120x120.jpg",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
-      "filename" : "Webp.net-resizeimage 120-1.jpg",
+      "filename" : "logos_OTM_Zenith_APP_RGB_120x120-1.jpg",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "Webp.net-resizeimage 180.jpg",
+      "filename" : "logos_OTM_Zenith_APP_RGB_180x180.jpg",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
@@ -103,6 +103,7 @@
       "size" : "83.5x83.5"
     },
     {
+      "filename" : "logos_OTM_Zenith_APP_RGB_1024x1024.jpg",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
