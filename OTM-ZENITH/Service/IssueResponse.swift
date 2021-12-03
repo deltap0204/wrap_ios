@@ -186,7 +186,7 @@ struct IssueFields: Codable {
 //    let customfield10117: JSONNull?
 //    let customfield10118: JSONNull?
     let duedate: String?
-    let comment: WorklogClass?
+//FVD    let comment: WorklogClass?
 
     enum CodingKeys: String, CodingKey {
         case statuscategorychangedate = "statuscategorychangedate"
@@ -322,7 +322,7 @@ struct IssueFields: Codable {
 //        case customfield10117 = "customfield_10117"
 //        case customfield10118 = "customfield_10118"
         case duedate = "duedate"
-        case comment = "comment"
+//FVD        case comment = "comment"
     }
 }
 
