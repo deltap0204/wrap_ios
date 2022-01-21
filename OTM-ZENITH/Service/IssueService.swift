@@ -46,9 +46,9 @@ class IssueService {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "y-M-d"
 		let dateString = dateFormatter.string(from: date)
-		var jql = "assignee=currentUser()" //used by Freddy to test
-		//var jql = "assignee=currentUser() and duedate = " + dateString //the real deal!!
-		//var jql = "project = WT AND duedate = " + dateString //to be used for Thomas, Peter, Hendrik, ...
+//		var jql = "assignee=currentUser()" //used by Freddy to test
+		var jql = "assignee=currentUser() and duedate = " + dateString //the real deal!!
+//		var jql = "project = WT and assignee != unassigned AND duedate = " + dateString //to be used for Thomas, Peter, Hendrik, ...
 		if(key != ""){
 			//			jql = "project = WT AND summary ~\(key) OR  description  ~\(key)"
 			//            jql = "project = WT AND key in (\(key))"
