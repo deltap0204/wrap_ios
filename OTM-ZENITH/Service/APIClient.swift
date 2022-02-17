@@ -41,6 +41,7 @@ class APIClient {
             oauthClient.client.credential.oauthRefreshToken = credential.oauthRefreshToken
             oauthClient.client.credential.oauthTokenSecret = credential.oauthTokenSecret
             oauthClient.client.credential.oauthTokenExpiresAt = credential.oauthTokenExpiresAt
+            print("expired in: ", credential.oauthTokenExpiresAt ?? "");
         }
         
         return oauthClient
@@ -59,7 +60,7 @@ class APIClient {
             withCallbackURL: URL(string: "otm-zenith://oauth-callback/jira")!,
             scope: "read:jira-user read:jira-work write:jira-work offline_access manage:jira-project", state:state) { result in
             switch result {
-            case .success(let (credential, response, parameters)):
+            case .success(let (credential, _, _)):
               print(credential.oauthToken)
               
               // Save token data
@@ -102,7 +103,13 @@ class APIClient {
             "Content-Type" : "application/json"
         ]
         
-        APIClient.oauthClient.startAuthorizedRequest(url, method: .POST, parameters: [:], headers: headers, renewHeaders: nil, body: data, onTokenRenewal: nil) { (result) in
+        APIClient.oauthClient.startAuthorizedRequest(url, method: .POST, parameters: [:], headers: headers, renewHeaders: headers, body: data, onTokenRenewal: { (credential) in
+            print("renewal credential", credential)
+            
+            var keychain = KeychainPreferences.sharedInstance
+            keychain["credential", .archive] = credential
+            
+        }) { (result) in
             
             switch result {
             case .success(let response):
@@ -117,7 +124,22 @@ class APIClient {
     func put(url: String,
              params: [String: Any]?,
              completion: @escaping (Any?)-> Void) {
-        APIClient.oauthClient.startAuthorizedRequest(url, method: .PUT, parameters: params!,headers: ["Content-Type":"application/json"]) { (result) in
+//        APIClient.oauthClient.startAuthorizedRequest(url, method: .PUT, parameters: params!,headers: ["Content-Type":"application/json"]) { (result) in
+//            switch result {
+//            case .success(let response):
+//                debugPrint(response)
+//                completion(response.data)
+//            case .failure(let error):
+//                debugPrint(error)
+//            }
+//        }
+        
+        APIClient.oauthClient.startAuthorizedRequest(URL(string: url)!, method: .GET, parameters: params!, headers: ["Content-type": "application/json"], renewHeaders: [:], body: nil) { credential in
+            print("renewal credential", credential)
+            
+            var keychain = KeychainPreferences.sharedInstance
+            keychain["credential", .archive] = credential
+        } completionHandler: { result in
             switch result {
             case .success(let response):
                 debugPrint(response)
@@ -140,8 +162,12 @@ class APIClient {
 //                debugPrint(error)
 //            }
 //        }
-        
-        APIClient.oauthClient.startAuthorizedRequest(url, method: .GET, parameters: params!, headers: ["Content-Type":"application/json"]) { (result) in
+        APIClient.oauthClient.startAuthorizedRequest(URL(string: url)!, method: .GET, parameters: params!, headers: ["Content-type": "application/json"], renewHeaders: [:], body: nil) { credential in
+            print("renewal credential", credential)
+            
+            var keychain = KeychainPreferences.sharedInstance
+            keychain["credential", .archive] = credential
+        } completionHandler: { result in
             switch result {
             case .success(let response):
                 debugPrint(response)
@@ -150,6 +176,16 @@ class APIClient {
                 debugPrint(error)
             }
         }
+
+//        APIClient.oauthClient.startAuthorizedRequest(url, method: .GET, parameters: params!, headers: ["Content-Type":"application/json"]) { (result) in
+//            switch result {
+//            case .success(let response):
+//                debugPrint(response)
+//                completion(response.data)
+//            case .failure(let error):
+//                debugPrint(error)
+//            }
+//        }
         
 //        APIClient.oauthClient.down
         
