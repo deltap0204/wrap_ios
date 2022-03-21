@@ -134,7 +134,7 @@ class APIClient {
 //            }
 //        }
         
-        APIClient.oauthClient.startAuthorizedRequest(URL(string: url)!, method: .GET, parameters: params!, headers: ["Content-type": "application/json"], renewHeaders: [:], body: nil) { credential in
+        APIClient.oauthClient.startAuthorizedRequest(URL(string: url)!, method: .PUT, parameters: params!, headers: ["Content-type": "application/json"], renewHeaders: [:], body: nil) { credential in
             print("renewal credential", credential)
             
             var keychain = KeychainPreferences.sharedInstance
