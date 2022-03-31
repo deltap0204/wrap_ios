@@ -13,6 +13,7 @@ import OAuthSwift
 import RxCocoa
 import RxSwift
 import DTPhotoViewerController
+import SwiftUI
 
 class PhotosViewController: UIViewController {
 
@@ -84,8 +85,11 @@ class PhotosViewController: UIViewController {
                             // just not to cause a deadlock in UI!
                         DispatchQueue.global().async {
                             guard let imageData = try? Data(contentsOf: imageURL) else { return }
-
-                            let image = UIImage(data: imageData)
+                            let base64ImageData = String(data: imageData, encoding: .utf8) ?? ""
+                            let base64Image = base64ImageData.components(separatedBy: "base64,")[1]
+                            let decodedImage = Data(base64Encoded: base64Image , options: Data.Base64DecodingOptions.init(rawValue: 0)) ?? Data()
+                            let image = UIImage(data: decodedImage)
+                            
                             DispatchQueue.main.async {
                                 cell.picture.image = image
                             }
