@@ -80,21 +80,12 @@ class PhotosViewController: UIViewController {
                         
                     }
                 } else {
-                    guard let imageURL = URL(string: photo.thumb) else { return }
-
-                            // just not to cause a deadlock in UI!
-                        DispatchQueue.global().async {
-                            guard let imageData = try? Data(contentsOf: imageURL) else { return }
-                            let base64ImageData = String(data: imageData, encoding: .utf8) ?? ""
-                            let base64Image = base64ImageData.components(separatedBy: "base64,")[1]
-                            let decodedImage = Data(base64Encoded: base64Image , options: Data.Base64DecodingOptions.init(rawValue: 0)) ?? Data()
-                            let image = UIImage(data: decodedImage)
-                            
-                            DispatchQueue.main.async {
-                                cell.picture.image = image
-                            }
-                        }
-//                    cell.picture.kf.setImage(with: provider)
+                    guard URL(string: photo.thumb) != nil else { return }
+                    self.viewModel.fetchAttachment(url: photo.original) { result in
+                        let image = UIImage(data: result as! Data)
+                        cell.picture.image = image
+                        print(result);
+                    }
                     cell.nameArea.isHidden = true
                 }
             }

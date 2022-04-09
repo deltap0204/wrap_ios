@@ -95,6 +95,14 @@ class IssueService {
 					completion(object)
 				   })
 	}
+    
+    func fetchUrl(url: String, completion: @escaping (Any) -> Void) {
+        client.get(url: url,
+                   params: [:],
+                   completion: { (result) in
+            completion(result)
+        })
+    }
 	
 	func update(status: StatusCategoryId, issue: Issue, comment: String, completion: @escaping () -> Void) {
 		

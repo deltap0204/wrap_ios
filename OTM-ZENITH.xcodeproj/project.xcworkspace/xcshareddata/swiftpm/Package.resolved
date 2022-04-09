@@ -1,169 +1,167 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "BrightFutures",
-        "repositoryURL": "https://github.com/Thomvis/BrightFutures.git",
-        "state": {
-          "branch": null,
-          "revision": "9279defa6bdc21501ce740266e5a14d0119ddc63",
-          "version": "8.0.1"
-        }
-      },
-      {
-        "package": "CwlCatchException",
-        "repositoryURL": "https://github.com/mattgallagher/CwlCatchException.git",
-        "state": {
-          "branch": null,
-          "revision": "f809deb30dc5c9d9b78c872e553261a61177721a",
-          "version": "2.0.0"
-        }
-      },
-      {
-        "package": "CwlPreconditionTesting",
-        "repositoryURL": "https://github.com/mattgallagher/CwlPreconditionTesting.git",
-        "state": {
-          "branch": null,
-          "revision": "02b7a39a99c4da27abe03cab2053a9034379639f",
-          "version": "2.0.0"
-        }
-      },
-      {
-        "package": "DTPhotoViewerController",
-        "repositoryURL": "https://github.com/tungvoduc/DTPhotoViewerController",
-        "state": {
-          "branch": null,
-          "revision": "be2b855fc04fae5750e021c04a8f6d0d4ab18f92",
-          "version": "3.1.1"
-        }
-      },
-      {
-        "package": "Erik",
-        "repositoryURL": "https://github.com/phimage/Erik.git",
-        "state": {
-          "branch": null,
-          "revision": "109a130e9cdb00789a43a7a625293eeb12d22989",
-          "version": "5.1.0"
-        }
-      },
-      {
-        "package": "FileKit",
-        "repositoryURL": "https://github.com/nvzqz/FileKit.git",
-        "state": {
-          "branch": null,
-          "revision": "826d9161b184509f80d85c28cd612d630646de98",
-          "version": "6.0.0"
-        }
-      },
-      {
-        "package": "IQKeyboardManagerSwift",
-        "repositoryURL": "https://github.com/hackiftekhar/IQKeyboardManager.git",
-        "state": {
-          "branch": null,
-          "revision": "4dc6bc7d1c9747bd0c261c8c055903f9fdef91f7",
-          "version": "6.5.6"
-        }
-      },
-      {
-        "package": "JWTDecode",
-        "repositoryURL": "https://github.com/auth0/JWTDecode.swift",
-        "state": {
-          "branch": null,
-          "revision": "ee8c8edcb966a8fa123a25532ed3f189371da739",
-          "version": "2.5.0"
-        }
-      },
-      {
-        "package": "Kanna",
-        "repositoryURL": "https://github.com/tid-kijyun/Kanna.git",
-        "state": {
-          "branch": null,
-          "revision": "609367a2cd84827a33383cf7923cb4fe8f69ee0a",
-          "version": "5.2.2"
-        }
-      },
-      {
-        "package": "Kingfisher",
-        "repositoryURL": "https://github.com/onevcat/Kingfisher.git",
-        "state": {
-          "branch": null,
-          "revision": "644411854d1d4e019317839573b54f8707b0044b",
-          "version": "5.15.0"
-        }
-      },
-      {
-        "package": "Nimble",
-        "repositoryURL": "https://github.com/Quick/Nimble.git",
-        "state": {
-          "branch": null,
-          "revision": "e491a6731307bb23783bf664d003be9b2fa59ab5",
-          "version": "9.0.0"
-        }
-      },
-      {
-        "package": "OAuthSwift",
-        "repositoryURL": "https://github.com/OAuthSwift/OAuthSwift.git",
-        "state": {
-          "branch": null,
-          "revision": "fde77955e6983fbfaabd491709d52b8a82fda4d0",
-          "version": "2.1.2"
-        }
-      },
-      {
-        "package": "PDFTron",
-        "repositoryURL": "https://github.com/PDFTron/pdftron-apple-package",
-        "state": {
-          "branch": null,
-          "revision": "ddd5df80cbd7e83fc80556d77864872f5dfafc61",
-          "version": "9.1.78529"
-        }
-      },
-      {
-        "package": "Prephirences",
-        "repositoryURL": "https://github.com/phimage/Prephirences.git",
-        "state": {
-          "branch": null,
-          "revision": "81b4792293972ec7541a941333e584ccc7976198",
-          "version": "5.1.0"
-        }
-      },
-      {
-        "package": "Quick",
-        "repositoryURL": "https://github.com/Quick/Quick.git",
-        "state": {
-          "branch": null,
-          "revision": "0038bcbab4292f3b028632556507c124e5ba69f3",
-          "version": "3.0.0"
-        }
-      },
-      {
-        "package": "RxSwift",
-        "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
-        "state": {
-          "branch": null,
-          "revision": "002d325b0bdee94e7882e1114af5ff4fe1e96afa",
-          "version": "5.1.1"
-        }
-      },
-      {
-        "package": "Swifter",
-        "repositoryURL": "https://github.com/httpswift/swifter.git",
-        "state": {
-          "branch": null,
-          "revision": "8b5afb48ae64d4f729f0489ddcfe09c62b9c3687",
-          "version": "1.4.7"
-        }
-      },
-      {
-        "package": "SwiftyJSON",
-        "repositoryURL": "https://github.com/SwiftyJSON/SwiftyJSON.git",
-        "state": {
-          "branch": null,
-          "revision": "2b6054efa051565954e1d2b9da831680026cd768",
-          "version": "5.0.0"
-        }
+  "pins" : [
+    {
+      "identity" : "brightfutures",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Thomvis/BrightFutures.git",
+      "state" : {
+        "revision" : "9279defa6bdc21501ce740266e5a14d0119ddc63",
+        "version" : "8.0.1"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "cwlcatchexception",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mattgallagher/CwlCatchException.git",
+      "state" : {
+        "revision" : "f809deb30dc5c9d9b78c872e553261a61177721a",
+        "version" : "2.0.0"
+      }
+    },
+    {
+      "identity" : "cwlpreconditiontesting",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mattgallagher/CwlPreconditionTesting.git",
+      "state" : {
+        "revision" : "02b7a39a99c4da27abe03cab2053a9034379639f",
+        "version" : "2.0.0"
+      }
+    },
+    {
+      "identity" : "dtphotoviewercontroller",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tungvoduc/DTPhotoViewerController",
+      "state" : {
+        "revision" : "be2b855fc04fae5750e021c04a8f6d0d4ab18f92",
+        "version" : "3.1.1"
+      }
+    },
+    {
+      "identity" : "erik",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/phimage/Erik.git",
+      "state" : {
+        "revision" : "109a130e9cdb00789a43a7a625293eeb12d22989",
+        "version" : "5.1.0"
+      }
+    },
+    {
+      "identity" : "filekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nvzqz/FileKit.git",
+      "state" : {
+        "revision" : "826d9161b184509f80d85c28cd612d630646de98",
+        "version" : "6.0.0"
+      }
+    },
+    {
+      "identity" : "iqkeyboardmanager",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hackiftekhar/IQKeyboardManager.git",
+      "state" : {
+        "revision" : "4dc6bc7d1c9747bd0c261c8c055903f9fdef91f7",
+        "version" : "6.5.6"
+      }
+    },
+    {
+      "identity" : "jwtdecode.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/auth0/JWTDecode.swift",
+      "state" : {
+        "revision" : "ee8c8edcb966a8fa123a25532ed3f189371da739",
+        "version" : "2.5.0"
+      }
+    },
+    {
+      "identity" : "kanna",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tid-kijyun/Kanna.git",
+      "state" : {
+        "revision" : "609367a2cd84827a33383cf7923cb4fe8f69ee0a",
+        "version" : "5.2.2"
+      }
+    },
+    {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher.git",
+      "state" : {
+        "revision" : "644411854d1d4e019317839573b54f8707b0044b",
+        "version" : "5.15.0"
+      }
+    },
+    {
+      "identity" : "nimble",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Quick/Nimble.git",
+      "state" : {
+        "revision" : "e491a6731307bb23783bf664d003be9b2fa59ab5",
+        "version" : "9.0.0"
+      }
+    },
+    {
+      "identity" : "oauthswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OAuthSwift/OAuthSwift.git",
+      "state" : {
+        "revision" : "fde77955e6983fbfaabd491709d52b8a82fda4d0",
+        "version" : "2.1.2"
+      }
+    },
+    {
+      "identity" : "pdftron-apple-package",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/PDFTron/pdftron-apple-package",
+      "state" : {
+        "revision" : "ddd5df80cbd7e83fc80556d77864872f5dfafc61",
+        "version" : "9.1.78529"
+      }
+    },
+    {
+      "identity" : "prephirences",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/phimage/Prephirences.git",
+      "state" : {
+        "revision" : "81b4792293972ec7541a941333e584ccc7976198",
+        "version" : "5.1.0"
+      }
+    },
+    {
+      "identity" : "quick",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Quick/Quick.git",
+      "state" : {
+        "revision" : "0038bcbab4292f3b028632556507c124e5ba69f3",
+        "version" : "3.0.0"
+      }
+    },
+    {
+      "identity" : "rxswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ReactiveX/RxSwift.git",
+      "state" : {
+        "revision" : "002d325b0bdee94e7882e1114af5ff4fe1e96afa",
+        "version" : "5.1.1"
+      }
+    },
+    {
+      "identity" : "swifter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/httpswift/swifter.git",
+      "state" : {
+        "revision" : "8b5afb48ae64d4f729f0489ddcfe09c62b9c3687",
+        "version" : "1.4.7"
+      }
+    },
+    {
+      "identity" : "swiftyjson",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftyJSON/SwiftyJSON.git",
+      "state" : {
+        "revision" : "2b6054efa051565954e1d2b9da831680026cd768",
+        "version" : "5.0.0"
+      }
+    }
+  ],
+  "version" : 2
 }
